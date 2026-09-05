@@ -2,6 +2,7 @@ import { FaRobot, FaTimes } from "react-icons/fa";
 import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 
+
 function AIChatbot() {
 
     const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +15,8 @@ function AIChatbot() {
         text: "👋 Hi! I'm Soyal's AI Assistant. Ask me about his skills, projects, experience, education, or certifications.",
     },
 ]);
+
+    const API_URL = import.meta.env.VITE_API_URL;
 
     const [isLoading, setIsLoading] = useState(false)
 
@@ -54,7 +57,7 @@ const handleSend = async () => {
         await new Promise((resolve) => setTimeout(resolve, 120));
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/chat", {
+        const response = await fetch(`${API_URL}/chat`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

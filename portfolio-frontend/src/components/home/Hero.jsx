@@ -55,16 +55,19 @@ function Hero(){
     font-medium
     tracking-[0.12em]
     text-gray-300
-    mb-2
-    py-5
-    leading-none
-    whitespace-nowrap
+    mb-6
+    py-3
+    leading-relaxed
+    whitespace-normal
+    md:whitespace-nowrap
+    text-left
+    md:text-left
   "
 >
   {heroData.title}
 </h2>
 
-                    <p className="max-w-2xl text-gray-400 text-base md:text-lg leading-8 mb-8"> 
+                    <p className="max-w-2xl text-gray-400 text-base md:text-lg leading-7 mb-8"> 
                        {heroData.description}
                     </p>
 
