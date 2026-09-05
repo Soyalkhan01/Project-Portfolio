@@ -7,6 +7,7 @@ import {
     FaReact,
     FaNodeJs,
     FaPython,
+    FaExternalLinkAlt
 } from "react-icons/fa";
 
 import { SiMongodb, SiTailwindcss, SiPostgresql, SiFastapi} from "react-icons/si";
@@ -38,15 +39,30 @@ function Hero(){
 
             <div className="flex flex-col md:flex-row items-center justify-between gap-14 lg:gap-16">
 
-                <div className="w-full md:w-1/2 max-w-xl md:text-left translate-y-6 md:translate-y-0">
+                <div className="w-full md:w-[58%] md:text-left translate-y-6 md:translate-y-0">
 
                     <p className="text-indigo-400 text-sm md:text-base font-semibold tracking-[0.2em] uppercase mb-4 lg:ml-2">{heroData.greeting}</p>
 
                     <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-4">
                     {heroData.name}</h1>
 
-                    <h2 className="text-2xl md:text-3xl font-semibold text-gray-300 mb-6">
-                    {heroData.title}</h2>
+<h2
+  className="
+    text-xs
+    sm:text-sm
+    md:text-[13px]
+    lg:text-[17px]
+    font-medium
+    tracking-[0.12em]
+    text-gray-300
+    mb-2
+    py-5
+    leading-none
+    whitespace-nowrap
+  "
+>
+  {heroData.title}
+</h2>
 
                     <p className="max-w-2xl text-gray-400 text-base md:text-lg leading-8 mb-8"> 
                        {heroData.description}
@@ -56,14 +72,19 @@ function Hero(){
                        {heroData.button.map((button) =>(
                         <a 
                         className={
-                            button.variant === "primary"
-                            
-                            ? "bg-indigo-600 text-white px-5 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold hover:bg-indigo-900 hover:scale-105 transition duration-300 shadow-lg shadow-indigo-900/20"
-                            : "border border-gray-600 text-gray-200 px-5 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold hover:border-indigo-400 hover:text-white hover:bg-indigo-950/40 hover:scale-105 transition duration-300"
-                        }
+                        button.variant === "primary"
+                        ? "bg-indigo-600 text-white px-5 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold hover:bg-indigo-900 hover:scale-105 transition duration-300 shadow-lg shadow-indigo-900/20 flex items-center justify-center"
+                        : "border border-gray-600 text-gray-200 px-5 md:px-7 py-3 md:py-3.5 rounded-xl font-semibold hover:border-indigo-400 hover:text-white hover:bg-indigo-950/40 hover:scale-105 transition duration-300 flex items-center justify-center"
+                    }
 
-                        key={button.text} href={button.link}>
+                        key={button.text} href={button.link}
+                        download={button.download || undefined}
+                        >
+
                             {button.text}
+{button.external && (
+    <FaExternalLinkAlt className="ml-2 text-sm" />
+)}
 
                         </a>
 

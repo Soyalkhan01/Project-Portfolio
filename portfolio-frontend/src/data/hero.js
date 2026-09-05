@@ -6,10 +6,10 @@ const heroData = {
       
       name: "Soyal khan",
 
-      title: "Full Stack + AI Developer",
+      title: "• FULL STACK + AI DEVELOPER • UI/UX DESIGNER • DATA SCIENTIST",
 
     description:
-    "I build fast, secure and modern web applications with AI-powered solutions.",
+    "I build modern, scalable web applications and AI-powered solutions, with a strong focus on UI/UX design and data-driven development.",
     
     image: profileImage,
 
@@ -30,15 +30,17 @@ const heroData = {
 
     button:[
         {
-            text: "View Project",
+            text: "Explore Projects",
             link: "#projects",
-            variant: "primary"
+            variant: "primary",
+            external: true
         },
 
         {
-            text: "Contact Me",
-            link: "#contact",
-            variant: "secondary"
+            text: "Download Resume",
+            link: "/resume.pdf",
+            variant: "secondary",
+            download: true
         },
     ],
 };
