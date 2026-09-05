@@ -106,5 +106,5 @@ def send_contact_email(name, phone, email, message):
         return True
 
     except Exception as e:
-        logger.error(f"Failed to send contact email: {e}")
-        raise RuntimeError("Failed to send contact email") from e
+        logger.exception("Failed to send contact email")
+        raise
