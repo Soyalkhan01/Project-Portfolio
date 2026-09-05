@@ -9,7 +9,7 @@ from app.core.rate_limit import limiter
 
 from slowapi.errors import RateLimitExceeded
 from slowapi import _rate_limit_exceeded_handler
-from slowapi.middleware import SlowAPIASGIMiddleware
+# from slowapi.middleware import SlowAPIASGIMiddleware
 
 from fastapi import Request, HTTPException
 
@@ -60,7 +60,7 @@ app.add_exception_handler(
     _rate_limit_exceeded_handler
 )
 
-app.add_middleware(SlowAPIASGIMiddleware)
+# app.add_middleware(SlowAPIASGIMiddleware)
 
 app.add_middleware(
     CORSMiddleware,
