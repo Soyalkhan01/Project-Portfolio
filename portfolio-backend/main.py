@@ -67,7 +67,9 @@ app.add_exception_handler(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://portfolio-frontend-beta-eight.vercel.app"],
+    allow_origins=["https://portfolio-frontend-beta-eight.vercel.app",
+    "http://localhost:5175"               
+    ],
     allow_credentials=True,
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"]

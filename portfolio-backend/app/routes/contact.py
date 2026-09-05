@@ -47,32 +47,54 @@ def create_contact(
     background_tasks: BackgroundTasks
 ):
     
-    
-    
     secret_key = os.getenv("TURNSTILE_SECRET_KEY")
 
-    verification_response = requests.post(
-        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-        data={
-            "secret": secret_key,
-            "response": contact.turnstileToken,
-        },
-    )
+    if not secret_key:
+        logger.error("TURNSTILE_SECRET_KEY is not configured")
+        raise HTTPException(
+            status_code=500,
+            detail="Server configuration error"
+        )
 
-    verification_result = verification_response.json()
+    try:
+        verification_response = requests.post(
+            "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+            data={
+                "secret": secret_key,
+                "response": contact.turnstileToken,
+            },
+            timeout=10,
+        )
+
+        verification_response.raise_for_status()
+        verification_result = verification_response.json()
+        
+
+    except requests.RequestException:
+        logger.exception("Turnstile verification request failed")
+        raise HTTPException(
+            status_code=503,
+            detail="CAPTCHA verification service unavailable"
+        )
+
+    except ValueError:
+        logger.exception("Invalid Turnstile response")
+        raise HTTPException(
+            status_code=503,
+            detail="CAPTCHA verification service unavailable"
+        )
 
     if not verification_result.get("success"):
         raise HTTPException(
             status_code=400,
             detail="CAPTCHA verification failed"
         )
-    
+
     contact_data = contact.model_dump(exclude={"turnstileToken"})
 
     try:
         result = contacts_collection.insert_one(contact_data)
 
-            
         background_tasks.add_task(
             send_contact_email,
             contact.name,
@@ -82,14 +104,13 @@ def create_contact(
         )
 
         return {
-                "message": "Contact Received Successfully",
-                "id": str(result.inserted_id)
-            }
+            "message": "Contact Received Successfully",
+            "id": str(result.inserted_id)
+        }
 
-    except Exception as e:
-        logger.error(f"Failed to save contact")
+    except Exception:
+        logger.exception("Failed to save contact")
         raise HTTPException(
             status_code=500,
             detail="Failed to save contact"
         )
-        
