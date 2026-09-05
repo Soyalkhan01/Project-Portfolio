@@ -48,7 +48,7 @@ function Hero(){
 
 <h2
   className="
-    text-xs
+    text-lg
     sm:text-sm
     md:text-[13px]
     lg:text-[17px]

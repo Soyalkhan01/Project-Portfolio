@@ -74,7 +74,9 @@ const handleSend = async () => {
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
 let aiResponse = "";
+let displayedResponse = "";
 let assistantMessageAdded = false;
+
 
 while (true) {
     const { value, done } = await reader.read();
@@ -89,31 +91,36 @@ while (true) {
 
     aiResponse += chunk;
 
-    // First AI chunk
     if (!assistantMessageAdded) {
         assistantMessageAdded = true;
-
         setIsLoading(false);
 
         setMessages((prevMessages) => [
             ...prevMessages,
             {
                 role: "assistant",
-                text: aiResponse,
+                text: "",
             },
         ]);
-    } else {
-        // Update existing assistant message
+    }
+
+    const words = aiResponse.slice(displayedResponse.length).split(/(\s+)/);
+
+    for (const part of words) {
+        displayedResponse += part;
+
         setMessages((prevMessages) => {
             const updatedMessages = [...prevMessages];
 
             updatedMessages[updatedMessages.length - 1] = {
                 role: "assistant",
-                text: aiResponse,
+                text: displayedResponse,
             };
 
             return updatedMessages;
         });
+
+        await new Promise((resolve) => setTimeout(resolve, 25));
     }
 }
 

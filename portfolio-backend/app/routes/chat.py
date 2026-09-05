@@ -1,18 +1,36 @@
 from fastapi import APIRouter
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from fastapi.responses import StreamingResponse
-import json
 
-import requests
+import os
+from dotenv import load_dotenv
 
-from app.data.portfolio_data import about_data, projects_data, skills_data, experience_data, education_data, certification_data, contact_data, services_data
+from google import genai
 
+from app.data.portfolio_data import (
+    about_data,
+    projects_data,
+    skills_data,
+    experience_data,
+    education_data,
+    certification_data,
+    contact_data,
+    services_data,
+)
+
+
+load_dotenv()
 
 router = APIRouter()
 
+
 class ChatRequest(BaseModel):
-    message: str
-    
+    message: str = Field(
+        ...,
+        min_length=1,
+        max_length=500
+    )
+
 
 about_context = f"""
 Name:
@@ -34,6 +52,7 @@ Technologies:
 Availability:
 {about_data["availability"]}
 """
+
 
 projects_context = ""
 
@@ -57,6 +76,7 @@ GitHub:
 ---
 """
 
+
 skills_context = ""
 
 for category, skills in skills_data.items():
@@ -66,7 +86,8 @@ for category, skills in skills_data.items():
         skills_context += (
             f"- {skill['name']} ({skill['level']})\n"
         )
-        
+
+
 experience_context = ""
 
 for experience in experience_data:
@@ -90,7 +111,8 @@ Responsibilities:
         experience_context += f"- {responsibility}\n"
 
     experience_context += "\n---\n"
-    
+
+
 education_context = f"""
 Degree:
 {education_data["degree"]}
@@ -101,6 +123,7 @@ Institution:
 Status:
 {education_data["status"]}
 """
+
 
 certification_context = ""
 
@@ -118,6 +141,7 @@ Year:
 ---
 """
 
+
 contact_context = f"""
 Phone:
 {contact_data["phoneNo"]}
@@ -128,6 +152,7 @@ Email:
 Location:
 {contact_data["location"]}
 """
+
 
 services_context = ""
 
@@ -150,44 +175,39 @@ Technologies:
             services_context += f"- {detail}\n"
 
     services_context += "\n---\n"
-    
+
+
 def generate_response(prompt):
 
-    response = requests.post(
-        "http://localhost:11434/api/generate",
-        json={
-            "model": "llama3.2:3b",
-            "prompt": prompt,
-            "stream": True,
-            "options": {
-                "num_predict": 60,
-                "temperature": 0.3,
-            }
+    gemini_api_key = os.getenv("GEMINI_API_KEY")
 
-        },
-        stream=True
+    if not gemini_api_key:
+        raise RuntimeError(
+            "GEMINI_API_KEY is not configured"
+        )
+
+    client = genai.Client(
+        api_key=gemini_api_key
     )
 
-    response.raise_for_status()
+    response = client.models.generate_content_stream(
+       model="gemini-3.5-flash-lite",
+        contents=prompt,
+    )
 
-    for line in response.iter_lines():
+    for chunk in response:
+        if chunk.text:
+            yield chunk.text
 
-        if line:
-            data = json.loads(line.decode("utf-8"))
-
-            chunk = data.get("response", "")
-
-            if chunk:
-                yield chunk
 
 @router.post("/chat")
 def chat(data: ChatRequest):
 
-
-
     prompt = f"""
-     
-3. ASSISTANT IDENTITY:
+    
+You are Soyal's Portfolio AI Assistant.
+
+ASSISTANT IDENTITY:
 
 If the user asks questions such as:
 - "Who are you?"
@@ -219,6 +239,7 @@ Keep your answer short, clear and professional.
 You have two types of questions:
 
 1. PORTFOLIO QUESTIONS:
+
 For questions about Soyal, his skills, projects, experience,
 education, certifications, services, or contact information,
 use ONLY the Portfolio Information provided below.
@@ -227,9 +248,12 @@ Never invent, assume, guess, or add information about Soyal.
 
 If the requested information about Soyal is not available
 in the Portfolio Information, say:
+
 "That information is not available in Soyal's portfolio."
 
+
 2. NORMAL CONVERSATION:
+
 You may answer normal conversational questions naturally,
 such as greetings, thanks, goodbyes, and casual conversation.
 
@@ -243,9 +267,8 @@ For normal conversation, keep responses short and friendly.
 
 Keep all answers clear, professional and concise.
 
+
 Portfolio Information:
-
-
 
 About:
 {about_context}
