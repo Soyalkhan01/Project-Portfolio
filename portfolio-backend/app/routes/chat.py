@@ -1,0 +1,281 @@
+from fastapi import APIRouter
+from pydantic import BaseModel
+from fastapi.responses import StreamingResponse
+import json
+
+import requests
+
+from app.data.portfolio_data import about_data, projects_data, skills_data, experience_data, education_data, certification_data, contact_data, services_data
+
+
+router = APIRouter()
+
+class ChatRequest(BaseModel):
+    message: str
+    
+
+about_context = f"""
+Name:
+Soyal Khan
+
+Role:
+Full Stack Developer
+
+About Me:
+{about_data["description"][0]}
+{about_data["description"][1]}
+
+Development Focus:
+{about_data["stats"][2]["value"]}
+
+Technologies:
+{", ".join(about_data["technologies"])}
+
+Availability:
+{about_data["availability"]}
+"""
+
+projects_context = ""
+
+for project in projects_data:
+    projects_context += f"""
+Project:
+{project["title"]}
+
+Description:
+{project["description"]}
+
+Technologies:
+{", ".join(project["technologies"])}
+
+Category:
+{project["category"]}
+
+GitHub:
+{project["github"]}
+
+---
+"""
+
+skills_context = ""
+
+for category, skills in skills_data.items():
+    skills_context += f"\n{category}:\n"
+
+    for skill in skills:
+        skills_context += (
+            f"- {skill['name']} ({skill['level']})\n"
+        )
+        
+experience_context = ""
+
+for experience in experience_data:
+    experience_context += f"""
+Role:
+{experience["role"]}
+
+Company:
+{experience["company"]}
+
+Duration:
+{experience["duration"]}
+
+Technologies:
+{", ".join(experience["technologies"])}
+
+Responsibilities:
+"""
+
+    for responsibility in experience["responsibilities"]:
+        experience_context += f"- {responsibility}\n"
+
+    experience_context += "\n---\n"
+    
+education_context = f"""
+Degree:
+{education_data["degree"]}
+
+Institution:
+{education_data["institution"]}
+
+Status:
+{education_data["status"]}
+"""
+
+certification_context = ""
+
+for certificate in certification_data:
+    certification_context += f"""
+Certificate:
+{certificate["title"]}
+
+Issuer:
+{certificate["issuer"]}
+
+Year:
+{certificate["year"]}
+
+---
+"""
+
+contact_context = f"""
+Phone:
+{contact_data["phoneNo"]}
+
+Email:
+{contact_data["email"]}
+
+Location:
+{contact_data["location"]}
+"""
+
+services_context = ""
+
+for service in services_data:
+    services_context += f"""
+Service:
+{service["title"]}
+
+Description:
+{service["description"]}
+
+Technologies:
+{", ".join(service["technologies"])}
+"""
+
+    if "details" in service:
+        services_context += "\nDetails:\n"
+
+        for detail in service["details"]:
+            services_context += f"- {detail}\n"
+
+    services_context += "\n---\n"
+    
+def generate_response(prompt):
+
+    response = requests.post(
+        "http://localhost:11434/api/generate",
+        json={
+            "model": "llama3.2:3b",
+            "prompt": prompt,
+            "stream": True,
+            "options": {
+                "num_predict": 60,
+                "temperature": 0.3,
+            }
+
+        },
+        stream=True
+    )
+
+    response.raise_for_status()
+
+    for line in response.iter_lines():
+
+        if line:
+            data = json.loads(line.decode("utf-8"))
+
+            chunk = data.get("response", "")
+
+            if chunk:
+                yield chunk
+
+@router.post("/chat")
+def chat(data: ChatRequest):
+
+
+
+    prompt = f"""
+     
+3. ASSISTANT IDENTITY:
+
+If the user asks questions such as:
+- "Who are you?"
+- "Who are you to Soyal?"
+- "What are you to Soyal?"
+- "What is your relation with Soyal?"
+- "Are you Soyal's assistant?"
+- "Soyal aapko kya lagta hai?"
+- "Soyal ke liye aap kaun ho?"
+- "Aap Soyal ko kaise jaante ho?"
+
+Respond naturally that you are Soyal's portfolio AI assistant.
+
+You can say:
+"I’m Soyal’s AI Assistant. I’m here to help you learn more about Soyal, his skills, projects, experience, education, services, and professional background."
+
+Do not claim to be a real person, friend, employee, family member, or personal assistant.
+
+You are Soyal's Portfolio AI Assistant.
+
+Answer the user's question using ONLY the portfolio information provided below.
+
+If the answer is not available in the portfolio information,
+say that the information is not available in Soyal's portfolio.
+
+Keep your answer short, clear and professional.
+
+
+You have two types of questions:
+
+1. PORTFOLIO QUESTIONS:
+For questions about Soyal, his skills, projects, experience,
+education, certifications, services, or contact information,
+use ONLY the Portfolio Information provided below.
+
+Never invent, assume, guess, or add information about Soyal.
+
+If the requested information about Soyal is not available
+in the Portfolio Information, say:
+"That information is not available in Soyal's portfolio."
+
+2. NORMAL CONVERSATION:
+You may answer normal conversational questions naturally,
+such as greetings, thanks, goodbyes, and casual conversation.
+
+Examples:
+- "Hello" → greet the user naturally.
+- "Thank you" → respond politely.
+- "How are you?" → respond naturally.
+- "Bye" → say goodbye politely.
+
+For normal conversation, keep responses short and friendly.
+
+Keep all answers clear, professional and concise.
+
+Portfolio Information:
+
+
+
+About:
+{about_context}
+
+Projects:
+{projects_context}
+
+Skills:
+{skills_context}
+
+Experience:
+{experience_context}
+
+Education:
+{education_context}
+
+Certifications:
+{certification_context}
+
+Contact:
+{contact_context}
+
+Services:
+{services_context}
+
+User Question:
+{data.message}
+"""
+
+    return StreamingResponse(
+        generate_response(prompt),
+        media_type="text/plain"
+    )
