@@ -74,15 +74,16 @@ def send_contact_email(name, phone, email, message):
     logger.info("send_contact_email() function called")
 
     resend_api_key = os.getenv("RESEND_API_KEY")
+    resend_from_email = os.getenv("RESEND_FROM_EMAIL")
     contact_receiver = os.getenv("CONTACT_RECEIVER")
 
-    if not resend_api_key or not contact_receiver:
+    if not all([resend_api_key, resend_from_email, contact_receiver]):
         raise RuntimeError("Resend email configuration is incomplete")
 
     resend.api_key = resend_api_key
 
     params = {
-        "from": "onboarding@resend.dev",
+        "from": resend_from_email,
         "to": [contact_receiver],
         "subject": f"New Portfolio Contact - {name}",
         "reply_to": email,
