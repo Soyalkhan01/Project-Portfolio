@@ -1,9 +1,12 @@
 node_modules/
-dist/
-build/
-portfolio-backend/Lib/
-.env
-.env.*
 venv/
 __pycache__/
 *.pyc
+dist/
+build/
+portfolio-backend/Lib/
+portfolio-backend/pyvenv.cfg
+
+.env
+.env.*
+!.env.example
