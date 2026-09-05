@@ -156,15 +156,15 @@ def generate_response(prompt):
     response = requests.post(
         "http://localhost:11434/api/generate",
         json={
-        "model": "llama3.2:3b",
-        "prompt": prompt,
-        "stream": True,
-        "keep_alive": "10m",
-        "options": {
-            "num_predict": 40,
-            "temperature": 0.2,
-        }
-    },
+            "model": "llama3.2:3b",
+            "prompt": prompt,
+            "stream": True,
+            "options": {
+                "num_predict": 60,
+                "temperature": 0.3,
+            }
+
+        },
         stream=True
     )
 
