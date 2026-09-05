@@ -14,6 +14,18 @@ The portfolio also includes an AI-powered assistant that provides information ab
 
 ---
 
+---
+
+## 🌐 Live Demo
+
+### Portfolio Website
+🔗 https://portfolio-frontend-beta-eight.vercel.app
+
+### Backend API
+🔗 https://portfolio-backend-thn5.onrender.com
+
+---
+
 ## ✨ Features
 
 ### 🎨 Portfolio
@@ -133,6 +145,7 @@ The AI assistant can provide information about:
         │  MongoDB Atlas   │                │  SMTP Email      │
         │ Contact Storage  │                │ Email Service    │
         └──────────────────┘                └──────────────────┘
+---
 
 ### 📂 Project Structure
 
@@ -158,8 +171,9 @@ The AI assistant can provide information about:
     ├── .gitignore
     ├── requirements.txt
     └── README.md
+---
 
-🔐 Security
+## 🔐 Security
 
 The project includes multiple security measures:
 
@@ -176,7 +190,9 @@ Logging and monitoring
  MongoDB production network access
  HTTPS & production configuration
 
- 🔑 Environment Variables
+---
+
+ ## 🔑 Environment Variables
 
 Sensitive credentials are stored in environment variables and are not committed to GitHub.
 
@@ -192,7 +208,9 @@ CONTACT_RECEIVER=your_receiver_email
 
 TURNSTILE_SECRET_KEY=your_turnstile_secret
 
-💻 Local Setup
+---
+
+## 💻 Local Setup
 
 Frontend
 cd portfolio-frontend
@@ -218,7 +236,9 @@ API Documentation:
 
 http://127.0.0.1:8000/docs
 
-🚀 Deployment
+---
+
+##🚀 Deployment
 
 Production deployment is planned using:
 
@@ -228,35 +248,44 @@ Database  → MongoDB Atlas
 
 After deployment, production configuration and security will be finalized.
 
-✅ Project Status
+---
+
+## ✅ Project Status
 
 Completed
- Portfolio frontend
- Responsive UI
- FastAPI backend
- MongoDB Atlas integration
- Contact form
- Email notification
- Cloudflare Turnstile
- Rate limiting
- Input validation
- Input sanitization
- Security headers
- Request size validation
- Logging
- Environment variable protection
- .gitignore
- requirements.txt
- Git repository
- GitHub repository setup
- Backend deployment
- Frontend deployment
- Production CORS
- MongoDB production network access
- HTTPS configuration
- Final production testing
+Portfolio frontend
+Responsive UI
+FastAPI backend
+MongoDB Atlas integration
+Contact form
+Email notification
+Resend email integration
+Cloudflare Turnstile
+Server-side CAPTCHA verification
+Rate limiting
+Input validation
+Email validation
+Input sanitization
+Request size validation
+Security headers
+HSTS
+Production CORS
+HTTP method restriction
+MongoDB production network restriction
+HTTPS configuration
+Environment variable protection
+.gitignore
+requirements.txt
+Git repository
+GitHub repository
+Backend deployment
+Frontend deployment
+Production testing
+Error handling and logging
 
-📈 Future Improvements
+---
+
+## 📈 Future Improvements
 
 Admin dashboard
 Dynamic portfolio content management
@@ -266,11 +295,15 @@ Advanced monitoring
 Authentication and authorization
 CI/CD pipeline
 
+---
+
 👨‍💻 Author
 Soyal Khan
 
 Full Stack Developer | MERN Stack & Python
 Aspiring AI/ML Engineer
+
+---
 
 📄 License
 
