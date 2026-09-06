@@ -76,7 +76,7 @@ app.add_exception_handler(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://portfolio-frontend-beta-eight.vercel.app",
+        "https://soyal-khan-portfolio.vercel.app/",
         "http://localhost:5173",
         "http://localhost:5175",
         "http://127.0.0.1:5173",

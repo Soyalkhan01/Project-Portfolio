@@ -19,7 +19,7 @@ The portfolio also includes an AI-powered assistant that provides information ab
 ## 🌐 Live Demo
 
 ### Portfolio Website
-🔗 https://portfolio-frontend-beta-eight.vercel.app
+🔗 https://soyal-khan-portfolio.vercel.app/
 
 ### Backend API
 🔗 https://portfolio-backend-thn5.onrender.com
