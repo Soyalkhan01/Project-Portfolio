@@ -48,20 +48,22 @@ function Hero(){
 
 <h2
   className="
-    text-lg
+    text-[17px]
     sm:text-sm
-    md:text-[13px]
-    lg:text-[17px]
+    md:text-[15px]
+    lg:text-[16px]
     font-medium
-    tracking-[0.12em]
+    tracking-[0.09em]
+    sm:tracking-widest
+    lg:tracking-[0.12em]
     text-gray-300
-    mb-6
+    mb-2
     py-3
     leading-relaxed
-    whitespace-normal
-    md:whitespace-nowrap
     text-left
-    md:text-left
+    whitespace-normal
+    md:whitespace-normal
+    lg:whitespace-nowrap
   "
 >
   {heroData.title}
