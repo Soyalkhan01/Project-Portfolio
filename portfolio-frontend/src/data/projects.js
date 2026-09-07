@@ -3,7 +3,7 @@ import businessImage from "../assets/images/projects/business.png";
 import weatherImage from "../assets/images/projects/weather.png";
 import salesPredictionImage from "../assets/images/projects/sales-prediction.png";
 import carPredictionImage from "../assets/images/projects/car-prediction.png";
-import irisClassificationImage from "../assets/images/projects/iris-Classification.png";
+import irisClassificationImage from "../assets/images/projects/iris-classification.png";
 
 const projectsData = {
 
