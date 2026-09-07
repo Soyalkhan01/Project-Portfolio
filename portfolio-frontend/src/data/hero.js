@@ -38,7 +38,7 @@ const heroData = {
 
         {
             text: "Download Resume",
-            link: "/resume.pdf",
+            link: "/Soyal Khan Resume.pdf",
             variant: "secondary",
             download: true
         },
