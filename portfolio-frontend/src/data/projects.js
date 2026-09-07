@@ -145,7 +145,7 @@ const projectsData = {
 
         category: "Web Application",
         image: weatherImage,
-        liveLink: "https://weather-frontend-62ck.onrender.com/",
+        liveLink: "https://weather-app-sigma-three-70.vercel.app",
         githubLink: "https://github.com/Soyalkhan01/weather-app",
     },
 
