@@ -5,7 +5,7 @@ import {
 } from "react-icons/fa";
 
 const footerData = {
-    title: "Full Stack Developer",
+    title: "Full Stack Developer & AI/ML Engineer",
 
     description:
         "Building modern web applications and AI-powered solutions.",

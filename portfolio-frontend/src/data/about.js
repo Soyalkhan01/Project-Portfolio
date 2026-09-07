@@ -25,7 +25,7 @@ const aboutData = {
         label: "Projects & Applications"
     },
     {
-        value: "Full Stack",
+        value: "Full Stack & AI/ML",
         label: "Development Focus"
     }
 ],

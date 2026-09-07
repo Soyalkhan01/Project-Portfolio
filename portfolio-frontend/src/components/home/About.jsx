@@ -14,6 +14,8 @@ function About() {
                     {aboutData.heading}
                 </p>
 
+                <div className="w-20 h-1 bg-indigo-950 rounded-full mx-auto mt-2"></div>
+
             </div>
 
 

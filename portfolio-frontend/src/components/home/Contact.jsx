@@ -1,6 +1,6 @@
 import contactData from "../../data/contact";
 import { useState, useEffect } from "react";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaBriefcase, FaClock,FaLaptopHouse } from "react-icons/fa";
 import {
     FaGithub,
     FaLinkedin,
@@ -208,7 +208,9 @@ useEffect(() => {
         </p>
 
         <p className="mt-1 text-gray-600">
+           <a href="tel:+919772627384">
             {contactData.phoneNo}
+            </a>
         </p>
     </div>
 </div>
@@ -225,7 +227,9 @@ useEffect(() => {
         </p>
 
         <p className="mt-1 text-gray-600 break-all">
+            <a href="mailto:soyalmugal143@gmail.com">
             {contactData.email}
+            </a>
         </p>
     </div>
 </div>
@@ -243,6 +247,55 @@ useEffect(() => {
 
         <p className="mt-1 text-gray-600">
             {contactData.location}
+        </p>
+    </div>
+</div>
+
+{/* Availability */}
+<div className="flex items-start gap-4">
+    <div className="shrink-0 w-11 h-11 rounded-xl bg-indigo-50 flex items-center justify-center">
+        <FaBriefcase className="text-indigo-600" />
+    </div>
+
+    <div>
+        <p className="text-sm font-semibold text-indigo-950">
+            {contactData.availabilityName}
+        </p>
+
+        <p className="mt-1 text-gray-600">
+            {contactData.availability}
+        </p>
+    </div>
+</div>
+{/* Response Time */}
+<div className="flex items-start gap-4">
+    <div className="shrink-0 w-11 h-11 rounded-xl bg-indigo-50 flex items-center justify-center">
+        <FaClock className="text-indigo-600" />
+    </div>
+
+    <div>
+        <p className="text-sm font-semibold text-indigo-950">
+            {contactData.responseTimeName}
+        </p>
+
+        <p className="mt-1 text-gray-600">
+            {contactData.responseTime}
+        </p>
+    </div>
+</div>
+{/* Work Mode */}
+<div className="flex items-start gap-4">
+    <div className="shrink-0 w-11 h-11 rounded-xl bg-indigo-50 flex items-center justify-center">
+        <FaLaptopHouse className="text-indigo-600" />
+    </div>
+
+    <div>
+        <p className="text-sm font-semibold text-indigo-950">
+            {contactData.workingModeName}
+        </p>
+
+        <p className="mt-1 text-gray-600">
+            {contactData.workingMode}
         </p>
     </div>
 </div>
