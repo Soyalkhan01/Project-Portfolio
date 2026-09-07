@@ -39,16 +39,14 @@ function Projects(){
             className="group relative p-5 sm:p-6 rounded-2xl border border-white/10 bg-white/3 backdrop-blur-sm hover:border-indigo-400/30 hover:bg-indigo-500/3 hover:shadow-xl hover:shadow-indigo-950/20 hover:-translate-y-2 transition-all duration-300 h-full flex flex-col flex-1"
         >
 
-                <div className="relative aspect-video overflow-hidden rounded-xl mb-6 border border-white/10">
+                <div className="relative overflow-hidden rounded-xl mb-6 border border-white/10">
 
                 <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="block w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
 
                 />
-
-                <div className="absolute inset-0 bg-linear-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none"></div>
 
 
                 <span className="absolute bottom-3 left-3 px-3 py-1.5 rounded-lg bg-slate-950/80 backdrop-blur-md border border-white/10 text-indigo-300 text-xs font-semibold">

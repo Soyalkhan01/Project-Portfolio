@@ -35,6 +35,7 @@ import {
   SiPandas,
   SiScikitlearn,
   SiPytorch,
+  SiGooglegemini,
   SiOllama,
 } from "react-icons/si";
 import { FaRobot } from "react-icons/fa";
@@ -306,6 +307,12 @@ skills:[
                 icon: SiPytorch,
                 color: "text-orange-600",
                 level: "Advanced",
+            },
+            {
+                name: "Google Gemini",
+                icon: SiGooglegemini,
+                color: "text-blue-500",
+                level: "Intermediate",
             },
             {
                 name: "Ollama",
