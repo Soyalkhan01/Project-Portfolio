@@ -9,6 +9,8 @@ import os
 import requests
 from dotenv import load_dotenv 
 
+from datetime import datetime, timezone
+
 
 load_dotenv()
 
@@ -95,6 +97,8 @@ def create_contact(
         )
 
     contact_data = contact.model_dump(exclude={"turnstileToken"})
+    
+    contact_data["submitted_at"] = datetime.now(timezone.utc)
 
     try:
         result = contacts_collection.insert_one(contact_data)
