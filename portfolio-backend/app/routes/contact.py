@@ -85,9 +85,13 @@ def create_contact(
         )
 
     if not verification_result.get("success"):
+        logger.warning(
+            "Turnstile verification failed: %s",
+            verification_result
+        )
         raise HTTPException(
             status_code=400,
-            detail="CAPTCHA verification failed"
+            detail="CAPTCHA verification failed. Please complete the CAPTCHA again."
         )
 
     contact_data = contact.model_dump(exclude={"turnstileToken"})

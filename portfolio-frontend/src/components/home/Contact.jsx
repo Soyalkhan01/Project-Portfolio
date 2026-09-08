@@ -426,8 +426,13 @@ useEffect(() => {
 
                 <button
                 type="submit"
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-indigo-950 text-white font-semibold shadow-lg shadow-indigo-950/20 hover:bg-indigo-900 hover:shadow-indigo-950/30 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
-                >
+                disabled={sending}
+                className={`w-full sm:w-auto px-7 py-3.5 rounded-xl text-white font-semibold shadow-lg shadow-indigo-950/20 transition-all duration-300 ${
+                    sending
+                        ? "bg-gray-400 cursor-not-allowed"
+                        : "bg-indigo-950 hover:bg-indigo-900 hover:shadow-indigo-950/30 hover:-translate-y-0.5 cursor-pointer"
+                }`}
+            >
                    {contactData.button.text}
                 </button>
                 </form>
