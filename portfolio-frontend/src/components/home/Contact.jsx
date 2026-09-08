@@ -1,5 +1,5 @@
 import contactData from "../../data/contact";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef  } from "react";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaBriefcase, FaClock,FaLaptopHouse } from "react-icons/fa";
 import {
     FaGithub,
@@ -16,6 +16,7 @@ function Contact(){
     const [error, setError] = useState("");
     const [fieldErrors, setFieldErrors] = useState({});
     const [turnstileToken, setTurnstileToken] = useState("");
+    const turnstileRef = useRef(null);
 
     const validateForm = () => {
         const errors = {};
@@ -117,7 +118,8 @@ if (!response.ok) {
         phone: "",
         message: "",
      });
-
+    setTurnstileToken("");
+    turnstileRef.current?.reset();
   }
 
 catch (error) {
@@ -417,6 +419,7 @@ useEffect(() => {
                     ))}
 
             <Turnstile
+              ref={turnstileRef}
               siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
               onSuccess={(token) => setTurnstileToken(token)}
               onExpire={() => setTurnstileToken("")}
