@@ -29,9 +29,9 @@ function Hero(){
     return(
          <section 
          id="home"
-         className="relative min-h-18 flex items-center pt-25 pb-12 bg-slate-950 overflow-hidden">
+         className="relative min-h-18 flex items-center pt-25 pb-15 bg-slate-950 overflow-hidden">
 
-            <div className="absolute -top-40 --left-40 w-120 h-120 bg-indigo-000/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute -top-40 -left-40 w-120 h-120 bg-indigo-900/10 rounded-full blur-3xl pointer-events-none"></div>
 
             <div className="absolute -bottom-48 -right-32 w-120 h-120 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
 

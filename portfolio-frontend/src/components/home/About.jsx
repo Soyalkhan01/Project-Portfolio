@@ -4,7 +4,7 @@ function About() {
     return (
         <div
             id="about"
-            className="relative scroll-mt-12 z-10 max-w-7xl mx-auto w-full flex flex-col py-16 md:py-24 px-4 md:px-6 lg:px-0 overflow-hidden"
+            className="relative scroll-mt-12 z-10 max-w-7xl mx-auto w-full flex flex-col py-16 md:py-18 px-4 md:px-6 lg:px-0 overflow-hidden"
         >
 
             {/* Section Heading */}
@@ -110,7 +110,7 @@ function About() {
                         <div className="absolute -inset-6 bg-indigo-600/15 blur-3xl rounded-full animate-pulse"></div>
 
                         <img
-                            className="relative w-64 h-74 md:w-72 md:h-82 lg:w-80 lg:h-90 object-cover mx-auto rounded-3xl border border-indigo-400/30 shadow-2xl shadow-indigo-950/50 hover:scale-[1.03] hover:shadow-indigo-500/20 transition duration-500"
+                            className="relative w-64 h-74 md:w-72 md:h-82 lg:w-85 lg:h-95 object-cover mx-auto rounded-3xl border border-indigo-400/30 shadow-2xl shadow-indigo-950/50 hover:scale-[1.03] hover:shadow-indigo-500/20 transition duration-500"
                             src={aboutData.image}
                             alt="About Me"
                         />
