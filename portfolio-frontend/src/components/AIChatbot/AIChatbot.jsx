@@ -54,8 +54,6 @@ const handleSend = async () => {
     setMessage("");
     setIsLoading(true);
 
-        await new Promise((resolve) => setTimeout(resolve, 120));
-
     try {
         const response = await fetch(`${API_URL}/chat`, {
             method: "POST",

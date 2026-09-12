@@ -108,8 +108,6 @@ if (!response.ok) {
     const data = await response.json();
     console.log("FastAPI Response:", data);
 
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-
      setSubmitted(true);
 
      setFormData({

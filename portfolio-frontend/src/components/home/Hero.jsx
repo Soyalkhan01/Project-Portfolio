@@ -29,7 +29,7 @@ function Hero(){
     return(
          <section 
          id="home"
-         className="relative min-h-18 flex items-center pt-25 pb-15 bg-slate-950 overflow-hidden">
+         className="relative min-h-18 flex items-center pt-25 pb-17 bg-slate-950 overflow-hidden">
 
             <div className="absolute -top-40 -left-40 w-120 h-120 bg-indigo-900/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -157,7 +157,7 @@ function Hero(){
                 return (
                     <div
                     key={technology.name}
-                    className="group flex items-center justify-center w-14 h-14 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm hover:border-indigo-400/50 hover:bg-indigo-950/40 hover:-translate-y-1 transition duration-300"
+                    className="group flex items-center justify-center w-14 h-14 rounded-xl border border-white/10 bg-white/5 hover:border-indigo-400/50 hover:bg-indigo-950/40 hover:-translate-y-1 transition duration-300"
                     title={technology.name}
                     >
                     <Icon

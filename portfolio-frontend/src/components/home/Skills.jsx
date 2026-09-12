@@ -45,7 +45,7 @@ function Skill() {
 
                         <div
                             key={category.category}
-                            className="group relative p-5 sm:p-6 md:p-7 rounded-2xl border border-white/10 bg-white/3 backdrop-blur-sm hover:border-indigo-400/30 hover:bg-indigo-500/3 transition-all duration-300"
+                            className="group relative p-5 sm:p-6 md:p-7 rounded-2xl border border-white/10 bg-white/3 hover:border-indigo-400/30 hover:bg-indigo-500/3 transition-all duration-300"
                         >
 
                             {/* Small Accent Dot */}
