@@ -44,7 +44,8 @@ function Projects(){
                 <img
                     src={project.image}
                     alt={project.title}
-                    className="block w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onClick={() => window.open(project.liveLink, "_blank")}
+                    className="block w-full h-full object-cover cursor-pointer transition-transform duration-500 group-hover:scale-105"
 
                 />
 

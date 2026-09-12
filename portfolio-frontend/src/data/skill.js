@@ -18,6 +18,7 @@ import {
     SiFlask,
     SiMongodb,
     SiPostgresql,
+    SiGithubactions,
     SiPostman,
     SiTailwindcss,
     SiVercel,
@@ -28,7 +29,7 @@ import {
     SiSqlalchemy,
     SiPydantic
 } from "react-icons/si";
-import { VscVscode } from "react-icons/vsc";
+import { VscVscode, VscTerminal } from "react-icons/vsc";
 import { FaChartLine } from "react-icons/fa";
 import {
   SiNumpy,
@@ -249,6 +250,18 @@ skills:[
                 level: "Advanced",
             },
             {
+                name: "GitHub Actions",
+                icon: SiGithubactions,
+                color: "text-blue-400",
+                level: "Advanced",
+            },
+            {
+                name: "CI/CD",
+                icon: VscTerminal,
+                color: "text-green-400",
+                level: "Intermediate",
+            },
+            {
                 name: "VS Code",
                 icon: VscVscode ,
                 color: "text-blue-500",
@@ -318,13 +331,13 @@ skills:[
                 name: "Ollama",
                 icon: SiOllama,
                 color: "text-gray",
-                level: "Advanced",
+                level: "Intermediate",
             },
             {
                 name: "LLMs",
                 icon: FaRobot,
                 color: "text-purple-600",
-                level: "Advanced",
+                level: "Intermediate",
             },
         ],
     },

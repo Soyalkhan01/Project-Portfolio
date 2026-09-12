@@ -1,11 +1,12 @@
 import contactData from "../../data/contact";
 import { useState, useEffect, useRef  } from "react";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaBriefcase, FaClock,FaLaptopHouse } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaBriefcase, FaClock,FaLaptopHouse, } from "react-icons/fa";
 import {
     FaGithub,
     FaLinkedin,
     FaInstagram,
     FaGlobe,
+    FaWhatsapp
 } from "react-icons/fa";
 
 import { Turnstile } from "@marsidev/react-turnstile";
@@ -152,9 +153,22 @@ catch (error) {
     }, [submitted]);
     
     const socialIcons = {
-    GitHub: FaGithub,
-    LinkedIn: FaLinkedin,
-    Instagram: FaInstagram,
+    Github: {
+        icon: FaGithub,
+        color: "text-[#181717]",
+    },
+    LinkedIn: {
+        icon: FaLinkedin,
+        color: "text-[#0A66C2]",
+    },
+    Instagram: {
+        icon: FaInstagram,
+        color: "text-[#E4405F]",
+    },
+    WhatsApp: {
+        icon: FaWhatsapp,
+        color: "text-[#25D366]",
+    },
 };
 
 useEffect(() => {
@@ -305,26 +319,34 @@ useEffect(() => {
         {/* Social Links */}
        <div className="flex flex-wrap gap-3 mt-8">
 
-    {contactData.socialLinks.map((social) => {
+    {contactData.socialLinks.map((link) => {
 
-        const Icon = socialIcons[social.name] || FaGlobe;
+    const social = socialIcons[link.name] || {
+        icon: FaGlobe,
+        color: "text-gray-500",
+    };
 
-        return (
-            <a
-                key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-gray-700 font-medium hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all duration-300"
-            >
-                <Icon className="text-lg group-hover:scale-110 transition-transform duration-300" />
+    const Icon = social.icon;
 
-                <span>
-                    {social.name}
-                </span>
-            </a>
-        );
-    })}
+    return (
+        <a
+            key={link.name}
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={link.username}
+            className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-gray-700 font-medium hover:scale-105 transition-transform duration-300"
+        >
+            <Icon
+                className={`${social.color} text-lg group-hover:scale-110 transition-transform duration-300`}
+            />
+
+            <span>
+                {link.name}
+            </span>
+        </a>
+    );
+})}
 
 </div>
 

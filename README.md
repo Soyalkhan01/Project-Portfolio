@@ -118,6 +118,26 @@ The AI assistant can provide information about:
 
 ---
 
+## CI/CD
+
+This project uses GitHub Actions for Continuous Integration (CI).
+
+### Frontend CI
+- Installs frontend dependencies
+- Runs ESLint
+- Builds the React/Vite application
+
+### Backend CI
+- Sets up Python
+- Installs backend dependencies
+- Checks Python syntax
+
+### Deployment
+- Frontend: Vercel
+- Backend: Render
+
+Every push to the `main` branch triggers automated CI checks.
+
 ## 🏗️ Architecture
 
 ```text
