@@ -1,19 +1,18 @@
 const experienceData = {
   section: {
-    heading: "Career Journey",
-    title: "Professional Experience",
+    heading: "My Experience",
+    title: "Professional Experience & Career Journey",
     description:
-      "My professional journey and hands-on experience in full-stack development, data science, and frontend design, working with modern technologies to build real-world applications.",
-    },
+      "Explore my professional experience in full-stack development, data science, machine learning, frontend development, and UI/UX design through internships and real-world projects.",
+  },
 
-    experiences: [
-
+  experiences: [
     {
       role: "Data Science Intern",
-      company: "CodeAlpha Tech Pvt. Ltd. Lucknow, Uttar Pradesh",
-      duration: "July 2026 - Aug 2026",
+      company: "CodeAlpha Tech Pvt. Ltd., Lucknow, Uttar Pradesh",
+      duration: "July 2026 - August 2026",
       workMode: "Remote",
-  
+
       technologies: [
         "Python",
         "NumPy",
@@ -22,7 +21,7 @@ const experienceData = {
         "Scikit-learn",
         "Machine Learning",
       ],
-  
+
       responsibilities: [
         "Worked on data analysis and machine learning tasks using Python.",
         "Performed data preprocessing and exploratory data analysis.",
@@ -33,8 +32,8 @@ const experienceData = {
 
     {
       role: "Full Stack Developer Intern",
-      company: "DevHub Tech Pvt. Ltd. Jaipur, Rajasthan",
-      duration: "June 2025 - Feb 2026",
+      company: "DevHub Tech Pvt. Ltd., Jaipur, Rajasthan",
+      duration: "June 2025 - February 2026",
       workMode: "On-site",
 
       technologies: [
@@ -47,22 +46,21 @@ const experienceData = {
         "Node.js",
         "REST APIs",
         "MongoDB",
-        "Tailwindcss",
+        "Tailwind CSS",
       ],
 
       responsibilities: [
         "Developed responsive web applications using React.js.",
-        "Built backend APIs using Python and Node.js.",
-        "Integrated databases and REST APIs.",
-        "Worked on real-world full-stack projects.",
+        "Built backend APIs using Python, Flask, FastAPI, and Node.js.",
+        "Integrated MongoDB databases and REST APIs.",
+        "Worked on real-world full-stack development projects.",
       ],
     },
 
-
     {
-      role: "Frontend / UI & UX Designer Intern",
-      company: "Codedesk Trainingss, Jaipur, Rajasthan",
-      duration: "July 2024 - Oct 2024",
+      role: "Frontend Developer & UI/UX Design Intern",
+      company: "Codedesk Trainings, Jaipur, Rajasthan",
+      duration: "July 2024 - October 2024",
       workMode: "On-site",
 
       technologies: [
@@ -77,9 +75,9 @@ const experienceData = {
 
       responsibilities: [
         "Designed responsive and user-friendly web interfaces.",
-        "Created modern UI layouts based on design requirements.",
-        "Implemented frontend designs using HTML, CSS, JavaScript, and React.js.",
-        "Focused on responsive design and user experience.",
+        "Created modern UI layouts based on project requirements.",
+        "Implemented frontend designs using HTML5, CSS3, JavaScript, and React.js.",
+        "Focused on responsive web design, usability, and user experience.",
       ],
     },
   ],

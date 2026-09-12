@@ -9,6 +9,7 @@ function Certifications() {
     return (
         <section
             id="certifications"
+            aria-labelledby="certifications-heading"
             className="scroll-mt-8 relative py-20 md:py-24 px-4 md:px-6 lg:px-0 bg-slate-950 overflow-hidden"
         >
 
@@ -21,7 +22,9 @@ function Certifications() {
                         {certificationsData.section.heading}
                     </span>
 
-                    <h2 className="mt-4 text-4xl sm:text-5xl font-bold text-white">
+                    <h2 
+                    id="certifications-heading"
+                    className="mt-4 text-4xl sm:text-5xl font-bold text-white">
                         {certificationsData.section.title}
                     </h2>
 
@@ -40,8 +43,17 @@ function Certifications() {
 
                         <div
                             key={certification.id}
+                            role="button"
+                            tabIndex={0}
+                            aria-label={`View ${certification.title} certificate`}
                             onClick={() => setSelectedCertificate(certification)}
-                            className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm hover:-translate-y-1.5 hover:shadow-xl hover:shadow-indigo-950/10 hover:border-indigo-200 transition-all duration-300 cursor-pointer"
+                            onKeyDown={(event) => {
+                                if (event.key === "Enter" || event.key === " ") {
+                                    event.preventDefault();
+                                    setSelectedCertificate(certification);
+                                }
+                            }}
+                            className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm hover:-translate-y-1.5 hover:shadow-xl hover:shadow-indigo-950/10 hover:border-indigo-200 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500"
                         >
 
                             {/* Glow */}
@@ -62,12 +74,12 @@ function Certifications() {
                                 <h3 className="mt-4 text-sm sm:text-base font-semibold text-indigo-950 leading-snug">
                                     {certification.title}
                                 </h3>
-                                <p className="mt-4 text-sm sm:text-base font-semibold text-indigo-950 leading-snug">
-                                    {certification.issuer}
-                                </p>
-                                <span className="mt-4 text-sm sm:text-base font-semibold text-indigo-950 leading-snug">
+                               <p className="mt-4 text-sm sm:text-base font-semibold text-indigo-950 leading-snug">
+                                Issued by: {certification.issuer}
+                            </p>
+                                <time className="mt-4 block text-sm sm:text-base font-semibold text-indigo-950 leading-snug">
                                     {certification.year}
-                                </span>
+                                </time>
 
 
                                 {/* Bottom Accent */}
@@ -96,9 +108,12 @@ function Certifications() {
            {/* Certificate Modal */}
 {selectedCertificate && (
     <div
-        className="fixed inset-0 z-999 flex items-center justify-center bg-black/80 backdrop-blur-sm p-2 sm:p-4"
-        onClick={() => setSelectedCertificate(null)}
-    >
+    className="fixed inset-0 z-999 flex items-center justify-center bg-black/80 backdrop-blur-sm p-2 sm:p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-label={`${selectedCertificate.title} certificate preview`}
+    onClick={() => setSelectedCertificate(null)}
+>
         <div
             onClick={(event) => event.stopPropagation()}
             className="relative w-full max-w-4xl max-h-[95vh] rounded-2xl bg-white p-2 sm:p-4 shadow-2xl overflow-y-auto"
@@ -117,7 +132,7 @@ function Certifications() {
             <div className="w-full flex justify-center">
                 <img
                     src={selectedCertificate.image}
-                    alt={selectedCertificate.title}
+                    alt={`${selectedCertificate.title} certificate issued by ${selectedCertificate.issuer}`}
                     className="block w-full h-auto max-h-[82vh] object-contain rounded-xl"
                 />
             </div>

@@ -112,7 +112,7 @@ function About() {
                         <img
                             className="relative w-64 h-74 md:w-72 md:h-82 lg:w-85 lg:h-95 object-cover mx-auto rounded-3xl border border-indigo-400/30 shadow-2xl shadow-indigo-950/50 hover:scale-[1.03] hover:shadow-indigo-500/20 transition duration-500"
                             src={aboutData.image}
-                            alt="About Me"
+                            alt="Soyal Khan, Software Engineer and Full Stack Developer "
                         />
 
                         <div className="absolute -bottom-4 -right-4 px-4 py-2.5 rounded-2xl border border-white/10 bg-slate-950/90 shadow-xl shadow-black/20">

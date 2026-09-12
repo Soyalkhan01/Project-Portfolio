@@ -7,81 +7,70 @@ import htmlCss from "../assets/images/certificates/html-css.jpeg";
 import microsoftCertificate from "../assets/images/certificates/microsoft-certificate.jpeg";
 
 const certificationData = {
+  section: {
+    heading: "Professional Certifications",
+    title: "Certifications & Learning Achievements",
+    description:
+      "Explore my professional certifications and learning achievements in data science, Python, MERN stack development, JavaScript, HTML, CSS, and Microsoft Excel.",
+  },
 
-    section:{
-        heading:"Professional Learning",
-        title:"Certifications",
-        description:"Certifications and learning achievements that support my technical skills and continuous growth.",
-    },
-
-    
-    certificates:[
+  certificates: [
     {
-        id: "data-science",
-         title: "Data Science",
-         issuer: "CodeAlpha Tech Pvt. Ltd.",
-         year: "July 2026", 
-         image: dataScience,
-    },
-    {
-        id: "data-science-lor",
-         title: "Data Science Letter-Of-Recommendation",
-         issuer: "CodeAlpha Tech Pvt. Ltd.",
-         year: "July 2026", 
-         image: letterOfRecommendation,
+      id: "data-science",
+      title: "Data Science Certification",
+      issuer: "CodeAlpha Tech Pvt. Ltd.",
+      year: "July 2026",
+      image: dataScience,
     },
 
     {
-        id: "Python",
-        title: "Python",
-        issuer: "DevHub Tech Pvt. Ltd.",
-        year: "Feb. 2026",
-        image: pythonCertificate,
+      id: "data-science-letter-of-recommendation",
+      title: "Data Science Letter of Recommendation",
+      issuer: "CodeAlpha Tech Pvt. Ltd.",
+      year: "July 2026",
+      image: letterOfRecommendation,
     },
 
     {
-        id: "MERN-Stack",
-        title: "MERN Stack",
-        issuer: "DevHub Tech Pvt. Ltd.",
-        year: "Aug. 2025",
-        image: mernCertificate,
+      id: "python",
+      title: "Python Certification",
+      issuer: "DevHub Tech Pvt. Ltd.",
+      year: "February 2026",
+      image: pythonCertificate,
     },
 
     {
-        id: "JavaScript",
-        title: "JavaScript",
-        issuer: "Codedesk IT Training Institute",
-        year: "Oct. 2024",
-        image: javascriptCertificate,
+      id: "mern-stack",
+      title: "MERN Stack Development Certification",
+      issuer: "DevHub Tech Pvt. Ltd.",
+      year: "August 2025",
+      image: mernCertificate,
     },
 
     {
-        id: "HTML-CSS",   
-        title: "HTML and CSS",
-        issuer: "Codedesk IT Training Institute",
-        year: "Oct. 2024",
-        image: htmlCss,
+      id: "javascript",
+      title: "JavaScript Certification",
+      issuer: "Codedesk IT Training Institute",
+      year: "October 2024",
+      image: javascriptCertificate,
     },
 
     {
-        id: "Microsoft-Excel", 
-        title: "Microsoft Excel",
-        issuer: "Coursera",
-        year: "Nov. 2023",
-        image: microsoftCertificate,
+      id: "html-css",
+      title: "HTML and CSS Certification",
+      issuer: "Codedesk IT Training Institute",
+      year: "October 2024",
+      image: htmlCss,
     },
-],
 
-
+    {
+      id: "microsoft-excel",
+      title: "Microsoft Excel Certification",
+      issuer: "Coursera",
+      year: "November 2023",
+      image: microsoftCertificate,
+    },
+  ],
 };
-
-// const recommendationData = [
-//     {
-//         title: "Letter of Recommendation",
-//         issuer: "CodeAlpha",
-//         year: "2026",
-//         image: javascriptCertificate,
-//     },
-// ];
 
 export default certificationData;

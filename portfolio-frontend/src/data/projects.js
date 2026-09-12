@@ -11,17 +11,16 @@ const projectsData = {
     section: {
         heading:"My Work",
         title:"Projects I've Built",
-        description:"A selection of projects showcasing my experience in full-stack development, APIs, databases and machine learning.",
-
+        description:        "Explore my portfolio of full-stack websites, responsive web applications, REST API projects, and machine learning solutions built using React.js, Python, FastAPI, Flask, MongoDB, and Scikit-learn.",
     },
 
     project:[
 
     {
         id: "ecommerce",
-        title: "E-commerce Website",
+        title: "Full Stack E-commerce Website",
         description:
-            "A full-stack e-commerce website featuring product management, user authentication, shopping functionality, and a dedicated admin dashboard. The application includes responsive interfaces, REST API integration, database management, and secure authentication for a complete end-to-end shopping experience.",
+            "A full-stack e-commerce website built with React.js, Python, Flask, and MongoDB Atlas. The application includes product management, user authentication, shopping cart functionality, product browsing, REST API integration, database management, and a dedicated admin dashboard with responsive user interfaces.",
 
        technologies: [
             {
@@ -61,9 +60,9 @@ const projectsData = {
     },
     {
         id: "Business-Website",
-        title: "Business Website-Client Project",
+        title: "Responsive Business Website – Client Project",
         description:
-            "A modern, responsive Business website designed with a clean and premium user experience. The website features product browsing, detailed product pages, wishlist functionality, gallery, FAQ, contact form, newsletter subscription, and fully responsive layouts for desktop and mobile devices. Built with reusable React components and a structured frontend architecture for scalability and maintainability.",
+            "A modern and responsive business website developed for a client using React.js, Vite, JavaScript, and Tailwind CSS. The website includes product browsing, product detail pages, wishlist functionality, gallery, FAQ, contact form, newsletter subscription, and mobile-friendly layouts with reusable React components.",
 
        technologies: [
             {
@@ -108,9 +107,9 @@ const projectsData = {
 
     {
         id: "Weather-App",
-        title: "Weather App",
+        title: "Weather Forecast Web Application",
         description:
-            "A responsive weather application that provides real-time weather information for different cities, with a clean and intuitive interface. Users can search for cities and view current temperature, weather conditions, humidity, wind speed, and other essential weather details. It integrates a weather API to dynamically.",
+            "A responsive weather forecast web application that provides real-time weather information for different cities. Users can search for cities and view temperature, weather conditions, humidity, wind speed, and other weather details. The application integrates a weather API with a React.js frontend, Python backend, and MongoDB Atlas for storing city search history.",
 
         technologies: [
             {
@@ -150,10 +149,10 @@ const projectsData = {
     },
 
     {
-    id: "sales-prediction",
-    title: "Sales Prediction Model",
-    description:
-        "A machine learning application that predicts future sales using historical sales data and selected business features. The application includes data preprocessing, feature analysis, model training, and prediction capabilities to generate data-driven sales forecasts and support better business decision-making.",
+        id: "sales-prediction",
+        title: "Sales Prediction Model",
+        description:
+        "A machine learning project that predicts future sales using historical sales data and business-related features. The project includes data preprocessing, exploratory data analysis, feature analysis, model training, and sales prediction using Python, Pandas, NumPy, Matplotlib, Scikit-learn, and PyTorch.",
 
     technologies: [
             {
@@ -184,7 +183,7 @@ const projectsData = {
 
     category: "AI / Machine Learning",
     image: salesPredictionImage,
-    liveLink: "#",
+    liveLink: "null",
     githubLink: "https://github.com/Soyalkhan01/CodeAlpha_Task3_SalesPrediction",
 },
 
@@ -192,7 +191,7 @@ const projectsData = {
     id: "car-price-prediction",
     title: "Car Price Prediction",
     description:
-        "A machine learning project that predicts used car prices based on key vehicle features such as year, mileage, fuel type, transmission, and other relevant attributes. The model uses data preprocessing and Linear Regression to estimate car prices and evaluate prediction performance.",
+        "A machine learning project that predicts used car prices based on vehicle features such as manufacturing year, mileage, fuel type, transmission, and other relevant attributes. The project uses Python, Pandas, NumPy, Scikit-learn, and Linear Regression for data preprocessing, model training, and price prediction.",
 
     technologies: [
         {
@@ -223,7 +222,7 @@ const projectsData = {
 
     category: "Machine Learning",
     image: carPredictionImage,
-    liveLink: "#",
+    liveLink: "null",
     githubLink: "https://github.com/Soyalkhan01/CodeAlpha_Task2_CarPricePrediction",
 },
 
@@ -231,7 +230,7 @@ const projectsData = {
     id: "iris-flower-classification",
     title: "Iris Flower Classification",
     description:
-        "A machine learning project that analyzes sepal and petal measurements to accurately classify iris flowers into different species. The model uses supervised learning techniques and data preprocessing to train and evaluate the classification performance.",
+        "A supervised machine learning project that classifies iris flowers into different species using sepal and petal measurements. The project includes data preprocessing, exploratory data analysis, model training, and classification evaluation using Python, Pandas, NumPy, Scikit-learn, Matplotlib, and Seaborn.",
 
     technologies: [
         {
@@ -262,7 +261,7 @@ const projectsData = {
 
     category: "Machine Learning",
     image: irisClassificationImage,
-    liveLink: "#",
+    liveLink: "null",
     githubLink: "https://github.com/Soyalkhan01/CodeAlpha_Task1_IrisFlowerClassification",
 },
     ],

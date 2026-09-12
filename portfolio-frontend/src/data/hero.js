@@ -6,7 +6,7 @@ const heroData = {
       
       name: "Soyal khan",
 
-      title: "• FULL STACK + AI DEVELOPER • UI/UX DESIGNER • DATA SCIENTIST",
+      title: "Software Engineer | Full Stack Developer | UI/UX Designer | AI/ML Enthusiast",
 
     description:
     "I build modern, scalable web applications and AI-powered solutions, with a strong focus on UI/UX design and data-driven development.",

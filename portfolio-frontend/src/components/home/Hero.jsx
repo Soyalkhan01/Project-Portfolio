@@ -106,7 +106,7 @@ function Hero(){
                     <div className="relative w-72 h-82 md:w-105 md:h-120 rounded-3xl overflow-hidden border border-indigo-400/30 shadow-2xl shadow-indigo-950/50">
                         <img
                         src={heroData.image}
-                        alt={heroData.name}
+                        alt="Soyal Khan - Software Engineer and Full Stack Developer"
                         className="w-full h-full object-cover transition duration-500 hover:scale-105"
                         />
                     </div>

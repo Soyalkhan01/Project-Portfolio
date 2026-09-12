@@ -69,10 +69,9 @@ useEffect(() => {
     return(
 
         <nav 
-        
+        aria-label="Main navigation"
         className={`fixed top-0 left-0  w-full z-100 px-4 py-3.5 md:px-8 md:py-4 border-b border-white/10
-        
-       transition-colors duration-300 ${
+        transition-colors duration-300 ${
     isScrolled
         ? "bg-slate-950/95 shadow-xl shadow-black/20"
         : "bg-slate-950/80"
@@ -84,21 +83,40 @@ useEffect(() => {
 
     {/* Logo */}
     <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-white flex items-center gap-2">
-        <span className="w-2.5 h-2.5 rounded-full bg-indigo-400 shadow-lg shadow-indigo-400/50"></span>
+    <a
+        href="#home"
+        aria-label="Soyal Khan home"
+        onClick={() => {
+            setActiveLink("#home");
+            setIsOpen(false);
+        }}
+        className="flex items-center gap-2"
+    >
+        <span
+            aria-hidden="true"
+            className="w-2.5 h-2.5 rounded-full bg-indigo-400 shadow-lg shadow-indigo-400/50"
+        ></span>
 
         {navbarData.logo}
 
-        <span className="text-indigo-400">.</span>
-    </h1>
-
+        <span
+            aria-hidden="true"
+            className="text-indigo-400"
+        >
+            .
+        </span>
+    </a>
+</h1>
 
     {/* Hamburger */}
     <button
-        onClick={() => {
-            setIsOpen(!isOpen)
-        }}
-        className="lg:hidden relative w-10 h-10 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition duration-300"
-    >
+    type="button"
+    onClick={() => setIsOpen(!isOpen)}
+    aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+    aria-expanded={isOpen}
+    aria-controls="main-navigation"
+    className="lg:hidden relative w-10 h-10 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition duration-300"
+>
         <span
             className={`absolute left-1/2 top-1/2 w-5 h-0.5 bg-gray-300 rounded-full transition-all duration-300 ${
                 isOpen
@@ -127,10 +145,11 @@ useEffect(() => {
 
     {/* Navigation Links */}
     <div
-        className={`${
-    isOpen
-        ? "flex opacity-100 translate-y-0 pointer-events-auto"
-        : "opacity-0 -translate-y-3 pointer-events-none"
+    id="main-navigation"
+    className={`${
+        isOpen
+            ? "flex opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-3 pointer-events-none"
     }
 
     lg:opacity-100
@@ -153,62 +172,56 @@ useEffect(() => {
     top-full
     left-0
     z-50
-
     w-full
     lg:w-auto
-
     bg-slate-950/95
     lg:bg-transparent
-
     p-6
     lg:p-0
-
     shadow-2xl
     lg:shadow-none
-
     transition-all
     duration-300
     ease-out
-
     max-h-[calc(100vh-64px)]
     overflow-y-auto
     lg:max-h-none
     lg:overflow-visible
 `}
-    >
+>
 
        {navbarData.links.map((item) => (
-    <a
-        key={item.text}
-        href={item.link}
-        onClick={() => {
-            setActiveLink(item.link);
-            setIsOpen(false);
-        }}
-        className={`relative text-base lg:text-sm font-semibold transition duration-300
-            ${
-                activeLink === item.link
-                    ? "text-indigo-400"
-                    : "text-gray-300 hover:text-indigo-300"
-            }
-            after:content-['']
-            after:absolute
-            after:left-0
-            after:-bottom-1.5
-            after:h-0.5
-            after:bg-indigo-400
-            after:transition-all
-            after:duration-300
-            ${
-                activeLink === item.link
-                    ? "after:w-full"
-                    : "after:w-0 hover:after:w-full"
-            }
-        `}
-    >
-        {item.text}
-        
-    </a>
+   <a
+    key={item.text}
+    href={item.link}
+    onClick={() => {
+        setActiveLink(item.link);
+        setIsOpen(false);
+    }}
+    aria-current={activeLink === item.link ? "page" : undefined}
+    className={`relative text-base lg:text-sm font-semibold transition duration-300
+        ${
+            activeLink === item.link
+                ? "text-indigo-400"
+                : "text-gray-300 hover:text-indigo-300"
+        }
+        after:content-['']
+        after:absolute
+        after:left-0
+        after:-bottom-1.5
+        after:h-0.5
+        after:bg-indigo-400
+        after:transition-all
+        after:duration-300
+        ${
+            activeLink === item.link
+                ? "after:w-full"
+                : "after:w-0 hover:after:w-full"
+        }
+    `}
+>
+    {item.text}
+</a>
 ))}
 
 {/* Mobile CTA */}

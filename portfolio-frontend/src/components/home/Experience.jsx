@@ -3,7 +3,8 @@ import experienceData from "../../data/experience";
 function Experience() {
     return (
         <section
-            id="experience"
+                id="experience"
+                aria-labelledby="experience-heading"
             className="scroll-mt-16 px-6 py-16 md:py-20"
         >
             <div className="max-w-5xl mx-auto ">
@@ -14,7 +15,10 @@ function Experience() {
                         {experienceData.section.heading}
                     </span>
 
-                    <h2 className="mt-4 text-4xl sm:text-5xl font-bold text-indigo-950">
+                    <h2
+                        id="experience-heading"
+                        className="mt-4 text-4xl sm:text-5xl font-bold text-indigo-950"
+                    >
                         {experienceData.section.title}
                     </h2>
 
@@ -57,9 +61,11 @@ function Experience() {
                                                 Professional Experience
                                             </span>
 
-                                            <h3 className="mt-2 text-2xl sm:text-3xl font-bold text-indigo-950">
-                                                {experience.role}
-                                            </h3>
+                                            <h3
+                                            className="mt-2 text-2xl sm:text-3xl font-bold text-indigo-950"
+                                        >   
+                                            {experience.role}
+                                        </h3>
 
                                             <p className="mt-2 text-base sm:text-lg font-medium text-gray-600">
                                                 {experience.company}
@@ -67,11 +73,13 @@ function Experience() {
                                         </div>
 
                                     <div className="flex flex-wrap items-center gap-2">
-                                        <span className="w-fit px-4 py-2 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100 text-sm font-semibold whitespace-nowrap">
-                                            {experience.duration}
-                                        </span>
+                                        <time
+                                        className="w-fit px-3 py-2 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100 text-sm font-semibold whitespace-nowrap"
+                                    >
+                                        {experience.duration}
+                                    </time>
 
-                                        <span className="w-fit px-4 py-2 rounded-full bg-gray-50 text-gray-700 border border-gray-200 text-sm font-semibold whitespace-nowrap">
+                                        <span className="w-fit px-3 py-2 rounded-full bg-gray-50 text-gray-700 border border-gray-200 text-sm font-semibold whitespace-nowrap">
                                             {experience.workMode}
                                         </span>
                                     </div>

@@ -6,6 +6,7 @@ function Skill() {
     return (
         <section
             id="skills"
+            aria-labelledby="skills-heading"
             className="relative scroll-mt-16 py-20 md:py-24 px-4 md:px-6 lg:px-0 bg-slate-950 overflow-hidden"
         >
 
@@ -25,7 +26,9 @@ function Skill() {
                         {skillData.section.heading}
                     </p>
 
-                    <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+                    <h2 
+                    id="skills-heading"
+                    className="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
                         {skillData.section.title}
                     </h2>
 
@@ -43,7 +46,7 @@ function Skill() {
 
                     {skillData.skills.map((category) => (
 
-                        <div
+                        <article
                             key={category.category}
                             className="group relative p-5 sm:p-6 md:p-7 rounded-2xl border border-white/10 bg-white/3 hover:border-indigo-400/30 hover:bg-indigo-500/3 transition-all duration-300"
                         >
@@ -79,6 +82,7 @@ function Skill() {
                 <div className="flex items-center gap-3 min-w-0">
 
                     <Icon
+                    aria-hidden="true"
                         className={`${skill.color} text-xl shrink-0 group-hover/skill:scale-110 transition-transform duration-300`}
                     />
 
@@ -89,14 +93,16 @@ function Skill() {
                         </span>
 
                         <span className="text-xs text-gray-500 mt-0.5">
-                            {skill.level}
-                        </span>
+    Skill level: {skill.level}
+</span>
 
                     </div>
 
                 </div>
 
-                <span className="text-indigo-400 opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300 ml-2 shrink-0">
+                <span 
+                aria-hidden="true"
+                className="text-indigo-400 opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300 ml-2 shrink-0">
                     →
                 </span>
 
@@ -105,7 +111,7 @@ function Skill() {
     })}
 
 </div>
-                        </div>
+                        </article>
 
                     ))}
 

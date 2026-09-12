@@ -184,16 +184,20 @@ useEffect(() => {
     return(
 
         <section
-        id="contact" 
+        id="contact"
+        aria-labelledby="contact-heading" 
         className="relative scroll-mt-6 px-4 md:px-6 py-20 md:py-24 bg-white overflow-hidden">
 
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
 <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
-            <h2 className="text-4xl font-bold text-indigo-950 text-center">
-                {contactData.heading}
-            </h2>
+            <h2
+            id="contact-heading"
+            className="text-4xl font-bold text-indigo-950 text-center"
+        >
+            {contactData.heading}
+        </h2>
 
             <div className="relative z-10 max-w-7xl mx-auto mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
 

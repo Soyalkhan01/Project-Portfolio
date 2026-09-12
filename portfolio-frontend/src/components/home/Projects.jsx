@@ -6,6 +6,7 @@ function Projects(){
 
         <section
         id="projects"
+        aria-labelledby="projects-heading"
         className="relative scroll-mt-16 px-4 md:px-6 py-20 md:py-24 bg-slate-950 overflow-hidden"
         >
 {/* Background Glow */}
@@ -18,7 +19,9 @@ function Projects(){
         {projectsData.section.heading}
     </p>
 
-    <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+    <h2 
+    id="projects-heading"
+    className="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
         {projectsData.section.title}
     </h2>
 
@@ -34,7 +37,7 @@ function Projects(){
 
             {projectsData.project.map((project) => (
 
-            <div 
+            <article 
             key={project.id}
             className="group relative p-5 sm:p-6 rounded-2xl border border-white/10 bg-white/3 backdrop-blur-sm hover:border-indigo-400/30 hover:bg-indigo-500/3 hover:shadow-xl hover:shadow-indigo-950/20 hover:-translate-y-2 transition-all duration-300 h-full flex flex-col flex-1"
         >
@@ -51,7 +54,6 @@ function Projects(){
 
 
                 <span className="absolute bottom-3 left-3 px-3 py-1.5 rounded-lg bg-slate-950/80 backdrop-blur-md border border-white/10 text-indigo-300 text-xs font-semibold">
-
                     {project.category}
                 </span>
 
@@ -68,12 +70,12 @@ function Projects(){
 
             <div className="flex flex-wrap gap-2 mt-5"> 
 
-                {project.technologies.map((teck) => (
+               {project.technologies.map((technology) => (
     <span
-        key={teck.name}
-        className={`px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs md:text-sm ${teck.color} hover:border-indigo-400/30 hover:bg-indigo-500/5 transition-all duration-300`}
+        key={technology.name}
+        className={`px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs md:text-sm ${technology.color} hover:border-indigo-400/30 hover:bg-indigo-500/5 transition-all duration-300`}
     >
-        {teck.name}
+        {technology.name}
     </span>
 ))}
 
@@ -83,30 +85,38 @@ function Projects(){
 
     {project.liveLink && (
         <a
-            href={project.liveLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 hover:scale-105 transition-all duration-300"
-        >
-            <FaExternalLinkAlt className="text-sm" />
-            <span>{projectsData.button.liveLinkText}</span>
-        </a>
+    href={project.liveLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`View live demo of ${project.title}`}
+    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 hover:scale-105 transition-all duration-300"
+>
+    <FaExternalLinkAlt
+        aria-hidden="true"
+        className="text-sm"
+    />
+    <span>{projectsData.button.liveLinkText}</span>
+</a>
     )}
 
     {project.githubLink && (
         <a
-            href={project.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-white/20 text-gray-300 text-sm font-semibold hover:border-indigo-400 hover:text-white hover:bg-indigo-500/5 transition-all duration-300"
-        >
-           <FaGithub className="text-base" />
-            <span>{projectsData.button.githubLinkText}</span>
-        </a>
+    href={project.githubLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`View source code of ${project.title} on GitHub`}
+    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-white/20 text-gray-300 text-sm font-semibold hover:border-indigo-400 hover:text-white hover:bg-indigo-500/5 transition-all duration-300"
+>
+    <FaGithub
+        aria-hidden="true"
+        className="text-base"
+    />
+    <span>{projectsData.button.githubLinkText}</span>
+</a>
     )}
 
 </div>
-            </div>
+            </article>
             ))}
         </div>
 

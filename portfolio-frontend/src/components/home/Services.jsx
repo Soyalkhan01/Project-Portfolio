@@ -7,6 +7,7 @@ function Services() {
     return (
         <section
             id="services"
+            aria-labelledby="services-heading"
             className="relative py-20 md:py-24 px-4 md:px-6 lg:px-0 bg-white overflow-hidden"
         >
 
@@ -27,7 +28,9 @@ function Services() {
                         {serviceData.section.heading}
                     </p>
 
-                    <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-indigo-950">
+                    <h2
+                    id="services-heading"
+                    className="text-4xl md:text-5xl font-extrabold tracking-tight text-indigo-950">
                         {serviceData.section.title}
                     </h2>
 
@@ -96,17 +99,20 @@ function Services() {
                                 <div className="mt-auto pt-7">
 
                                     <button
-                                        type="button"
-                                        onClick={() => setSelectedService(service)}
-                                        className="w-full flex items-center justify-between px-4 py-3 rounded-xl border border-indigo-950/10 text-sm font-semibold text-indigo-950 hover:bg-indigo-950 hover:text-white hover:border-indigo-950 
-                                        hover:cursor-pointer transition-all duration-300"
-                                    >
-                                        <span>Explore</span>
+                                    type="button"
+                                    onClick={() => setSelectedService(service)}
+                                    aria-label={`Explore ${service.title} service details`}
+                                    className="w-full flex items-center justify-between px-4 py-3 rounded-xl border border-indigo-950/10 text-sm font-semibold text-indigo-950 hover:bg-indigo-950 hover:text-white hover:border-indigo-950 hover:cursor-pointer transition-all duration-300"
+                                >
+                                    <span>Explore</span>
 
-                                        <span className="text-lg group-hover:translate-x-1 transition-transform duration-300">
-                                            →
-                                        </span>
-                                    </button>
+                                    <span
+                                        aria-hidden="true"
+                                        className="text-lg group-hover:translate-x-1 transition-transform duration-300"
+                                    >
+                                        →
+                                    </span>
+                                </button>
 
                                 </div>
 
@@ -134,25 +140,29 @@ function Services() {
 
             {/* Service Modal */}
             {selectedService && (
-                <div
-                    className="fixed inset-0 z-999 flex items-center justify-center px-4 bg-black/60 backdrop-blur-sm"
-                    onClick={() => setSelectedService(null)}
-                >
+    <div
+    className="fixed inset-0 z-999 flex items-center justify-center px-4 bg-black/60 backdrop-blur-sm"
+    role="presentation"
+    onClick={() => setSelectedService(null)}
+>
 
-                    <div
-                        onClick={(event) => event.stopPropagation()}
-                        className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-3xl bg-white p-6 sm:p-8 shadow-2xl"
-                    >
+    <div
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="service-modal-heading"
+    onClick={(event) => event.stopPropagation()}
+    className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-3xl bg-white p-6 sm:p-8 shadow-2xl"
+>
 
                         {/* Close Button */}
-                        <button
-                            type="button"
-                            onClick={() => setSelectedService(null)}
-                            className="absolute top-4 right-4 w-9 h-9 rounded-xl border border-gray-200 text-gray-500 hover:text-indigo-950 hover:bg-gray-100 hover:cursor-pointer transition"
-                            aria-label="Close"
-                        >
-                            ×
-                        </button>
+                      <button
+                        type="button"
+                        onClick={() => setSelectedService(null)}
+                        aria-label={`Close ${selectedService.title} service details`}
+                        className="absolute top-4 right-4 w-9 h-9 rounded-xl border border-gray-200 text-gray-500 hover:text-indigo-950 hover:bg-gray-100 hover:cursor-pointer transition"
+                    >
+                        ×
+                    </button>
 
 
                         {/* Icon */}
@@ -168,7 +178,9 @@ function Services() {
 
 
                         {/* Title */}
-                        <h3 className="mt-5 pr-10 text-2xl font-bold text-indigo-950">
+                        <h3
+                        id="service-modal-heading"
+                        className="mt-5 pr-10 text-2xl font-bold text-indigo-950">
                             {selectedService.title}
                         </h3>
 
@@ -191,7 +203,10 @@ function Services() {
                                     key={detail}
                                     className="flex items-start gap-3 text-sm text-gray-600"
                                 >
-                                    <span className="mt-1 text-indigo-500">
+                                   <span
+                                        aria-hidden="true"
+                                        className="mt-1 text-indigo-500"
+                                    >
                                         ✓
                                     </span>
 

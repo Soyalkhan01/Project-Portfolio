@@ -57,7 +57,7 @@ const skillData = {
 
 skills:[
     {
-        category: " 🌐 Frontend",
+        category: "🌐 Frontend Development",
         skills: [
             {
                 name: "HTML5",
@@ -84,7 +84,7 @@ skills:[
                 level: "Advanced",
             },
             {
-                name: "Tailwindcss",
+                name: "Tailwind CSS",
                 icon: SiTailwindcss,
                 color: "text-cyan-400",
                 level: "Advanced",
@@ -111,7 +111,7 @@ skills:[
     },
 
     {
-        category: " ⚙️ Backend",
+        category: "⚙️ Backend Development",
         skills: [
             {
                 name: "Node.js",
@@ -235,7 +235,7 @@ skills:[
     },
 
     {
-        category: " 🛠️ Tools & Platforms",
+        category: " 🛠️ Development Tools & Platforms",
         skills: [
             {
                 name: "Git",
@@ -288,7 +288,7 @@ skills:[
         ],
     },
     {
-        category: " 🤖 AI & Machine Learning",
+        category: " 🤖 Artificial Intelligence & Machine Learning",
         skills: [
             {
                 name: "NumPy",

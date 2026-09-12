@@ -5,6 +5,7 @@ function Education() {
     return (
         <section
             id="education"
+            aria-labelledby="education-heading"
             className="scroll-mt-24 px-6 py-14 md:py-16"
         >
             <div className="max-w-5xl mx-auto">
@@ -15,9 +16,14 @@ function Education() {
                         {educationData.section.heading}
                     </span>
 
-                    <h2 className="mt-4 text-4xl sm:text-5xl font-bold text-indigo-950">
+                    <h2 
+                    id="education-heading"
+                    className="mt-4 text-4xl sm:text-5xl font-bold text-indigo-950">
                         {educationData.section.title}
                     </h2>
+                    <p className="mt-4 max-w-2xl mx-auto text-gray-600 leading-relaxed">
+                        {educationData.section.description}
+                    </p>
                 </div>
 
                 {/* Education Card */}

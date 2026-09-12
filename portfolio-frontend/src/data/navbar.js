@@ -16,8 +16,8 @@ const navbarData = {
             link: "#skills"
         },
         {
-            text: "Expreience",
-            link: "#experience"
+            text: "Experience",
+            link: "#experience",
         },
         {
             text: "Services",
