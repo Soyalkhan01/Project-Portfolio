@@ -435,7 +435,6 @@ The project is deployed using:
 - Improved AI assistant
 - Advanced monitoring
 - Authentication and authorization
-- CI/CD pipeline
 
 ---
 
