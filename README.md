@@ -262,6 +262,8 @@ Every push to the `main` branch triggers automated CI checks.
         │  MongoDB Atlas   │                │  SMTP Email      │
         │ Contact Storage  │                │ Email Service    │
         └──────────────────┘                └──────────────────┘
+```
+
 ---
 
 ## 📂 Project Structure
@@ -289,6 +291,7 @@ Project-Portfolio/
 ├── .gitignore
 ├── requirements.txt
 └── README.md
+```
 
 ---
 
