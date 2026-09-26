@@ -11,6 +11,7 @@
  import Education from "../components/home/Education";
  import Certifications from "../components/home/Certifications";
  import AIChatbot from "../components/AIChatbot/AIChatbot";
+ import Preloader from "../components/home/Preloader";
 
 function HomePage(){
     return(
@@ -28,6 +29,7 @@ function HomePage(){
         <Footer/>
         <BackToTop/>
         <AIChatbot/>
+        <Preloader/>
         </>
     );
 };

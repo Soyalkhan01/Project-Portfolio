@@ -18,6 +18,65 @@ html {
         transform: translateX(0) scale(1);
     }
 }
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+
+@keyframes heroLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes heroRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes heroUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content-left {
+    animation: heroLeft 0.9s ease-out both;
+}
+
+.hero-content-right {
+    animation: heroRight 0.9s ease-out 0.2s both;
+}
+
+.hero-technologies {
+    animation: heroUp 0.8s ease-out 0.5s both;
+}
 /* 
 .ai-robot {
     animation: robotPeek 4s ease-in-out infinite;
