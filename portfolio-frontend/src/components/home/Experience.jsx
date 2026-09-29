@@ -45,9 +45,9 @@ function Experience() {
 >
 
     {/* Timeline Dot — Bottom to Top */}
-    <ScrollReveal
-        direction="up"
-        delay={index * 250}
+        <ScrollReveal
+            direction="up"
+            delay={index * 250}
         className="absolute left-0 sm:left-2 top-7 z-10"
     >
         <div className="w-9 h-9 rounded-full bg-white border-4 border-indigo-100 shadow-md flex items-center justify-center">

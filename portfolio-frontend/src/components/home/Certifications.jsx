@@ -42,8 +42,7 @@ function Certifications() {
 
 
                 {/* Certifications Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-5 mt-10">
-
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-5 mt-10 items-stretch">
                     {certificationsData.certificates.map((certification, index) => (
                     <ScrollReveal
                         key={certification.id}
@@ -52,61 +51,58 @@ function Certifications() {
                         className="h-full"
                     >
 
-                        <div
-                            key={certification.id}
-                            role="button"
-                            tabIndex={0}
-                            aria-label={`View ${certification.title} certificate`}
-                            onClick={() => setSelectedCertificate(certification)}
-                            onKeyDown={(event) => {
-                                if (event.key === "Enter" || event.key === " ") {
-                                    event.preventDefault();
-                                    setSelectedCertificate(certification);
-                                }
-                            }}
-                            className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm sm:h-80 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-indigo-950/10 hover:border-indigo-200 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        >
+                       <div
+    role="button"
+    tabIndex={0}
+    aria-label={`View ${certification.title} certificate`}
+    onClick={() => setSelectedCertificate(certification)}
+    onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            setSelectedCertificate(certification);
+        }
+    }}
+    className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm h-80 flex flex-col hover:-translate-y-1.5 hover:shadow-xl hover:shadow-indigo-950/10 hover:border-indigo-200 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500"
+>
 
-                            {/* Glow */}
-                            <div className="absolute -top-10 -right-10 w-24 h-24 rounded-full bg-indigo-100 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    {/* Glow */}
+    <div className="absolute -top-10 -right-10 w-24 h-24 rounded-full bg-indigo-100 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
+    {/* MAIN CONTENT */}
+    <div className="relative flex flex-col flex-1">
 
-                            <div className="relative">
+        {/* Icon */}
+        <div className="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 border border-indigo-100 flex items-center justify-center">
+            <FaTrophy className="text-lg group-hover:scale-110 transition-transform duration-300" />
+        </div>
 
-                                {/* Icon */}
-                                <div className="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 border border-indigo-100 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">
+        {/* Certificate Name */}
+        <h3 className="mt-4 text-sm sm:text-base font-semibold text-indigo-950 leading-snug">
+            {certification.title}
+        </h3>
 
-                                    <FaTrophy className="text-lg group-hover:scale-110 transition-transform duration-300" />
+        {/* Issuer */}
+        <p className="mt-4 text-sm sm:text-base font-semibold text-indigo-950 leading-snug">
+            Issued by: {certification.issuer}
+        </p>
 
-                                </div>
+        {/* Year */}
+        <time className="mt-4 block text-sm sm:text-base font-semibold text-indigo-950 leading-snug">
+            {certification.year}
+        </time>
 
+        {/* BOTTOM */}
+        <div className="mt-auto pt-4 flex items-center gap-2">
+            <span className="w-5 h-px bg-indigo-400 group-hover:w-8 transition-all duration-300"></span>
 
-                                {/* Certificate Name */}
-                                <h3 className="mt-4 text-sm sm:text-base font-semibold text-indigo-950 leading-snug">
-                                    {certification.title}
-                                </h3>
-                               <p className="mt-4 text-sm sm:text-base font-semibold text-indigo-950 leading-snug">
-                                Issued by: {certification.issuer}
-                            </p>
-                                <time className="mt-4 block text-sm sm:text-base font-semibold text-indigo-950 leading-snug">
-                                    {certification.year}
-                                </time>
+            <span className="text-xs font-medium text-gray-500">
+                View Certificate
+            </span>
+        </div>
 
+    </div>
 
-                                {/* Bottom Accent */}
-                                <div className="mt-4 flex items-center gap-2">
-
-                                    <span className="w-5 h-px bg-indigo-400 group-hover:w-8 transition-all duration-300"></span>
-
-                                    <span className="text-xs font-medium text-gray-500">
-                                        View Certificate
-                                    </span>
-
-                                </div>
-
-                            </div>
-
-                        </div>
+</div>
 </ScrollReveal>
                     ))}
 

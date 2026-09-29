@@ -214,8 +214,10 @@ useEffect(() => {
     <ScrollReveal
     direction="left"
     delay={100}
+        className="h-full"
+
 >
-    <div className="group p-6 sm:p-8 rounded-2xl border h-186.5 border-gray-200 bg-gray-50 shadow-sm hover:-translate-y-1 hover:shadow-lg hover:border-indigo-200 transition-all duration-300">
+    <div className="group h-full p-6 sm:p-8 rounded-2xl border border-gray-200 bg-gray-50 shadow-sm hover:-translate-y-1 hover:shadow-lg hover:border-indigo-200 transition-all duration-300">
 
         <h3 className="text-2xl md:text-3xl font-bold text-indigo-950">
             {contactData.title}
@@ -334,7 +336,7 @@ useEffect(() => {
         </div>
 
         {/* Social Links */}
-       <div className="flex flex-wrap gap-3 mt-8">
+       <div className="flex flex-wrap gap-3 mt-10">
 
     {contactData.socialLinks.map((link) => {
 
@@ -375,8 +377,10 @@ useEffect(() => {
 <ScrollReveal
     direction="right"
     delay={200}
+        className="h-full"
+
 >
-    <div className="group p-6 sm:p-8 rounded-2xl border border-gray-200 bg-gray-50 shadow-sm hover:-translate-y-1 hover:shadow-lg hover:border-indigo-200 transition-all duration-300">
+    <div className="group h-full p-6 sm:p-8 rounded-2xl border border-gray-200 bg-gray-50 shadow-sm hover:-translate-y-1 hover:shadow-lg hover:border-indigo-200 transition-all duration-300">
 
 
                     <form 
