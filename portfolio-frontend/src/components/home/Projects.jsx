@@ -1,5 +1,6 @@
 import projectsData from "../../data/projects";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import ScrollReveal from "./ScrollReveal";
 
 function Projects(){
     return(
@@ -13,7 +14,8 @@ function Projects(){
 <div className="absolute -top-40 -right-40 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
 <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div className="text-center mb-14">
+            <ScrollReveal direction="up">
+    <div className="text-center mb-14">
 
     <p className="text-indigo-400 text-sm md:text-base font-semibold tracking-[0.2em] uppercase mb-3">
         {projectsData.section.heading}
@@ -31,15 +33,20 @@ function Projects(){
        {projectsData.section.description}
     </p>
 
-</div>
+    </div>
+</ScrollReveal>
 
         <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
 
-            {projectsData.project.map((project) => (
-
-            <article 
-            key={project.id}
-            className="group relative p-5 sm:p-6 rounded-2xl border border-white/10 bg-white/3 backdrop-blur-sm hover:border-indigo-400/30 hover:bg-indigo-500/3 hover:shadow-xl hover:shadow-indigo-950/20 hover:-translate-y-2 transition-all duration-300 h-full flex flex-col flex-1"
+            {projectsData.project.map((project, index) => (
+    <ScrollReveal
+        key={project.id}
+        direction="up"
+        delay={index * 120}
+        className="h-full"
+    >
+        <article
+            className="group relative p-5 sm:p-6 rounded-2xl border border-white/10 bg-white/3 backdrop-blur-sm hover:border-indigo-400/30 hover:bg-indigo-500/3 hover:shadow-xl hover:shadow-indigo-950/20 hover:-translate-y-2 transition-all duration-300 h-full flex flex-col"
         >
 
                 <div className="relative overflow-hidden rounded-xl mb-6 border border-white/10">
@@ -116,8 +123,9 @@ function Projects(){
     )}
 
 </div>
-            </article>
-            ))}
+        </article>
+    </ScrollReveal>
+))}
         </div>
 
         </section>

@@ -160,7 +160,7 @@ useEffect(() => {
     lg:top-1/2
     lg:-translate-x-1/2
     lg:-translate-y-1/2
-
+    rounded-2xl
     flex-col
     lg:flex-row
     items-start
@@ -169,7 +169,7 @@ useEffect(() => {
     lg:gap-6
 
     absolute
-    top-full
+    top-18
     left-0
     z-50
     w-full

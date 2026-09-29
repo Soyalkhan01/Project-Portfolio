@@ -1,5 +1,6 @@
 import educationData from "../../data/education";
 import { FaGraduationCap } from "react-icons/fa";
+import ScrollReveal from "./ScrollReveal";
 
 function Education() {
     return (
@@ -11,7 +12,11 @@ function Education() {
             <div className="max-w-5xl mx-auto">
 
                 {/* Heading */}
-                <div className="text-center">
+               <ScrollReveal
+                    direction="up"
+                    delay={0}
+                    className="text-center"
+                >
                     <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-700 text-sm font-semibold border border-indigo-100">
                         {educationData.section.heading}
                     </span>
@@ -24,10 +29,15 @@ function Education() {
                     <p className="mt-4 max-w-2xl mx-auto text-gray-600 leading-relaxed">
                         {educationData.section.description}
                     </p>
-                </div>
+                </ScrollReveal>
 
                 {/* Education Card */}
-                <div className="mt-10 group relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm hover:shadow-2xl hover:shadow-indigo-950/10 hover:border-indigo-200 transition-all duration-300">
+               <ScrollReveal
+    direction="up"
+    delay={80}
+    className="mt-10"
+>
+    <div className="group relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm hover:shadow-2xl hover:shadow-indigo-950/10 hover:border-indigo-200 transition-all duration-300">
 
                     {educationData.education.map((education, index) => (
                     <div
@@ -68,6 +78,7 @@ function Education() {
                     ))}
 
             </div>
+            </ScrollReveal>
             </div>
         </section>
     );

@@ -2,10 +2,11 @@ import {
     FaGithub,
     FaLinkedin,
     FaInstagram,
+    FaWhatsapp,
 } from "react-icons/fa";
 
 const footerData = {
-    title: "Full Stack Developer & AI/ML Engineer",
+    title: "Software Engineer & AI/ML Engineer",
 
     description:
         "Building modern web applications and AI-powered solutions.",
@@ -24,8 +25,13 @@ const footerData = {
             icon: FaLinkedin,
         },
         {
+            name: "WhatsApp",
+            url: "https://wa.me/919772627384?text=Hello%20Mr.%20Soyal%20Khan,%20I%20visited%20your%20portfolio",
+            icon: FaWhatsapp,
+        },
+        {
             name: "Instagram",
-            url: "#",
+            url: "https://www.instagram.com/khanbyte01?stkn=ZHd3MmE1dmVtMWVi",
             icon: FaInstagram,
         },
     ],

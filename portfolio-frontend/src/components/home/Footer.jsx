@@ -1,4 +1,5 @@
 import footerData from "../../data/footer";
+import ScrollReveal from "./ScrollReveal";
 
 function Footer() {
     return (
@@ -21,8 +22,10 @@ function Footer() {
             </div>
 
             {/* Social Links */}
-            <nav
-                aria-label="Social media links"
+            <nav>
+           <ScrollReveal
+                direction="up"
+                delay={0}
                 className="flex justify-center flex-wrap gap-3 mt-6 px-2"
             >
                 {footerData.socialLinks.map((social) => {
@@ -48,7 +51,9 @@ function Footer() {
                         </a>
                     );
                 })}
-            </nav>
+                
+           </ScrollReveal>
+           </nav>
 
             {/* Divider */}
             <div className="max-w-4xl mx-auto border-t border-indigo-900/70 mt-8 pt-6"></div>

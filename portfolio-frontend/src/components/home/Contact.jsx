@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 
 import { Turnstile } from "@marsidev/react-turnstile";
+import ScrollReveal from "./ScrollReveal";      
 
 function Contact(){
     
@@ -192,17 +193,29 @@ useEffect(() => {
 
 <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
-            <h2
-            id="contact-heading"
-            className="text-4xl font-bold text-indigo-950 text-center"
-        >
-            {contactData.heading}
-        </h2>
+            <ScrollReveal
+                direction="up"
+                delay={0}
+                className="text-center"
+            >
+                <h2
+                    id="contact-heading"
+                    className="text-4xl font-bold text-indigo-950"
+                >
+                    {contactData.heading}
+                </h2>
+
+                <div className="w-20 h-1 bg-indigo-600 rounded-full mx-auto mt-4"></div>
+            </ScrollReveal>
 
             <div className="relative z-10 max-w-7xl mx-auto mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
 
     {/* Contact Information */}
-    <div className="group p-6 sm:p-8 rounded-2xl border border-gray-200 bg-gray-50 shadow-sm hover:-translate-y-1 hover:shadow-lg hover:border-indigo-200 transition-all duration-300">
+    <ScrollReveal
+    direction="left"
+    delay={100}
+>
+    <div className="group p-6 sm:p-8 rounded-2xl border h-186.5 border-gray-200 bg-gray-50 shadow-sm hover:-translate-y-1 hover:shadow-lg hover:border-indigo-200 transition-all duration-300">
 
         <h3 className="text-2xl md:text-3xl font-bold text-indigo-950">
             {contactData.title}
@@ -356,7 +369,14 @@ useEffect(() => {
 
     </div>
 
-<div className="group p-6 sm:p-8 rounded-2xl border border-gray-200 bg-gray-50 shadow-sm hover:-translate-y-1 hover:shadow-lg hover:border-indigo-200 transition-all duration-300">
+            </ScrollReveal>
+
+            
+<ScrollReveal
+    direction="right"
+    delay={200}
+>
+    <div className="group p-6 sm:p-8 rounded-2xl border border-gray-200 bg-gray-50 shadow-sm hover:-translate-y-1 hover:shadow-lg hover:border-indigo-200 transition-all duration-300">
 
 
                     <form 
@@ -466,7 +486,10 @@ useEffect(() => {
 
 
             </div>
+                        </ScrollReveal>
+
 </div>
+
 
 {sending && (
     <div className="fixed top-28 right-4 left-4 sm:left-auto sm:right-6 z-100 sm:min-w-85 max-w-md">

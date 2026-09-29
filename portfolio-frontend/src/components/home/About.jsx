@@ -1,4 +1,5 @@
 import aboutData from "../../data/about";
+import ScrollReveal from "./ScrollReveal";
 
 function About() {
     return (
@@ -8,22 +9,27 @@ function About() {
         >
 
             {/* Section Heading */}
-            <div className="w-full text-center mb-10 md:mb-12">
-
+            <ScrollReveal
+                direction="up"
+                className="w-full text-center mb-10 md:mb-12"
+            >
                 <p className="text-indigo-400 text-sm md:text-base font-semibold tracking-[0.2em] uppercase">
                     {aboutData.heading}
                 </p>
 
                 <div className="w-20 h-1 bg-indigo-950 rounded-full mx-auto mt-2"></div>
 
-            </div>
+            </ScrollReveal>
 
 
             {/* Main About Content */}
             <div className="w-full flex flex-col md:flex-row items-center justify-between gap-16">
 
                 {/* Left Content */}
-                <div className="w-full md:w-[52%] lg:w-1/2 max-w-2xl px-4 md:px-6 lg:px-0">
+                <ScrollReveal
+                    direction="left"
+                    className="w-full md:w-[52%] lg:w-1/2 max-w-2xl px-4 md:px-6 lg:px-0"
+                >
 
                     <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-indigo-950 mb-4 text-left">
                         {aboutData.title}
@@ -48,10 +54,14 @@ function About() {
                     {/* Stats */}
                     <div className="mt-10 flex flex-wrap gap-4 justify-start">
 
-                        {aboutData.stats.map((stat) => (
+                        {aboutData.stats.map((stat, index) => (
+                        <ScrollReveal
+                            key={stat.value}
+                            direction="up"
+                            delay={index * 120}
+                        >
                             <div
-                                key={stat.value}
-                                className="relative px-5 py-4 rounded-2xl border border-white/10 bg-white/3 shadow-lg shadow-black/10 hover:border-indigo-400/30 hover:bg-indigo-500/5 transition-colors duration-300"
+                                className="relative px-5 py-4 rounded-2xl border border-white/10 bg-white/3 shadow-lg shadow-black/10 hover:border-indigo-400/30 hover:bg-indigo-500/5 transition-all duration-300 hover:-translate-y-1"
                             >
 
                                 <span className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
@@ -65,7 +75,8 @@ function About() {
                                 </p>
 
                             </div>
-                        ))}
+                        </ScrollReveal>
+                    ))}
 
                     </div>
 
@@ -79,31 +90,39 @@ function About() {
 
                         <div className="flex flex-wrap items-center gap-2">
 
-                            {aboutData.technologies.map((technology) => {
+                           {aboutData.technologies.map((technology, index) => {
 
-                                const Icon = technology.icon;
+                            const Icon = technology.icon;
 
-                                return (
+                            return (
+                                <ScrollReveal
+                                    key={technology.name}
+                                    direction="up"
+                                    delay={index * 70}
+                                >
                                     <span
-                                        key={technology.name}
                                         title={technology.name}
-                                        className={`group inline-flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-xl border border-white/10 bg-white/3 text-gray-400 ${technology.color} hover:border-indigo-400/40 hover:bg-indigo-500/5 transition-colors duration-300`}
+                                        className={`group inline-flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-xl border border-white/10 bg-white/3 text-gray-400 ${technology.color} hover:border-indigo-400/40 hover:bg-indigo-500/5 transition-all duration-300`}
                                     >
-                                        <Icon className="text-xl md:text-2xl" />
+                                        <Icon className="text-xl md:text-2xl group-hover:scale-110 transition-transform duration-300" />
                                     </span>
-                                );
+                                </ScrollReveal>
+                            );
 
-                            })}
+                        })}
 
                         </div>
 
                     </div>
 
-                </div>
+                </ScrollReveal>
 
 
                 {/* Right Image */}
-                <div className="w-full md:w-[48%] lg:w-1/2 flex justify-center relative">
+                <ScrollReveal
+    direction="right"
+    className="w-full md:w-[48%] lg:w-1/2 flex justify-center relative"
+>
 
                     <div className="relative flex items-center justify-center lg:translate-x-16">
 
@@ -137,7 +156,7 @@ function About() {
 
                     </div>
 
-                </div>
+                </ScrollReveal>
 
             </div>
 

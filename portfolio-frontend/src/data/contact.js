@@ -36,6 +36,11 @@ const contactData = {
             name: "WhatsApp",
             username: "@SoyalKhanSDE",
             url: "https://wa.me/919772627384?text=Hello%20Mr.%20Soyal%20Khan,%20I%20visited%20your%20portfolio."
+        },
+        {
+            name: "Instagram",
+            username: "@KHANBYTE01",
+            url: "https://www.instagram.com/khanbyte01?stkn=ZHd3MmE1dmVtMWVi"
         }
     ],
 

@@ -1,6 +1,7 @@
 import certificationsData from "../../data/certifications";
 import { FaTrophy } from "react-icons/fa";
 import { useState } from "react";
+import ScrollReveal from "./ScrollReveal";
 
 function Certifications() {
 
@@ -16,7 +17,11 @@ function Certifications() {
             <div className="max-w-5xl mx-auto">
 
                 {/* Heading */}
-                <div className="text-center">
+                <ScrollReveal
+                    direction="up"
+                    delay={0}
+                    className="text-center"
+                >
 
                     <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-700 text-sm font-semibold border border-indigo-100">
                         {certificationsData.section.heading}
@@ -32,14 +37,20 @@ function Certifications() {
                         {certificationsData.section.description}
                     </p>
 
-                </div>        
+                </ScrollReveal>     
 
 
 
                 {/* Certifications Grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-5 mt-10">
 
-                    {certificationsData.certificates.map((certification) => (
+                    {certificationsData.certificates.map((certification, index) => (
+                    <ScrollReveal
+                        key={certification.id}
+                        direction="up"
+                        delay={index * 70}
+                        className="h-full"
+                    >
 
                         <div
                             key={certification.id}
@@ -53,7 +64,7 @@ function Certifications() {
                                     setSelectedCertificate(certification);
                                 }
                             }}
-                            className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm hover:-translate-y-1.5 hover:shadow-xl hover:shadow-indigo-950/10 hover:border-indigo-200 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm sm:h-80 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-indigo-950/10 hover:border-indigo-200 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500"
                         >
 
                             {/* Glow */}
@@ -96,7 +107,7 @@ function Certifications() {
                             </div>
 
                         </div>
-
+</ScrollReveal>
                     ))}
 
                 </div>

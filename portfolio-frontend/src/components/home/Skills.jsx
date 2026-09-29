@@ -1,4 +1,5 @@
 import skillData from "../../data/skill";
+import ScrollReveal from "./ScrollReveal";
 
 function Skill() {
 
@@ -20,7 +21,10 @@ function Skill() {
             <div className="relative z-10 max-w-7xl mx-auto">
 
                 {/* Section Heading */}
-                <div className="text-center mb-14">
+                <ScrollReveal
+                    direction="up"
+                    className="text-center mb-14"
+                >
 
                     <p className="text-indigo-400 text-sm md:text-base font-semibold tracking-[0.2em] uppercase mb-3">
                         {skillData.section.heading}
@@ -38,18 +42,21 @@ function Skill() {
                         {skillData.section.description}
                     </p>
 
-                </div>
+                </ScrollReveal>
 
 
                 {/* Skill Categories */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
 
-                    {skillData.skills.map((category) => (
-
-                        <article
-                            key={category.category}
-                            className="group relative p-5 sm:p-6 md:p-7 rounded-2xl border border-white/10 bg-white/3 hover:border-indigo-400/30 hover:bg-indigo-500/3 transition-all duration-300"
-                        >
+                    {skillData.skills.map((category, index) => (
+    <ScrollReveal
+        key={category.category}
+        direction={index % 2 === 0 ? "left" : "right"}
+        delay={index * 150}
+    >
+        <article
+            className="group relative p-5 sm:p-6 md:p-7 rounded-2xl border border-white/10 bg-white/3 hover:border-indigo-400/30 hover:bg-indigo-500/3 transition-all duration-300"
+        >
 
                             {/* Small Accent Dot */}
                             <span className="absolute top-5 right-5 w-2 h-2 rounded-full bg-indigo-400 opacity-70"></span>
@@ -70,15 +77,18 @@ function Skill() {
                             {/* Skills */}
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
 
-    {category.skills.map((skill) => {
+    {category.skills.map((skill, skillIndex) => {
         const Icon = skill.icon;
 
         return (
-            <div
-                key={skill.name}
-                className="group/skill w-full min-w-0 flex items-center justify-between px-4 py-3 rounded-xl border border-white/10 bg-slate-900/50 text-gray-300 hover:text-white hover:border-indigo-400/40 hover:bg-indigo-500/5 transition-all duration-300"
-            >
-
+            <ScrollReveal
+    key={skill.name}
+    direction="up"
+    delay={skillIndex * 80}
+>
+    <div
+        className="group/skill w-full min-w-0 flex items-center justify-between px-4 py-3 rounded-xl border border-white/10 bg-slate-900/50 text-gray-300 hover:text-white hover:border-indigo-400/40 hover:bg-indigo-500/5 transition-all duration-300"
+    >
                 <div className="flex items-center gap-3 min-w-0">
 
                     <Icon
@@ -105,13 +115,15 @@ function Skill() {
                 className="text-indigo-400 opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300 ml-2 shrink-0">
                     →
                 </span>
+                </div>
 
-            </div>
+           </ScrollReveal>
         );
     })}
 
 </div>
                         </article>
+    </ScrollReveal>
 
                     ))}
 
