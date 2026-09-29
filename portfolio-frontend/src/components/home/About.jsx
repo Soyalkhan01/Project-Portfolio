@@ -5,7 +5,7 @@ function About() {
     return (
         <div
             id="about"
-            className="relative scroll-mt-12 z-10 max-w-7xl mx-auto w-full flex flex-col py-16 md:py-18 px-4 md:px-6 lg:px-0 overflow-hidden"
+            className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-16 md:py-18 px-4 md:px-6 lg:px-0 overflow-hidden"
         >
 
             {/* Section Heading */}
@@ -121,7 +121,7 @@ function About() {
                 {/* Right Image */}
                 <ScrollReveal
     direction="right"
-    className="w-full md:w-[48%] lg:w-1/2 flex justify-center relative"
+    className="w-full md:w-[48%] lg:w-1/2 flex justify-center relative md:mb-30"
 >
 
                     <div className="relative flex items-center justify-center lg:translate-x-16">

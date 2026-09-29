@@ -7,7 +7,7 @@ function Education() {
         <section
             id="education"
             aria-labelledby="education-heading"
-            className="scroll-mt-24 px-6 py-14 md:py-16"
+            className="scroll-mt-20 px-6 py-14 md:py-16"
         >
             <div className="max-w-5xl mx-auto">
 

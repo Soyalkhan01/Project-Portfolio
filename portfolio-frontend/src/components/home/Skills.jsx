@@ -8,7 +8,7 @@ function Skill() {
         <section
             id="skills"
             aria-labelledby="skills-heading"
-            className="relative scroll-mt-16 py-20 md:py-24 px-4 md:px-6 lg:px-0 bg-slate-950 overflow-hidden"
+            className="relative scroll-mt-12 py-20 md:py-24 px-4 md:px-6 lg:px-0 bg-slate-950 overflow-hidden"
         >
 
             {/* Background Glow */}

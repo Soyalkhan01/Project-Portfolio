@@ -11,7 +11,7 @@ function Certifications() {
         <section
             id="certifications"
             aria-labelledby="certifications-heading"
-            className="scroll-mt-8 relative py-20 md:py-24 px-4 md:px-6 lg:px-0 bg-slate-950 overflow-hidden"
+            className="scroll-mt-12 relative py-20 md:py-24 px-4 md:px-6 lg:px-0 bg-slate-950 overflow-hidden"
         >
 
             <div className="max-w-5xl mx-auto">

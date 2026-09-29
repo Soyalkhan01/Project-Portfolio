@@ -61,6 +61,37 @@ function Hero() {
         return () => observer.disconnect();
     }, []);
 
+  const roles = heroData.title;
+
+const [roleText, setRoleText] = useState("");
+const [roleIndex, setRoleIndex] = useState(0);
+const [isDeleting, setIsDeleting] = useState(false);
+
+useEffect(() => {
+    const currentRole = roles[roleIndex];
+
+    const timer = setTimeout(() => {
+        if (!isDeleting) {
+            setRoleText(currentRole.substring(0, roleText.length + 1));
+
+            if (roleText.length + 1 === currentRole.length) {
+                setTimeout(() => {
+                    setIsDeleting(true);
+                }, 1500);
+            }
+        } else {
+            setRoleText(currentRole.substring(0, roleText.length - 1));
+
+            if (roleText.length === 0) {
+                setIsDeleting(false);
+                setRoleIndex((prev) => (prev + 1) % roles.length);
+            }
+        }
+    }, isDeleting ? 60 : 100);
+
+    return () => clearTimeout(timer);
+},);
+
     return (
         <section
             id="home"
@@ -122,36 +153,29 @@ function Hero() {
 
 
                         {/* Title */}
-                        <h2
-                            className={`
-                                text-[17px]
-                                sm:text-sm
-                                md:text-[15px]
-                                lg:text-[16px]
-                                font-medium
-                                tracking-[0.09em]
-                                sm:tracking-widest
-                                lg:tracking-[0.12em]
-                                text-gray-300
-                                mb-2
-                                py-3
-                                leading-relaxed
-                                text-left
-                                whitespace-normal
-                                md:whitespace-normal
-                                lg:whitespace-nowrap
-                                transition-all
-                                duration-1800
-                                ease-[cubic-bezier(0.22,1,0.36,1)]
-                                delay-100
-                                ${isVisible
-                                    ? "opacity-100 translate-y-0"
-                                    : "opacity-0 translate-y-10"
-                                }
-                            `}
-                        >
-                            {heroData.title}
-                        </h2>
+                       <h2
+                        className="
+                            text-[17px]
+                            sm:text-sm
+                            md:text-[15px]
+                            lg:text-[16px]
+                            font-medium
+                            tracking-[0.09em]
+                            sm:tracking-widest
+                            lg:tracking-[0.12em]
+                            text-gray-300
+                            mb-2
+                            py-3
+                            leading-relaxed
+                            text-left
+                            whitespace-normal
+                            md:whitespace-normal
+                            lg:whitespace-nowrap
+                        "
+                    >
+                        {roleText}
+                        <span className="inline-block ml-1 w-0.5 h-5 bg-indigo-400 align-middle animate-pulse"></span>
+                    </h2>
 
 
                         {/* Description */}

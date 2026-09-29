@@ -9,7 +9,7 @@ function Services() {
         <section
             id="services"
             aria-labelledby="services-heading"
-            className="relative py-20 md:py-24 px-4 md:px-6 lg:px-0 bg-white overflow-hidden"
+            className="relative scroll-mt-12 py-20 md:py-24 px-4 md:px-6 lg:px-0 bg-white overflow-hidden"
         >
 
             {/* Background Glow */}

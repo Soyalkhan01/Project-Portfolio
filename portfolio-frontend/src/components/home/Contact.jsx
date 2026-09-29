@@ -187,7 +187,7 @@ useEffect(() => {
         <section
         id="contact"
         aria-labelledby="contact-heading" 
-        className="relative scroll-mt-6 px-4 md:px-6 py-20 md:py-24 bg-white overflow-hidden">
+        className="relative scroll-mt-12 px-4 md:px-6 py-20 md:py-24 bg-white overflow-hidden">
 
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
