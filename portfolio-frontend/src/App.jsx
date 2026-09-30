@@ -18,8 +18,9 @@ function App() {
           select-none
           z-0
           opacity-20
+          mt-13
         "
-        autoPlay
+        autoPlays
         loop
         muted
         playsInline

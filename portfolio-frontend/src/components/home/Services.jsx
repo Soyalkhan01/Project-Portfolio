@@ -4,85 +4,59 @@ import ScrollReveal from "./ScrollReveal";
 
 function Services() {
     const [selectedService, setSelectedService] = useState(null);
+    const [selectedPackage, setSelectedPackage] = useState(null);
+    const [showTerms, setShowTerms] = useState(false);
 
     return (
         <section
             id="services"
             aria-labelledby="services-heading"
-            className="relative scroll-mt-12 py-20 md:py-24 px-4 md:px-6 lg:px-0 bg-white overflow-hidden"
+            className="relative scroll-mt-16 py-20 md:py-28 px-4 md:px-6 bg-white overflow-hidden"
         >
+            {/* Background */}
+            <div className="absolute -top-40 -right-40 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
 
-            {/* Background Glow */}
-            <div className="absolute -top-40 -right-40 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
-
-            <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
-
-
-            {/* Main Container */}
             <div className="relative z-10 max-w-7xl mx-auto">
 
+                {/* ================= HEADER ================= */}
+                <ScrollReveal direction="up" className="text-center">
+                    <p className="text-indigo-500 text-xs md:text-sm font-bold tracking-[0.22em] uppercase">
+                        {serviceData.section.eyebrow}
+                    </p>
 
-                {/* Heading */}
-                <ScrollReveal
-    direction="up"
-    delay={0}
-    className="text-center mb-14"
->
-    {/* Small Heading */}
-    <p className="text-indigo-400 text-sm md:text-base font-semibold tracking-[0.2em] uppercase mb-3">
-        {serviceData.section.heading}
-    </p>
+                    <h2
+                        id="services-heading"
+                        className="mt-3 text-4xl md:text-5xl font-black tracking-tight text-indigo-950"
+                    >
+                        {serviceData.section.title}
+                    </h2>
 
-    {/* Main Heading */}
-    <h2
-        id="services-heading"
-        className="text-4xl md:text-5xl font-extrabold tracking-tight text-indigo-950"
-    >
-        {serviceData.section.title}
-    </h2>
+                    <div className="w-16 h-1 bg-indigo-950 rounded-full mx-auto mt-5" />
 
-    {/* Animated Line */}
-<div className="w-20 h-1 bg-indigo-950 rounded-full mx-auto mt-5 mb-6"></div>
+                    <p className="max-w-2xl mx-auto mt-6 text-gray-500 leading-8">
+                        {serviceData.section.description}
+                    </p>
+                </ScrollReveal>
 
-    {/* Description */}
-    <p className="max-w-2xl mx-auto text-gray-500 text-base md:text-lg leading-8">
-        {serviceData.section.description}
-    </p>
+                {/* ================= TECHNICAL SERVICES ================= */}
+                <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    {serviceData.service.map((service, index) => {
+                        const Icon = service.icon;
 
-</ScrollReveal>
+                        return (
+                            <ScrollReveal
+                                key={service.title}
+                                direction="up"
+                                delay={index * 100}
+                            >
+                                <article className="group relative h-full p-6 rounded-3xl border border-indigo-950/10 bg-white shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all duration-500">
 
-                {/* Service Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-{serviceData.service.map((service, index) => {
+                                    <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-indigo-950 text-indigo-300 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-500">
+                                        <Icon className="text-xl" />
+                                    </div>
 
-    const Icon = service.icon;
-
-    return (
-        <ScrollReveal
-            key={service.title}
-            direction="up"
-            delay={index * 120}
-            className="h-full"
-        >
-
-            <div
-                className="group relative flex flex-col h-full p-6 rounded-2xl border border-indigo-950/10 bg-white/70 backdrop-blur-sm shadow-lg shadow-indigo-950/5 hover:-translate-y-2 hover:border-indigo-400/40 hover:shadow-xl hover:shadow-indigo-950/10 transition-all duration-500"
-            >
-
-                                {/* Accent */}
-                                <span className="absolute top-5 right-5 w-2 h-2 rounded-full bg-indigo-400 opacity-70"></span>
-
-
-                                {/* Icon */}
-                                <div className="relative w-12 h-12 flex items-center justify-center rounded-xl bg-indigo-950 text-indigo-300 border border-indigo-800/50 shadow-lg shadow-indigo-950/20 group-hover:bg-indigo-600 group-hover:text-white group-hover:scale-110 group-hover:-rotate-2 transition-all duration-500">
-                                   <Icon className="text-xl transition-transform duration-500 group-hover:scale-110" />
-                                </div>
-
-
-                                {/* Content */}
-                                <div className="mt-6">
-
-                                    <h3 className="text-xl font-bold text-indigo-950 leading-snug">
+                                    <h3 className="mt-6 text-xl font-bold text-indigo-950">
                                         {service.title}
                                     </h3>
 
@@ -90,179 +64,524 @@ function Services() {
                                         {service.description}
                                     </p>
 
-                                </div>
-
-
-                                {/* Technologies */}
-                                <div className="flex flex-wrap gap-2 mt-5">
-
-                                    {service.technologies.map((technology) => (
-                                        <span
-                                            key={technology}
-                                            className="px-2.5 py-2 rounded-lg bg-indigo-50 border border-indigo-100 text-xs font-medium text-indigo-700 hover:-translate-y-0.5 hover:bg-indigo-100 transition-all duration-300"
-                                        >
-                                            {technology}
-                                        </span>
-                                    ))}
-
-                                </div>
-
-
-                                {/* Explore */}
-                                <div className="mt-auto pt-7">
+                                    <div className="flex flex-wrap gap-2 mt-5">
+                                        {service.technologies.slice(0, 5).map(
+                                            (technology) => (
+                                                <span
+                                                    key={technology}
+                                                    className="px-2.5 py-1.5 rounded-lg bg-indigo-50 border border-indigo-100 text-[11px] font-semibold text-indigo-700"
+                                                >
+                                                    {technology}
+                                                </span>
+                                            )
+                                        )}
+                                    </div>
 
                                     <button
-                                    type="button"
-                                    onClick={() => setSelectedService(service)}
-                                    aria-label={`Explore ${service.title} service details`}
-                                    className="w-full flex items-center justify-between px-4 py-3 rounded-xl border border-indigo-950/10 text-sm font-semibold text-indigo-950 hover:bg-indigo-950 hover:text-white hover:border-indigo-950 hover:cursor-pointer transition-all duration-300"
-                                >
-                                    <span>Explore</span>
-
-                                    <span
-                                        aria-hidden="true"
-                                        className="text-lg group-hover:translate-x-1 transition-transform duration-300"
+                                        type="button"
+                                        onClick={() =>
+                                            setSelectedService(service)
+                                        }
+                                        className="mt-7 w-full flex items-center justify-between px-4 py-3 rounded-xl border border-indigo-950/10 text-sm font-semibold text-indigo-950 hover:bg-indigo-950 hover:text-white transition-all"
                                     >
-                                        →
-                                    </span>
-                                </button>
+                                        <span>Explore Service</span>
+                                        <span>→</span>
+                                    </button>
+                                </article>
+                            </ScrollReveal>
+                        );
+                    })}
+                </div>
 
+                {/* ================= PROJECTS ================= */}
+                <ScrollReveal
+                    direction="up"
+                    className="text-center mt-28 mb-12"
+                >
+                    <p className="text-indigo-500 text-xs font-bold tracking-[0.22em] uppercase">
+                        {serviceData.section.eyebrow2}
+                    </p>
+
+                    <h3 className="mt-3 text-3xl md:text-4xl font-black text-indigo-950">
+                        {serviceData.section.title2}
+                    </h3>
+
+                    <p className="max-w-xl mx-auto mt-4 text-gray-500">
+                        {serviceData.section.description2
+                        }
+                    </p>
+                </ScrollReveal>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+    {serviceData.projects.map((project, index) => (
+        <ScrollReveal
+            key={project.title}
+            direction="up"
+            delay={index * 100}
+            className="h-full"
+        >
+            <a
+                href={project.link}
+                className="group flex flex-col h-full rounded-3xl border border-indigo-950/10 bg-white p-6 shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all duration-500"
+            >
+                {/* Project Image */}
+                <div className="relative h-40 shrink-0 overflow-hidden rounded-2xl">
+                    <img
+                        src={project.image}
+                        alt={`${project.title} preview`}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+
+                    <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
+
+                    <span className="absolute bottom-4 left-4 text-white text-sm font-semibold">
+                        {project.category}
+                    </span>
+                </div>
+
+                {/* Content */}
+                <div className="flex flex-col flex-1">
+                    <h4 className="mt-5 text-xl font-bold text-indigo-950 group-hover:text-indigo-600 transition">
+                        {project.title}
+                    </h4>
+
+                    <p className="mt-2 text-sm text-gray-500 leading-6">
+                        {project.description}
+                    </p>
+
+                    <div className="mt-auto pt-5 text-sm font-bold text-indigo-600">
+                        View Project →
+                    </div>
+                </div>
+            </a>
+        </ScrollReveal>
+    ))}
+</div>
+
+                {/* ================= PACKAGES ================= */}
+                <ScrollReveal
+                    direction="up"
+                    className="text-center mt-28 mb-12"
+                >
+                    <p className="text-indigo-500 text-xs font-bold tracking-[0.22em] uppercase">
+                        {serviceData.section.eyebrow3}
+                    </p>
+
+                    <h3 className="mt-3 text-3xl md:text-4xl font-black text-indigo-950">
+                        {serviceData.section.title3}
+                    </h3>
+
+                    <p className="max-w-2xl mx-auto mt-4 text-gray-500 leading-7">
+                        {serviceData.section.description3}
+                    </p>
+                </ScrollReveal>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                    {serviceData.packages.map((pkg, index) => (
+                        <ScrollReveal
+                            key={pkg.name}
+                            direction="up"
+                            delay={index * 100}
+                        >
+                            <article
+                                className={`relative flex flex-col h-full rounded-3xl p-7 bg-white border shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${
+                                    pkg.recommended
+                                        ? "border-indigo-500 ring-2 ring-indigo-500/10 md:scale-[1.03]"
+                                        : "border-indigo-950/10"
+                                }`}
+                            >
+                                {pkg.recommended && (
+                                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                                        <span className="px-4 py-1.5 rounded-full bg-indigo-950 text-white text-[11px] font-bold tracking-wider whitespace-nowrap">
+                                            POPULAR PACKAGE
+                                        </span>
+                                    </div>
+                                )}
+
+                                <div className="text-center">
+                                    <div className="text-3xl">
+                                        {pkg.icon}
+                                    </div>
+
+                                    <h4 className="mt-3 text-2xl font-black text-indigo-950">
+                                        {pkg.name}
+                                    </h4>
+
+                                    <p className="mt-2 text-sm text-gray-500">
+                                        {pkg.subtitle}
+                                    </p>
+
+                                    <div className="mt-5">
+                                        <span className="text-4xl font-black text-indigo-950">
+                                            {pkg.price}
+                                        </span>
+                                    </div>
                                 </div>
 
-                                     </div>
+                                <p className="mt-5 text-center text-sm text-gray-500 leading-6">
+                                    {pkg.description}
+                                </p>
 
-        </ScrollReveal>
-    );
-})}
+                                <div className="mt-6 space-y-3">
+                                    {pkg.highlights.map((feature) => (
+                                        <div
+                                            key={feature}
+                                            className="flex items-start gap-3 text-sm text-gray-600"
+                                        >
+                                            <span className="text-indigo-600 font-bold">
+                                                ✓
+                                            </span>
+                                            <span>{feature}</span>
+                                        </div>
+                                    ))}
+                                </div>
 
+                                <div className="mt-auto pt-7 space-y-3">
+                                    <button
+                                        type="button"
+                                        onClick={() =>
+                                            setSelectedPackage(pkg)
+                                        }
+                                        className="w-full px-5 py-3 rounded-xl border border-indigo-950/10 text-sm font-bold text-indigo-950 hover:bg-indigo-50 transition"
+                                    >
+                                        View Full Details
+                                    </button>
+
+                                    <a
+                                        href="#contact"
+                                        className="w-full inline-flex items-center justify-center px-5 py-3 rounded-xl bg-indigo-950 text-white text-sm font-bold hover:bg-indigo-800 transition"
+                                    >
+                                        Get Started
+                                    </a>
+                                </div>
+                            </article>
+                        </ScrollReveal>
+                    ))}
+                </div>  
+
+                {/* ================= INCLUDED ================= */}
+                <ScrollReveal
+                    direction="up"
+                    className="mt-24"
+                >
+                    <div className="rounded-3xl bg-indigo-950 p-7 md:p-10">
+                        <div className="max-w-2xl">
+                            <p className="text-indigo-300 text-xs font-bold tracking-[0.22em] uppercase">
+                                {serviceData.include.title}
+                            </p>
+
+                            <h3 className="mt-3 text-3xl font-black text-white">
+                                {serviceData.include.subtitle}
+                            </h3>
+
+                            <p className="mt-4 text-indigo-200 leading-7">
+                                {serviceData.include.description}
+                            </p>
+                        </div>
+
+                        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {serviceData.included.map((item) => (
+                                <div
+                                    key={item}
+                                    className="flex items-center gap-3 rounded-2xl bg-white/10 border border-white/10 p-4 text-sm text-white"
+                                >
+                                    <span className="text-indigo-300 font-bold">
+                                        ✓
+                                    </span>
+                                    {item}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </ScrollReveal>
+
+                {/* ================= PROCESS ================= */}
+                <ScrollReveal
+                    direction="up"
+                    className="text-center mt-28 mb-12"
+                >
+                    <p className="text-indigo-500 text-xs font-bold tracking-[0.22em] uppercase">
+                        {serviceData.section.eyebrow4}
+                    </p>
+
+                    <h3 className="mt-3 text-3xl md:text-4xl font-black text-indigo-950">
+                        {serviceData.section.title4}
+                    </h3>
+                </ScrollReveal>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                    {serviceData.process.map((step, index) => (
+                        <ScrollReveal
+                            key={step.number}
+                            direction="up"
+                            delay={index * 100}
+                        >
+                            <div className="relative h-full rounded-3xl border border-indigo-950/10 bg-white p-6 shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all">
+                                <span className="text-4xl font-black text-indigo-100">
+                                    {step.number}
+                                </span>
+
+                                <h4 className="mt-4 text-lg font-bold text-indigo-950">
+                                    {step.title}
+                                </h4>
+
+                                <p className="mt-2 text-sm text-gray-500 leading-6">
+                                    {step.description}
+                                </p>
+                            </div>
+                        </ScrollReveal>
+                    ))}
                 </div>
 
+                {/* ================= CTA ================= */}
+                <ScrollReveal
+                    direction="up"
+                    className="mt-24"
+                >
+                    <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-indigo-950 to-indigo-800 p-8 md:p-12 text-center shadow-2xl">
+                        <div className="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-white/10 blur-3xl" />
 
-                {/* CTA */}
-                <div className="flex justify-center mt-12">
+                        <div className="relative">
+                            <p className="text-indigo-300 text-xs font-bold tracking-[0.22em] uppercase">
+                                {serviceData.consulation.title}
+                            </p>
 
-                    <a
-                        href="#contact"
-                        className="inline-flex items-center justify-center px-7 py-3 rounded-xl bg-indigo-950 text-white text-sm font-semibold shadow-lg shadow-indigo-950/20 hover:bg-indigo-800 hover:-translate-y-0.5 transition-all duration-300"
+                            <h3 className="mt-3 text-3xl md:text-4xl font-black text-white">
+                                {serviceData.consulation.subtitle}
+                            </h3>
+
+                            <p className="max-w-xl mx-auto mt-4 text-indigo-200 leading-7">
+                                {serviceData.consulation.description}
+                            </p>
+
+                            <div className="mt-7 flex flex-col sm:flex-row justify-center gap-3">
+                                <a
+                                    href="#contact"
+                                    className="inline-flex items-center justify-center px-7 py-3 rounded-xl bg-white text-indigo-950 text-sm font-bold hover:bg-indigo-100 transition"
+                                >
+                                    {serviceData.button2.text2}
+                                </a>
+
+                                <a
+                                    href="https://wa.me/919772627384?text=Hello%20Soyal%2C%20I%20visited%20your%20portfolio%20and%20I%27m%20interested%20in%20getting%20a%20website%20for%20my%20business.%20I%27d%20like%20to%20discuss%20the%20requirements%2C%20pricing%20and%20available%20packages."
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center px-7 py-3 rounded-xl border border-white/20 bg-white/10 text-white text-sm font-bold hover:bg-white/20 transition"
+                                >
+                                    {serviceData.button2.text3}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </ScrollReveal>
+
+                {/* Terms */}
+                <div className="mt-8 text-center">
+                    <button
+                        type="button"
+                        onClick={() => setShowTerms(true)}
+                        className="text-sm font-semibold text-indigo-600 hover:text-indigo-950 underline underline-offset-4"
                     >
-                        {serviceData.button.text}
-                    </a>
-
+                        {serviceData.ConditionButton.text}
+                    </button>
                 </div>
-
             </div>
 
-
-            {/* Service Modal */}
+            {/* ================= SERVICE MODAL ================= */}
             {selectedService && (
-    <div
-    className="fixed inset-0 z-999 flex items-center justify-center px-4 bg-black/60 backdrop-blur-sm"
-    role="presentation"
-    onClick={() => setSelectedService(null)}
->
-
-    <div
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="service-modal-heading"
-    onClick={(event) => event.stopPropagation()}
-    className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-3xl bg-white p-6 sm:p-8 shadow-2xl"
->
-
-                        {/* Close Button */}
-                      <button
-                        type="button"
-                        onClick={() => setSelectedService(null)}
-                        aria-label={`Close ${selectedService.title} service details`}
-                        className="absolute top-4 right-4 w-9 h-9 rounded-xl border border-gray-200 text-gray-500 hover:text-indigo-950 hover:bg-gray-100 hover:cursor-pointer transition"
+                <div
+                    className="fixed inset-0 z-999 flex items-center justify-center px-4 bg-black/60 backdrop-blur-sm"
+                    onClick={() => setSelectedService(null)}
+                >
+                    <div
+                        role="dialog"
+                        aria-modal="true"
+                        onClick={(event) => event.stopPropagation()}
+                        className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-3xl bg-white p-6 sm:p-8 shadow-2xl"
                     >
-                        ×
-                    </button>
+                        <button
+                            type="button"
+                            onClick={() => setSelectedService(null)}
+                            className="absolute top-4 right-4 w-9 h-9 rounded-xl border border-gray-200 text-gray-500 hover:bg-gray-100"
+                        >
+                            ×
+                        </button>
 
-
-                        {/* Icon */}
                         {(() => {
-                            const SelectedIcon = selectedService.icon;
+                            const Icon = selectedService.icon;
 
                             return (
                                 <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-indigo-950 text-indigo-300">
-                                    <SelectedIcon className="text-xl" />
+                                    <Icon />
                                 </div>
                             );
                         })()}
 
-
-                        {/* Title */}
-                        <h3
-                        id="service-modal-heading"
-                        className="mt-5 pr-10 text-2xl font-bold text-indigo-950">
+                        <h3 className="mt-5 pr-10 text-2xl font-bold text-indigo-950">
                             {selectedService.title}
                         </h3>
 
-
-                        {/* Description */}
                         <p className="mt-3 text-gray-500 leading-7">
                             {selectedService.description}
                         </p>
 
-
-                        {/* Details */}
                         <h4 className="mt-6 text-sm font-bold uppercase tracking-wider text-indigo-950">
                             What I Can Build
                         </h4>
 
                         <div className="mt-3 space-y-2">
-
-                            {selectedService.details?.map((detail) => (
+                            {selectedService.details.map((detail) => (
                                 <div
                                     key={detail}
-                                    className="flex items-start gap-3 text-sm text-gray-600"
+                                    className="flex gap-3 text-sm text-gray-600"
                                 >
-                                   <span
-                                        aria-hidden="true"
-                                        className="mt-1 text-indigo-500"
-                                    >
+                                    <span className="text-indigo-500">
                                         ✓
                                     </span>
-
-                                    <span>
-                                        {detail}
-                                    </span>
+                                    {detail}
                                 </div>
                             ))}
-
                         </div>
 
-
-                        {/* Technologies */}
                         <div className="mt-6 flex flex-wrap gap-2">
-
-                            {selectedService.technologies.map((technology) => (
+                            {selectedService.technologies.map((tech) => (
                                 <span
-                                    key={technology}
+                                    key={tech}
                                     className="px-3 py-1.5 rounded-lg bg-indigo-50 border border-indigo-100 text-xs font-medium text-indigo-700"
                                 >
-                                    {technology}
+                                    {tech}
                                 </span>
                             ))}
-
                         </div>
 
-
-                        {/* Contact */}
                         <a
                             href="#contact"
                             onClick={() => setSelectedService(null)}
-                            className="mt-7 inline-flex w-full items-center justify-center px-5 py-3 rounded-xl bg-indigo-950 text-white text-sm font-semibold hover:bg-indigo-800 transition"
+                            className="mt-7 inline-flex w-full items-center justify-center px-5 py-3 rounded-xl bg-indigo-950 text-white text-sm font-semibold hover:bg-indigo-800"
                         >
-                            {serviceData.button.text}
+                            Let's Work Together
                         </a>
-
                     </div>
-
                 </div>
             )}
 
+            {/* ================= PACKAGE MODAL ================= */}
+            {selectedPackage && (
+                <div
+                    className="fixed inset-0 z-999 flex items-center justify-center px-4 bg-black/60 backdrop-blur-sm"
+                    onClick={() => setSelectedPackage(null)}
+                >
+                    <div
+                        role="dialog"
+                        aria-modal="true"
+                        onClick={(event) => event.stopPropagation()}
+                        className="relative w-full max-w-2xl max-h-[88vh] overflow-y-auto rounded-3xl bg-white p-6 sm:p-8 shadow-2xl"
+                    >
+                        <button
+                            type="button"
+                            onClick={() => setSelectedPackage(null)}
+                            className="absolute top-4 right-4 w-9 h-9 rounded-xl border border-gray-200 text-gray-500 hover:bg-gray-100"
+                        >
+                            ×
+                        </button>
+
+                        <div className="text-center pr-8">
+                            <div className="text-4xl">
+                                {selectedPackage.icon}
+                            </div>
+
+                            <h3 className="mt-3 text-3xl font-black text-indigo-950">
+                                {selectedPackage.name} Package
+                            </h3>
+
+                            <p className="mt-2 text-gray-500">
+                                {selectedPackage.subtitle}
+                            </p>
+
+                            <div className="mt-4 text-4xl font-black text-indigo-950">
+                                {selectedPackage.price}
+                            </div>
+                        </div>
+
+                        <div className="mt-8">
+                            <h4 className="text-sm font-bold uppercase tracking-wider text-indigo-950">
+                                Package Includes
+                            </h4>
+
+                            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                {selectedPackage.features.map((feature) => (
+                                    <div
+                                        key={feature}
+                                        className="flex items-start gap-3 rounded-xl bg-indigo-50/70 p-3 text-sm text-gray-700"
+                                    >
+                                        <span className="text-indigo-600 font-bold">
+                                            ✓
+                                        </span>
+                                        <span>{feature}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <a
+                            href="#contact"
+                            onClick={() => setSelectedPackage(null)}
+                            className="mt-8 inline-flex w-full items-center justify-center px-5 py-3 rounded-xl bg-indigo-950 text-white text-sm font-semibold hover:bg-indigo-800"
+                        >
+                            Get Started with {selectedPackage.name}
+                        </a>
+                    </div>
+                </div>
+            )}
+
+            {/* ================= TERMS MODAL ================= */}
+            {showTerms && (
+                <div
+                    className="fixed inset-0 z-999 flex items-center justify-center px-4 bg-black/60 backdrop-blur-sm"
+                    onClick={() => setShowTerms(false)}
+                >
+                    <div
+                        role="dialog"
+                        aria-modal="true"
+                        onClick={(event) => event.stopPropagation()}
+                        className="relative w-full max-w-2xl max-h-[88vh] overflow-y-auto rounded-3xl bg-white p-6 sm:p-8 shadow-2xl"
+                    >
+                        <button
+                            type="button"
+                            onClick={() => setShowTerms(false)}
+                            className="absolute top-4 right-4 w-9 h-9 rounded-xl border border-gray-200 text-gray-500 hover:bg-gray-100"
+                        >
+                            ×
+                        </button>
+
+                        <h3 className="text-2xl md:text-3xl font-bold text-indigo-950 pr-10">
+                            {serviceData.ConditionTerm.text}
+                        </h3>
+
+                        <div className="mt-6 space-y-4">
+                            {serviceData.terms.map((term, index) => (
+                                <div
+                                    key={index}
+                                    className="flex items-start gap-3 text-sm text-gray-600 leading-6"
+                                >
+                                    <span className="text-indigo-500 font-bold">
+                                        •
+                                    </span>
+                                    <span>{term}</span>
+                                </div>
+                            ))}
+                        </div>
+
+                        <button
+                            type="button"
+                            onClick={() => setShowTerms(false)}
+                            className="mt-7 w-full px-5 py-3 rounded-xl bg-indigo-950 text-white text-sm font-semibold hover:bg-indigo-800"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
         </section>
     );
 }
