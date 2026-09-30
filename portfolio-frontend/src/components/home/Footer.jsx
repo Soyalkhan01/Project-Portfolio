@@ -58,8 +58,27 @@ function Footer() {
             {/* Divider */}
             <div className="max-w-4xl mx-auto border-t border-indigo-900/70 mt-8 pt-6"></div>
 
+            {/* Legal Links */}
+<div className="flex justify-center items-center gap-4 mt-5 text-sm">
+    <a
+        href="/privacy-policy"
+        className="text-indigo-200 hover:text-white transition"
+    >
+        Privacy Policy
+    </a>
+
+    <span className="text-indigo-700">|</span>
+
+    <a
+        href="/terms-and-conditions"
+        className="text-indigo-200 hover:text-white transition"
+    >
+        Terms & Conditions
+    </a>
+</div>
+
             {/* Copyright */}
-            <p className="text-center text-sm sm:text-base text-white">
+            <p className="text-center text-sm sm:text-base text-white mt-3">
                 © {new Date().getFullYear()} {footerData.copyrightName}. All rights reserved.
             </p>
         </footer>
