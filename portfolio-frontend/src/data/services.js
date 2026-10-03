@@ -12,9 +12,9 @@ import weatherImage from "../assets/images/projects/weather.png";
 const serviceData = {
     section: {
         eyebrow: "What I Can Build",
-        title: "Web Development & AI Services",
+        title: "Website Development & AI Services",
         description:
-            "Professional digital solutions for businesses, startups, personal brands and modern web applications.",
+            "I provide professional website development and custom web solutions for businesses, startups, and individuals, including responsive, e-commerce, and full-stack websites.",
         eyebrow2: "Selected Work",
         title2: "Recent Website Projects",
         description2:
@@ -29,9 +29,10 @@ const serviceData = {
 
     service: [
         {
-            title: "Full Stack Web Development",
-            description:
-                "Responsive and scalable web applications with modern frontend interfaces, backend APIs, authentication and database integration.",
+            
+        title: "Full Stack Web Development",
+        description:
+        "Custom full-stack web development with responsive frontend interfaces, backend APIs, authentication, databases, and scalable web applications.",
             icon: FaCode,
             technologies: [
                 "React.js",
@@ -52,9 +53,9 @@ const serviceData = {
         },
 
         {
-            title: "Business & Portfolio Websites",
+            title: "Business & Custom Website Development",
             description:
-                "Professional, responsive and SEO-friendly websites for businesses, personal brands, developers and professionals.",
+                "Professional business and custom website development for companies, startups, professionals, and personal brands with responsive design and SEO-friendly structure.",
             icon: FaGlobe,
             technologies: [
                 "React.js",
@@ -75,7 +76,7 @@ const serviceData = {
         {
             title: "E-Commerce Website Development",
             description:
-                "Complete online stores with product listings, shopping cart, checkout, orders, authentication and admin functionality.",
+                "Professional e-commerce website development with product catalogs, shopping cart, checkout, order management, authentication, and admin functionality.",
             icon: FaShoppingCart,
             technologies: [
                 "React.js",
@@ -94,9 +95,9 @@ const serviceData = {
         },
 
         {
-            title: "AI, ML & Python Solutions",
+            title: "AI, ML & Python Development",
             description:
-                "Python-based AI, machine learning, data analysis and intelligent API solutions for practical business and technical use cases.",
+                "Python-based AI, machine learning, data analysis, and intelligent web solutions for practical business and technical applications.",
             icon: FaRobot,
             technologies: [
                 "Python",
@@ -123,7 +124,7 @@ const serviceData = {
             title: "Business Website",
             category: "Business Website",
             description:
-                "Modern responsive website designed for a local business and Shops.",
+            "Modern responsive business website developed for a local business with professional services, contact information, and customer-focused design.",
             image: businessImage,
             link: "https://client-business-website-alpha.vercel.app",
         },
@@ -131,7 +132,7 @@ const serviceData = {
             title: "E-Commerce Website",
             category: "E-Commerce",
             description:
-                "Responsive online store with product and shopping functionality.",
+            "Responsive e-commerce website with product listings, shopping cart, checkout, and modern online shopping functionality.",
             image: ecommerceImage,
             link: "https://my-ecommerce-website-gamma.vercel.app/",
         },
@@ -139,14 +140,14 @@ const serviceData = {
             title: "Weather Application",
             category: "React + Python",
             description:
-                "Weather application with API integration, search and data visualization.",
+            "Weather web application built with React and Python featuring API integration, city search, forecasts, and data visualization.",
             image: weatherImage,
             link: "https://weather-app-sigma-three-70.vercel.app",
         },
     ],
 
 packages: [
-    {
+    {   
         name: "Basic",
         icon: "⭐",
         oldPrice: "₹4,999",
