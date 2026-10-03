@@ -1,6 +1,7 @@
 import { useState } from "react";
 import serviceData from "../../data/services";
 import ScrollReveal from "./ScrollReveal";
+ import ServiceHighlights from "./ServiceHighlights";
 
 function Services() {
     const [selectedService, setSelectedService] = useState(null);
@@ -158,107 +159,247 @@ function Services() {
     ))}
 </div>
 
-                {/* ================= PACKAGES ================= */}
-                <ScrollReveal
-                    direction="up"
-                    className="text-center mt-28 mb-12"
+{/* ================= PACKAGES ================= */}
+<ScrollReveal
+    direction="up"
+    className="text-center mt-28 mb-12"
+>
+    <p className="text-indigo-500 text-xs font-bold tracking-[0.22em] uppercase">
+        {serviceData.section.eyebrow3}
+    </p>
+
+    <h3 className="mt-3 text-3xl md:text-4xl font-black text-indigo-950">
+        {serviceData.section.title3}
+    </h3>
+
+    <p className="max-w-2xl mx-auto mt-4 text-gray-500 leading-7">
+        {serviceData.section.description3}
+    </p>
+</ScrollReveal>
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+    {serviceData.packages.map((pkg, index) => {
+        const isStandard = pkg.name === "Standard";
+
+        return (
+            <ScrollReveal
+                key={pkg.name}
+                direction="up"
+                delay={index * 100}
+            >
+                <article
+                    className={`relative flex flex-col h-full rounded-3xl p-7 bg-white border shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${
+                        pkg.recommended
+                            ? "border-indigo-500 ring-2 ring-indigo-500/10 md:scale-[1.03]"
+                            : "border-indigo-950/10"
+                    }`}
                 >
-                    <p className="text-indigo-500 text-xs font-bold tracking-[0.22em] uppercase">
-                        {serviceData.section.eyebrow3}
-                    </p>
 
-                    <h3 className="mt-3 text-3xl md:text-4xl font-black text-indigo-950">
-                        {serviceData.section.title3}
-                    </h3>
+                    {/* ================= POPULAR PACKAGE ================= */}
+                    {pkg.recommended && (
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+                            <span className="px-4 py-1.5 rounded-full bg-indigo-950 text-white text-[11px] font-bold tracking-wider whitespace-nowrap shadow-md">
+                                POPULAR PACKAGE
+                            </span>
+                        </div>
+                    )}
 
-                    <p className="max-w-2xl mx-auto mt-4 text-gray-500 leading-7">
-                        {serviceData.section.description3}
-                    </p>
-                </ScrollReveal>
+                    {/* ================= PACKAGE HEADER ================= */}
+                    <div className="text-center">
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-                    {serviceData.packages.map((pkg, index) => (
-                        <ScrollReveal
-                            key={pkg.name}
-                            direction="up"
-                            delay={index * 100}
-                        >
-                            <article
-                                className={`relative flex flex-col h-full rounded-3xl p-7 bg-white border shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${
-                                    pkg.recommended
-                                        ? "border-indigo-500 ring-2 ring-indigo-500/10 md:scale-[1.03]"
-                                        : "border-indigo-950/10"
-                                }`}
-                            >
-                                {pkg.recommended && (
-                                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                                        <span className="px-4 py-1.5 rounded-full bg-indigo-950 text-white text-[11px] font-bold tracking-wider whitespace-nowrap">
-                                            POPULAR PACKAGE
-                                        </span>
-                                    </div>
-                                )}
+                        {/* Icon */}
+                        <div className="text-3xl">
+                            {pkg.icon}
+                        </div>
 
-                                <div className="text-center">
-                                    <div className="text-3xl">
-                                        {pkg.icon}
-                                    </div>
+                        {/* Name */}
+                        <h4 className="mt-3 text-2xl font-black text-indigo-950">
+                            {pkg.name}
+                        </h4>
 
-                                    <h4 className="mt-3 text-2xl font-black text-indigo-950">
-                                        {pkg.name}
-                                    </h4>
+                        {/* Subtitle */}
+                        <p className="mt-2 text-sm text-gray-500">
+                            {pkg.subtitle}
+                        </p>
 
-                                    <p className="mt-2 text-sm text-gray-500">
-                                        {pkg.subtitle}
-                                    </p>
+                        {/* ================= PRICING ================= */}
+                        <div className="mt-5">
 
-                                    <div className="mt-5">
-                                        <span className="text-4xl font-black text-indigo-950">
-                                            {pkg.price}
-                                        </span>
-                                    </div>
+                            {/* LIMITED OFFER - STANDARD ONLY */}
+                            {isStandard && (
+                                <div className="mb-4 flex justify-center">
+                                    <span
+                                        className="
+                                            inline-flex
+                                            items-center
+                                            gap-2
+                                            rounded-full
+                                            border border-red-200
+                                            bg-red-50
+                                            px-4 py-1.5
+                                            text-[10px]
+                                            font-extrabold
+                                            uppercase
+                                            tracking-[0.16em]
+                                            text-red-600
+                                            shadow-sm
+                                        "
+                                    >
+                                        <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
+                                        Limited Offer
+                                    </span>
                                 </div>
+                            )}
 
-                                <p className="mt-5 text-center text-sm text-gray-500 leading-6">
-                                    {pkg.description}
-                                </p>
+                            {/* OLD + NEW PRICE */}
+                            <div className="flex items-center justify-center gap-3 flex-wrap">
 
-                                <div className="mt-6 space-y-3">
-                                    {pkg.highlights.map((feature) => (
-                                        <div
-                                            key={feature}
-                                            className="flex items-start gap-3 text-sm text-gray-600"
+                                {/* Old Price */}
+                                <span
+                                    className="
+                                        text-lg
+                                        sm:text-xl
+                                        font-semibold
+                                        text-gray-400
+                                        line-through
+                                        decoration-red-400
+                                        decoration-2
+                                    "
+                                >
+                                    {pkg.oldPrice}
+                                </span>
+
+                                {/* Current Price */}
+                                <span
+                                    className="
+                                        text-4xl
+                                        sm:text-5xl
+                                        font-black
+                                        tracking-tight
+                                        text-indigo-950
+                                    "
+                                >
+                                    {pkg.price}
+                                </span>
+
+                            </div>
+
+                            {/* 10% OFF - STANDARD ONLY */}
+                            {isStandard && (
+                                <>
+                                    <div className="mt-3 flex justify-center">
+                                        <span
+                                            className="
+                                                inline-flex
+                                                items-center
+                                                rounded-lg
+                                                bg-red-600
+                                                px-3.5 py-1
+                                                text-xs
+                                                font-extrabold
+                                                text-white
+                                                shadow-sm
+                                            "
                                         >
-                                            <span className="text-indigo-600 font-bold">
-                                                ✓
-                                            </span>
-                                            <span>{feature}</span>
-                                        </div>
-                                    ))}
-                                </div>
+                                            10% OFF
+                                        </span>
+                                    </div>
 
-                                <div className="mt-auto pt-7 space-y-3">
-                                    <button
-                                        type="button"
-                                        onClick={() =>
-                                            setSelectedPackage(pkg)
-                                        }
-                                        className="w-full px-5 py-3 rounded-xl border border-indigo-950/10 text-sm font-bold text-indigo-950 hover:bg-indigo-50 transition"
-                                    >
-                                        View Full Details
-                                    </button>
+                                    <p className="mt-2 text-[11px] font-medium text-gray-400">
+                                        Limited-time pricing
+                                    </p>
+                                </>
+                            )}
 
-                                    <a
-                                        href="#contact"
-                                        className="w-full inline-flex items-center justify-center px-5 py-3 rounded-xl bg-indigo-950 text-white text-sm font-bold hover:bg-indigo-800 transition"
-                                    >
-                                        Get Started
-                                    </a>
-                                </div>
-                            </article>
-                        </ScrollReveal>
-                    ))}
-                </div>  
+                        </div>
+                    </div>
 
+                    {/* ================= DESCRIPTION ================= */}
+                    <p className="mt-5 text-center text-sm text-gray-500 leading-6">
+                        {pkg.description}
+                    </p>
+
+                    {/* ================= HIGHLIGHTS ================= */}
+                    <div className="mt-6 space-y-3">
+                        {pkg.highlights.map((feature) => (
+                            <div
+                                key={feature}
+                                className="flex items-start gap-3 text-sm text-gray-600"
+                            >
+                                <span
+                                    className="
+                                        mt-0.5
+                                        flex h-5 w-5
+                                        shrink-0
+                                        items-center
+                                        justify-center
+                                        rounded-full
+                                        bg-indigo-50
+                                        text-xs
+                                        font-bold
+                                        text-indigo-600
+                                    "
+                                >
+                                    ✓
+                                </span>
+
+                                <span>{feature}</span>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* ================= BUTTONS ================= */}
+                    <div className="mt-auto pt-7 space-y-3">
+
+                        <button
+                            type="button"
+                            onClick={() => setSelectedPackage(pkg)}
+                            className="
+                                w-full
+                                px-5 py-3
+                                rounded-xl
+                                border border-indigo-950/10
+                                text-sm
+                                font-bold
+                                text-indigo-950
+                                hover:bg-indigo-50
+                                hover:border-indigo-200
+                                transition-all
+                                duration-300
+                            "
+                        >
+                            View Full Details
+                        </button>
+
+                        <a
+                            href="#contact"
+                            className="
+                                w-full
+                                inline-flex
+                                items-center
+                                justify-center
+                                px-5 py-3
+                                rounded-xl
+                                bg-indigo-950
+                                text-white
+                                text-sm
+                                font-bold
+                                hover:bg-indigo-800
+                                hover:-translate-y-0.5
+                                transition-all
+                                duration-300
+                            "
+                        >
+                            Get Started
+                        </a>
+
+                    </div>
+
+                </article>
+            </ScrollReveal>
+        );
+    })}
+</div>
                 {/* ================= INCLUDED ================= */}
                 <ScrollReveal
                     direction="up"
@@ -294,6 +435,8 @@ function Services() {
                         </div>
                     </div>
                 </ScrollReveal>
+
+        <ServiceHighlights />
 
                 {/* ================= PROCESS ================= */}
                 <ScrollReveal
