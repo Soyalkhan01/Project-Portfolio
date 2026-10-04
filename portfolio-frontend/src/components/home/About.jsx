@@ -64,7 +64,7 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                         bg-white/4
                                         shadow-lg
                                         shadow-black/10
-                                        transition-all
+                                        transition-transform
                                         duration-500
                                         hover:-translate-y-2
                                         hover:border-indigo-400/40
@@ -156,9 +156,7 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                                         ${technology.color}
 
                                                         shadow-[0_8px_18px_rgba(0,0,0,0.12)]
-
-                                                        transform-gpu
-                                                       transition-transform    
+                                                        transition-transform    
                                                         duration-500
                                                         ease-out
 
@@ -460,27 +458,18 @@ onMouseLeave={(e) => {
         -bottom-5
         -right-3
         md:-right-8
-
         px-4
         py-2.5
-
         rounded-2xl
         border
         border-white/10
         bg-slate-950/95
         backdrop-blur-md
-
         shadow-[0_18px_35px_rgba(0,0,0,0.3)]
-
-        transform-gpu
         transform: translateZ(100px);
-
-
-        transition-all
+        transition-transform
         duration-500
-
         group-hover:-translate-y-2
-
         whitespace-nowrap
     "
 >

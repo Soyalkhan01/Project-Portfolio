@@ -475,7 +475,6 @@ function Hero() {
                                     border
                                     border-purple-400/20
                                     -rotate-12
-                                    animate-[spin_25s_linear_infinite_reverse]
                                 "
                             />
 
@@ -492,7 +491,7 @@ function Hero() {
                                    
                                     hover:transform: perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1.02);
 
-                                    transition-all
+                                    transition-transform
                                     duration-700
                                     ease-out
                                 "
@@ -579,20 +578,7 @@ function Hero() {
                                             group-hover:scale-105
                                         "
                                     />
-
-                                    {/* Image shine */}
-
-                                    <div
-                                        className="
-                                            absolute
-                                            inset-0
-                                            bg-linear-to-br
-                                            from-white/15
-                                            via-transparent
-                                            to-indigo-900/30
-                                            pointer-events-none
-                                        "
-                                    />
+                                   
 
                                     {/* Bottom glass */}
 
