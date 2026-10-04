@@ -252,7 +252,7 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                 md:h-80
                                 rounded-full
                                 bg-indigo-600/15
-                                blur-3xl
+                                blur-2xl
                                 animate-pulse
                             "
                         />
@@ -299,7 +299,7 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                 h-3
                                 rounded-full
                                 bg-indigo-400
-                                shadow-[0_0_18px_rgba(129,140,248,0.9)]
+                               
                                 animate-bounce
                             "
                         />
@@ -420,9 +420,6 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                     border
                                     border-indigo-400/30
                                     bg-slate-950
-
-                                    shadow-[0_30px_70px_rgba(30,27,75,0.45)]
-
                                     transform: translateZ(25px);
 
                                 "
@@ -490,7 +487,7 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
         border
         border-white/10
         bg-slate-950/95
-        backdrop-blur-xl
+        backdrop-blur-md
 
         shadow-[0_18px_35px_rgba(0,0,0,0.3)]
 
@@ -567,7 +564,7 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
         border
         border-white/10
         bg-slate-950/90
-        backdrop-blur-xl
+        backdrop-blur-md
         shadow-xl
         text-xs
         text-indigo-300

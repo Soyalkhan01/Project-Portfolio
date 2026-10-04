@@ -134,7 +134,7 @@ function Hero() {
                 h-120
                 bg-indigo-900/20
                 rounded-full
-                blur-3xl
+                blur-2xl
                 pointer-events-none
             " />
 
@@ -462,7 +462,7 @@ function Hero() {
                                     border
                                     border-indigo-400/20
                                     rotate-12
-                                    animate-[spin_18s_linear_infinite]
+                                    
                                 "
                             />
 
@@ -542,7 +542,7 @@ function Hero() {
                                         -inset-8
                                         bg-indigo-600/25
                                         rounded-full
-                                        blur-3xl
+                                        blur-2xl
                                         opacity-70
                                         group-hover:opacity-100
                                         transition
@@ -566,7 +566,7 @@ function Hero() {
                                         border
                                         border-indigo-300/30
                                         bg-slate-900
-                                        shadow-[0_30px_80px_rgba(30,27,75,0.65)]
+                                        
                                         transform: translateZ(25px);
 
                                     "
@@ -738,7 +738,7 @@ function Hero() {
                                     border
                                     border-white/10
                                     bg-slate-900/90
-                                    backdrop-blur-xl
+                                    backdrop-blur-md
                                     p-4
                                     shadow-[0_25px_60px_rgba(0,0,0,0.55)]
                                     transform-[perspective(900px)_rotateY(10deg)_rotateX(5deg)_translateZ(40px)]
@@ -904,7 +904,7 @@ function Hero() {
                                                 z-10
                                                 ${color}
                                                 group-hover:scale-125
-                                                group-hover:drop-shadow-[0_0_10px_currentColor]
+                                                [0_0_10px_currentColor]
                                                 transition-all
                                                 duration-500
                                             `}
