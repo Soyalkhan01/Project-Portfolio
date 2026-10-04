@@ -840,32 +840,42 @@ function Hero() {
                                     <div
                                         key={technology.name}
                                         className={`
-                                            group
-                                            relative
-                                            flex
-                                            items-center
-                                            justify-center
-                                            w-14
-                                            h-14
-                                            rounded-xl
-                                            border
-                                            border-white/10
-                                            bg-white/4
-                                            backdrop-blur-md
-                                            shadow-[0_10px_25px_rgba(0,0,0,0.25)]
-                                            transform-[perspective(600px)_rotateX(8deg)_rotateY(-8deg)_translateZ(0)]
-                                            hover:transfor-[perspective(600px)_rotateX(0deg)_rotateY(0deg)_translateZ(18px)_scale(1.08)]
-                                            hover:border-indigo-400/50
-                                            hover:bg-indigo-950/50
-                                            hover:shadow-[0_20px_35px_rgba(79,70,229,0.25)]
-                                            transition-all
-                                            duration-500
-                                            ${
-                                                isVisible
-                                                    ? "opacity-100 translate-y-0"
-                                                    : "opacity-0 translate-y-12"
-                                            }
-                                        `}
+    group
+    relative
+    flex
+    items-center
+    justify-center
+    w-14
+    h-14
+    rounded-xl
+
+    border
+    border-white/10
+
+    bg-white/4
+    backdrop-blur-md
+
+    shadow-[0_10px_25px_rgba(0,0,0,0.25)]
+
+    transform-gpu
+    perspective-[600px]
+
+    hover:transform-[perspective(600px)_rotateX(8deg)_rotateY(-8deg)_translateZ(18px)_scale(1.08)]
+
+    hover:border-indigo-400/50
+    hover:bg-indigo-950/50
+    hover:shadow-[0_20px_35px_rgba(79,70,229,0.25)]
+
+    transition-all
+    duration-500
+    ease-out
+
+    ${
+        isVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-12"
+    }
+`}
                                         style={{
                                             transitionDelay: isVisible
                                                 ? `${250 + index * 100}ms`
