@@ -109,12 +109,14 @@ function Hero() {
             id="home"
             className="
                 relative
-                min-h-screen
+                min-h-100vh
                 flex
                 items-center
                 pt-25
-                lg:pt-22
-                pb-15
+                md:pt-32
+                sm:pt-25
+                lg:pt-21
+                pb-17
                 bg-slate-950
                 overflow-hidden
                 perspective-[1400px]
@@ -331,7 +333,7 @@ function Hero() {
                                 flex
                                 flex-wrap
                                 gap-4
-                                mt-6
+                                mt-2
                                 transition-all
                                 duration-2100
                                 ease-[cubic-bezier(0.22,1,0.36,1)]
@@ -435,7 +437,7 @@ function Hero() {
                                 w-75
                                 sm:w-85
                                 md:w-105
-                                h-97,5
+                                h-97.5
                                 sm:h-107.5
                                 md:h-125
                                 flex
@@ -489,11 +491,11 @@ function Hero() {
                                 className="
                                     group
                                     relative
-                                    mb-12
                                     z-10
-                                    transform-3d
-                                    transform: perspective(1200px) rotateY(-7deg) rotateX(5deg);
-                                    hover:        transform: perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1.02);
+                                    transform-style: preserve-3d;
+                                    sform:perspective(1200px)_rotateY(-7deg)_rotateX(5deg)]
+                                    hover:transform: perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1.02);
+
                                     transition-all
                                     duration-700
                                     ease-out
@@ -513,7 +515,7 @@ function Hero() {
                                         border-indigo-400/10
                                         blur-[1px]
                                         transform: translateZ(-35px);
-}
+
                                     "
                                 />
 
@@ -565,7 +567,7 @@ function Hero() {
                                         border-indigo-300/30
                                         bg-slate-900
                                         shadow-[0_30px_80px_rgba(30,27,75,0.65)]
-                                         transform: translateZ(25px);
+                                        transform: translateZ(25px);
 
                                     "
                                 >
@@ -625,6 +627,8 @@ function Hero() {
                                     absolute
                                     z-30
                                     top-5
+                                    lg:top-10
+                                    md:top-10
                                     -right-1
                                     sm:right-0
                                     md:-right-2
@@ -636,7 +640,7 @@ function Hero() {
                                     bg-slate-900/80
                                     backdrop-blur-md
                                     shadow-[0_15px_35px_rgba(0,0,0,0.4)]
-                                    transform: perspective(700px) rotateY(-12deg) rotateX(8deg) translateZ(30px);
+                                        transform: perspective(700px) rotateY(-12deg) rotateX(8deg) translateZ(30px);
 
                                     animate-[floatOne_4s_ease-in-out_infinite]
                                 "
@@ -668,7 +672,7 @@ function Hero() {
                                     bg-slate-900/80
                                     backdrop-blur-md
                                     shadow-[0_15px_35px_rgba(0,0,0,0.4)]
-                                    transform: perspective(700px) rotateY(12deg) rotateX(8deg) translateZ(25px);
+                                        transform: perspective(700px) rotateY(12deg) rotateX(8deg) translateZ(25px);
 
                                     animate-[floatTwo_5s_ease-in-out_infinite]
                                 "
@@ -689,9 +693,9 @@ function Hero() {
                                     absolute
                                     z-30
                                     bottom-28
-                                    -right-1
+                                    -right-2
                                     sm:right-0
-                                    md:right-0
+                                    md:-right-4
                                     px-3
                                     py-2
                                     rounded-xl
@@ -700,7 +704,7 @@ function Hero() {
                                     bg-slate-900/80
                                     backdrop-blur-md
                                     shadow-[0_15px_35px_rgba(0,0,0,0.4)]
-                                    transform: perspective(700px) rotateY(-10deg) rotateX(-7deg) translateZ(25px);
+                                        transform: perspective(700px) rotateY(-10deg) rotateX(-7deg) translateZ(25px);
 
                                     animate-[floatThree_4.5s_ease-in-out_infinite]
                                 "
@@ -722,7 +726,7 @@ function Hero() {
                                 className={`
                                     absolute
                                     z-40
-                                    bottom-3
+                                    -bottom-4
                                     -left-2
                                     sm:-left-8
                                     md:-left-10
@@ -737,11 +741,8 @@ function Hero() {
                                     backdrop-blur-xl
                                     p-4
                                     shadow-[0_25px_60px_rgba(0,0,0,0.55)]
-                                    transform: perspective(900px) rotateY(10deg) rotateX(5deg) translateZ(40px);
-
-                                    hover:       
-                                    transform: perspective(900px) rotateY(0deg) rotateX(0deg) translateZ(50px);
-
+                                    transform-[perspective(900px)_rotateY(10deg)_rotateX(5deg)_translateZ(40px)]
+                                    hover:transform-[perspective(900px)_rotateY(0deg)_rotateX(0deg)_translateZ(50px)]
                                     transition-all
                                     duration-500
                                     ${
@@ -778,7 +779,7 @@ function Hero() {
                                 <p className="text-sm text-gray-300 pl-3">
                                     role:
                                     <span className="text-purple-400">
-                                        'Software Engineer.'
+                                        'Full Stack + AI Dev.'
                                     </span>
                                 </p>
 
@@ -794,7 +795,7 @@ function Hero() {
                     TECHNOLOGIES
                 ====================================================== */}
 
-                <div className="w-full mt-12 md:mt-16 lg:ml-0 lg:-mt-3">
+                <div className="w-full mt-12 md:mt-16 lg:ml-0 lg:mt-0">
                     <p
                         className={`
                             text-xs
@@ -852,10 +853,8 @@ function Hero() {
                                             bg-white/4
                                             backdrop-blur-md
                                             shadow-[0_10px_25px_rgba(0,0,0,0.25)]
-                                            transform: perspective(600px) rotateX(8deg) rotateY(-8deg) translateZ(0);
-
-                                            hover:        transform: perspective(600px) rotateX(0deg) rotateY(0deg) translateZ(18px) scale(1.08);
-
+                                            transform-[perspective(600px)_rotateX(8deg)_rotateY(-8deg)_translateZ(0)]
+                                            hover:transfor-[perspective(600px)_rotateX(0deg)_rotateY(0deg)_translateZ(18px)_scale(1.08)]
                                             hover:border-indigo-400/50
                                             hover:bg-indigo-950/50
                                             hover:shadow-[0_20px_35px_rgba(79,70,229,0.25)]
