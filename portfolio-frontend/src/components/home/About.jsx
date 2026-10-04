@@ -62,7 +62,6 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                         rounded-2xl
                                         border border-white/10
                                         bg-white/4
-                                        backdrop-blur-sm
                                         shadow-lg
                                         shadow-black/10
                                         transition-all
@@ -84,7 +83,6 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                             h-1.5
                                             rounded-full
                                             bg-indigo-400
-                                            shadow-[0_0_10px_rgba(129,140,248,0.9)]
                                         "
                                     />
 
@@ -121,7 +119,6 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                                 className="
                                                     group
                                                     relative
-                                                    [perspective-midrange]
                                                 "
                                             >
                                                 {/* Glow behind icon */}
@@ -133,8 +130,7 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                                         bg-indigo-500/20
                                                         blur-xl
                                                         opacity-0
-                                                        group-hover:opacity-100
-                                                        transition-all
+                                                        transition-transform    
                                                         duration-500
                                                     "
                                                 />
@@ -153,8 +149,6 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                                         from-white/10
                                                         via-white/4
                                                         to-transparent
-                                                        backdrop-blur-md
-
                                                         flex
                                                         items-center
                                                         justify-center
@@ -164,13 +158,12 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                                         shadow-[0_8px_18px_rgba(0,0,0,0.12)]
 
                                                         transform-gpu
-                                                        transition-all
+                                                       transition-transform    
                                                         duration-500
                                                         ease-out
 
                                                         hover:-translate-y-2
                                                         hover:scale-110
-                                                        hover:transform: perspective(800px) rotateX(15deg) rotateY(-15deg) translateZ(10px);
 
                                                     `}
                                                 >
@@ -188,19 +181,19 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                                     />
 
                                                     {/* Bottom depth */}
-<span
-    className="
-        absolute
-        -bottom-0.5
-        left-2
-        right-2
-        h-0.5
-        rounded-b-lg
-        bg-indigo-950/15
-        blur-[1px]
-        -z-10
-    "
-/>
+                                                        <span
+                                                            className="
+                                                                absolute
+                                                                -bottom-0.5
+                                                                left-2
+                                                                right-2
+                                                                h-0.5
+                                                                rounded-b-lg
+                                                                bg-indigo-950/15
+                                                                blur-[1px]
+                                                                -z-10
+                                                            "
+                                                        />
 
                                                     <Icon
                                                         className="
@@ -238,7 +231,6 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                             items-center
                             justify-center
                             lg:translate-x-16
-                            perspective-[1400px]
                         "
                     >
 
@@ -252,9 +244,8 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                 md:h-80
                                 rounded-full
                                 bg-indigo-600/15
-                                blur-2xl
-                                animate-pulse
-                            "
+                                blur-lg
+                                "
                         />
 
                         {/* ================= ORBIT RING 1 ================= */}
@@ -268,8 +259,6 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                 rounded-full
                                 border
                                 border-indigo-400/10
-                                rotate-x-65
-                                animate-[spin_16s_linear_infinite]
                             "
                         />
 
@@ -284,8 +273,6 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                 rounded-full
                                 border
                                 border-purple-400/10
-                                rotate-y-65
-                                animate-[spin_20s_linear_infinite_reverse]
                             "
                         />
 
@@ -300,7 +287,6 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                 rounded-full
                                 bg-indigo-400
                                
-                                animate-bounce
                             "
                         />
 
@@ -314,8 +300,7 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                 rounded-full
                                 bg-purple-400
                                 shadow-[0_0_15px_rgba(192,132,252,0.9)]
-                                animate-pulse
-                            "
+                                smooth-float                            "
                         />
 
                         <span
@@ -328,8 +313,7 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                 rounded-full
                                 bg-cyan-400
                                 shadow-[0_0_15px_rgba(34,211,238,0.9)]
-                                animate-pulse
-                            "
+                                smooth-float                            "
                         />
 
                         {/* ================= 3D PROFILE GROUP ================= */}
@@ -338,40 +322,38 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
     className="
         group
         relative
-        [transform-3d]
-        transform-gpu
         transition-transform
         duration-200
         ease-out
     "
     onMouseMove={(e) => {
-        const card = e.currentTarget;
-        const rect = card.getBoundingClientRect();
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
 
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
 
-        const rotateY = ((x - centerX) / centerX) * 10;
-        const rotateX = ((centerY - y) / centerY) * 10;
+    const rotateY = ((x - centerX) / centerX) * 10;
+    const rotateX = ((centerY - y) / centerY) * 10;
 
-        card.style.transform = `
-            perspective(1400px)
-            rotateX(${rotateX}deg)
-            rotateY(${rotateY}deg)
-            translateY(-8px)
-        `;
-    }}
-    onMouseLeave={(e) => {
-        e.currentTarget.style.transform = `
-            perspective(1400px)
-            rotateX(0deg)
-            rotateY(0deg)
-            translateY(0px)
-        `;
-    }}
+    card.style.transform = `
+        perspective(1400px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        translateY(-8px)
+    `;
+}}
+onMouseLeave={(e) => {
+    e.currentTarget.style.transform = `
+        perspective(1400px)
+        rotateX(0deg)
+        rotateY(0deg)
+        translateY(0px)
+    `;
+}}
 >
 
                             {/* ================= BACK 3D FRAME ================= */}
@@ -398,7 +380,6 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                     from-indigo-500/20
                                     via-transparent
                                     to-purple-500/20
-                                    blur-sm
                                     transform: translateZ(-12px);
 
                                 "
@@ -431,8 +412,8 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                         w-full
                                         h-full
                                         object-cover
-                                        transition-all
-                                        duration-700
+                                        transition-transform
+                                        duration-300
                                         group-hover:scale-105
                                     "
                                 />
@@ -516,7 +497,6 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                     rounded-full
                     bg-green-400
                     opacity-60
-                    animate-ping
                 "
             />
 
@@ -529,6 +509,7 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                     rounded-full
                     bg-green-400
                     shadow-[0_0_10px_rgba(74,222,128,0.9)]
+                    animate-ping
                 "
             />
 
@@ -564,12 +545,11 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
         border
         border-white/10
         bg-slate-950/90
-        backdrop-blur-md
         shadow-xl
         text-xs
         text-indigo-300
         transform-[translateZ(70px)]
-        animate-[bounce_5s_ease-in-out_infinite]
+        smooth-float
         whitespace-nowrap
     "
 >
@@ -587,7 +567,7 @@ className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-
                                     h-8
                                     rounded-[50%]
                                     bg-indigo-950/30
-                                    blur-xl
+                                    blur-md
                                     transform-[translateZ(-30px)]
                                 "
                             />

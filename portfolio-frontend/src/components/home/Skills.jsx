@@ -70,17 +70,10 @@ function Skill() {
                                     border
                                     border-white/10
                                     bg-white/3
-
-                                    /* 3D */
-                                    perspective-[1000px]
-                                    transform-gpu
-                                    transition-all
-                                    duration-500
+                                    transition-transform
+                                    duration-300
                                     ease-out
-                                    hover:-translate-y-2
-                                     transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateZ(8px);
-                                    hover:shadow-[0_20px_45px_rgba(79,70,229,0.16)]
-
+                                    hover:-translate-y-1
                                     hover:border-indigo-400/30
                                     hover:bg-indigo-500/3
                                 "
@@ -164,24 +157,14 @@ function Skill() {
                                                         border-white/10
                                                         bg-slate-900/50
                                                         text-gray-300
-
-                                                        /* 3D */
-                                                        perspective-midrange
-                                                        transform-gpu
-                                                        transition-all
-                                                        duration-400
+                                                        transition-transform
+                                                        duration-200
                                                         ease-out
                                                         hover:-translate-y-1
-                                                        hover:scale-[1.02]
-                                                         transform: perspective(800px) rotateX(5deg) rotateY(-5deg) translateZ(8px);
-                                                        hover:shadow-[0_12px_25px_rgba(79,70,229,0.18)]
-
-                                                        hover:text-white
                                                         hover:border-indigo-400/40
                                                         hover:bg-indigo-500/5
                                                     "
                                                 >
-
                                                     {/* 3D Inner Glow */}
                                                     <span
                                                         className="
@@ -204,7 +187,7 @@ function Skill() {
                                                     <div className="relative z-10 flex items-center gap-3 min-w-0">
 
                                                         {/* Icon */}
-                                                        <div
+                                                       <div
                                                             className="
                                                                 shrink-0
                                                                 w-10
@@ -216,16 +199,9 @@ function Skill() {
                                                                 flex
                                                                 items-center
                                                                 justify-center
-
-                                                                /* Icon 3D */
-                                                                transform-gpu
-                                                                transition-all
-                                                                duration-400
-                                                                group-hover/skill:border-indigo-400/30
-                                                                group-hover/skill:scale-110
-                                                                group-hover/skill:-rotate-3
-                                                                 transform: perspective(500px) rotateX(8deg) rotateY(-8deg) translateZ(8px);
-                                                                group-hover/skill:shadow-[0_8px_18px_rgba(79,70,229,0.2)]
+                                                                transition-transform
+                                                                duration-200
+                                                                group-hover/skill:scale-105
                                                             "
                                                         >
 
@@ -234,7 +210,6 @@ function Skill() {
                                                                 className={`
                                                                     ${skill.color}
                                                                     text-xl
-                                                                    drop-shadow-[0_3px_5px_rgba(0,0,0,0.3)]
                                                                     group-hover/skill:scale-110
                                                                     transition-transform
                                                                     duration-300

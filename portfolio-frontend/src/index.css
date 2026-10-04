@@ -47,6 +47,32 @@ body {
     max-width: 100%;
     overflow-x: hidden;
 }
+/* ================= LIGHTWEIGHT FLOAT ANIMATION ================= */
+
+@keyframes smoothFloat {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(0, -7px, 0);
+    }
+}
+
+/* GPU optimization */
+.smooth-float {
+    animation: smoothFloat 4s ease-in-out infinite;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+}
+
+/* Respect reduced-motion accessibility setting */
+@media (prefers-reduced-motion: reduce) {
+    .smooth-float {
+        animation: none;
+    }
+}
 /* 
 .ai-robot {
     animation: robotPeek 4s ease-in-out infinite;

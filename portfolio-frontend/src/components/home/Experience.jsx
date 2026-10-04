@@ -10,7 +10,7 @@ function Experience() {
         >
             <div className="max-w-5xl mx-auto">
 
-                {/* Section Heading */}
+                {/* ================= SECTION HEADING ================= */}
                 <ScrollReveal
                     direction="up"
                     className="text-center"
@@ -32,29 +32,39 @@ function Experience() {
                 </ScrollReveal>
 
 
-                {/* Experience Timeline */}
+                {/* ================= EXPERIENCE TIMELINE ================= */}
                 <div className="relative mt-12">
 
                     {/* Timeline Line */}
-                    <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-linear-to-b from-indigo-400 via-indigo-200 to-transparent"></div>
-
+                    <div
+                        className="
+                            absolute
+                            left-4
+                            sm:left-6
+                            top-0
+                            bottom-0
+                            w-px
+                            bg-linear-to-b
+                            from-indigo-400
+                            via-indigo-200
+                            to-transparent
+                        "
+                    />
 
                     {experienceData.experiences.map((experience, index) => (
-
                         <div
                             key={`${experience.company}-${experience.role}`}
                             className="relative pl-12 sm:pl-16"
                         >
 
-                            {/* Timeline Dot — Bottom to Top */}
+                            {/* ================= TIMELINE DOT ================= */}
                             <ScrollReveal
                                 direction="up"
-                                delay={index * 250}
+                                delay={index * 120}
                                 className="absolute left-0 sm:left-2 top-7 z-10"
                             >
                                 <div
                                     className="
-                                        group/dot
                                         w-9
                                         h-9
                                         rounded-full
@@ -62,19 +72,15 @@ function Experience() {
                                         border-4
                                         border-indigo-100
                                         shadow-md
-
                                         flex
                                         items-center
                                         justify-center
 
-                                        transform-gpu
-                                        transition-all
-                                        duration-500
+                                        transition-transform
+                                        duration-300
+                                        ease-out
 
                                         hover:scale-110
-                                        hover:        transform: perspective(500px) rotateX(10deg) rotateY(-10deg) translateZ(8px);
-
-                                        hover:shadow-[0_8px_20px_rgba(79,70,229,0.25)]
                                     "
                                 >
                                     <div
@@ -83,19 +89,21 @@ function Experience() {
                                             h-2.5
                                             rounded-full
                                             bg-indigo-600
-                                            transition-all
+
+                                            transition-transform
                                             duration-300
-                                            group-hover/dot:scale-125
+
+                                            hover:scale-125
                                         "
-                                    ></div>
+                                    />
                                 </div>
                             </ScrollReveal>
 
 
-                            {/* Experience Card — Right to Left */}
+                            {/* ================= EXPERIENCE CARD ================= */}
                             <ScrollReveal
                                 direction="right"
-                                delay={index * 250 + 150}
+                                delay={index * 120 + 80}
                             >
                                 <div
                                     className="
@@ -108,70 +116,57 @@ function Experience() {
                                         bg-white
                                         p-6
                                         sm:p-8
+                                        mt-3
 
                                         shadow-sm
 
-                                        /* 3D */
-                                        perspective-distant
-                                        transform-gpu
                                         transition-all
-                                        duration-500
+                                        duration-300
                                         ease-out
 
-                                        hover:-translate-y-2
-                                        hover:        transform: perspective(1200px) rotateX(2deg) rotateY(-2deg) translateZ(8px);
-
-                                        hover:shadow-2xl
+                                        hover:-translate-y-1
+                                        hover:scale-[1.01]
+                                        hover:shadow-xl
                                         hover:shadow-indigo-950/10
                                         hover:border-indigo-200
-
-                                        mt-3
                                     "
                                 >
 
-                                    {/* Decorative Glow */}
-                                    <div
-                                        className="
-                                            absolute
-                                            -top-20
-                                            -right-20
-                                            w-40
-                                            h-40
-                                            rounded-full
-                                            bg-indigo-100/50
-                                            blur-3xl
-                                            opacity-0
-                                            group-hover:opacity-100
-                                            transition-opacity
-                                            duration-500
-                                        "
-                                    ></div>
-
-
-                                    {/* 3D Reflection */}
+                                    {/* ================= LIGHT HOVER EFFECT ================= */}
                                     <div
                                         className="
                                             absolute
                                             top-0
-                                            left-10
-                                            right-10
+                                            left-8
+                                            right-8
                                             h-px
                                             bg-linear-to-r
                                             from-transparent
-                                            via-indigo-200
+                                            via-indigo-300
                                             to-transparent
                                             opacity-0
+
                                             group-hover:opacity-100
+
                                             transition-opacity
-                                            duration-500
+                                            duration-300
                                         "
-                                    ></div>
+                                    />
 
 
                                     <div className="relative">
 
-                                        {/* Header */}
-                                        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                                        {/* ================= HEADER ================= */}
+                                        <div
+                                            className="
+                                                flex
+                                                flex-col
+                                                lg:flex-row
+                                                lg:items-start
+                                                lg:justify-between
+                                                gap-4
+                                            "
+                                        >
 
                                             <div>
 
@@ -180,14 +175,10 @@ function Experience() {
                                                         text-sm
                                                         font-semibold
                                                         text-indigo-600
-                                                        transition-transform
-                                                        duration-500
-                                                        group-hover:translate-x-1
                                                     "
                                                 >
                                                     Professional Experience
                                                 </span>
-
 
                                                 <h3
                                                     className="
@@ -198,21 +189,30 @@ function Experience() {
                                                         text-indigo-950
 
                                                         transition-transform
-                                                        duration-500
+                                                        duration-300
+
                                                         group-hover:translate-x-1
                                                     "
                                                 >
                                                     {experience.role}
                                                 </h3>
 
-
-                                                <p className="mt-2 text-base sm:text-lg font-medium text-gray-600">
+                                                <p
+                                                    className="
+                                                        mt-2
+                                                        text-base
+                                                        sm:text-lg
+                                                        font-medium
+                                                        text-gray-600
+                                                    "
+                                                >
                                                     {experience.company}
                                                 </p>
 
                                             </div>
 
 
+                                            {/* ================= BADGES ================= */}
                                             <div className="flex flex-wrap items-center gap-2">
 
                                                 {/* Duration */}
@@ -230,13 +230,10 @@ function Experience() {
                                                         font-semibold
                                                         whitespace-nowrap
 
-                                                        transform-gpu
-                                                        transition-all
-                                                        duration-400
+                                                        transition-transform
+                                                        duration-300
 
                                                         group-hover:-translate-y-1
-                                                        group-hover:scale-105
-                                                        group-hover:shadow-[0_6px_15px_rgba(79,70,229,0.12)]
                                                     "
                                                 >
                                                     {experience.duration}
@@ -258,12 +255,10 @@ function Experience() {
                                                         font-semibold
                                                         whitespace-nowrap
 
-                                                        transform-gpu
-                                                        transition-all
-                                                        duration-400
+                                                        transition-transform
+                                                        duration-300
 
                                                         group-hover:-translate-y-1
-                                                        group-hover:scale-105
                                                     "
                                                 >
                                                     {experience.workMode}
@@ -274,109 +269,103 @@ function Experience() {
                                         </div>
 
 
-                                        {/* Divider */}
+                                        {/* ================= DIVIDER ================= */}
                                         <div
                                             className="
                                                 my-6
                                                 h-px
                                                 bg-gray-100
-                                                transition-all
-                                                duration-500
+
+                                                transition-colors
+                                                duration-300
+
                                                 group-hover:bg-indigo-100
                                             "
-                                        ></div>
+                                        />
 
 
-                                        {/* Responsibilities */}
+                                        {/* ================= RESPONSIBILITIES ================= */}
                                         <ul className="space-y-3">
 
-                                            {experience.responsibilities.map((item, itemIndex) => (
-
-                                                <li
-                                                    key={itemIndex}
-                                                    className="
-                                                        flex
-                                                        items-start
-                                                        gap-3
-                                                        text-gray-600
-                                                        leading-relaxed
-
-                                                        transition-transform
-                                                        duration-300
-                                                        hover:translate-x-1
-                                                    "
-                                                >
-
-                                                    <span
+                                            {experience.responsibilities.map(
+                                                (item, itemIndex) => (
+                                                    <li
+                                                        key={itemIndex}
                                                         className="
-                                                            mt-2.5
-                                                            w-1.5
-                                                            h-1.5
-                                                            shrink-0
-                                                            rounded-full
-                                                            bg-indigo-500
+                                                            flex
+                                                            items-start
+                                                            gap-3
+                                                            text-gray-600
+                                                            leading-relaxed
 
-                                                            transition-all
-                                                            duration-300
-                                                            hover:scale-125
+                                                            transition-transform
+                                                            duration-200
+
+                                                            hover:translate-x-1
                                                         "
-                                                    ></span>
+                                                    >
 
-                                                    <span>
-                                                        {item}
-                                                    </span>
+                                                        <span
+                                                            className="
+                                                                mt-2.5
+                                                                w-1.5
+                                                                h-1.5
+                                                                shrink-0
+                                                                rounded-full
+                                                                bg-indigo-500
+                                                            "
+                                                        />
 
-                                                </li>
+                                                        <span>
+                                                            {item}
+                                                        </span>
 
-                                            ))}
+                                                    </li>
+                                                )
+                                            )}
 
                                         </ul>
 
 
-                                        {/* Technologies */}
+                                        {/* ================= TECHNOLOGIES ================= */}
                                         <div className="mt-7 flex flex-wrap gap-2">
 
-                                            {experience.technologies.map((technology) => (
+                                            {experience.technologies.map(
+                                                (technology) => (
+                                                    <span
+                                                        key={technology}
+                                                        className="
+                                                            px-3.5
+                                                            py-1.5
+                                                            rounded-full
+                                                            bg-gray-50
+                                                            text-gray-700
+                                                            border
+                                                            border-gray-200
+                                                            text-xs
+                                                            sm:text-sm
+                                                            font-medium
 
-                                                <span
-                                                    key={technology}
-                                                    className="
-                                                        px-3.5
-                                                        py-1.5
-                                                        rounded-full
-                                                        bg-gray-50
-                                                        text-gray-700
-                                                        border
-                                                        border-gray-200
-                                                        text-xs
-                                                        sm:text-sm
-                                                        font-medium
+                                                            transition-all
+                                                            duration-200
 
-                                                        transform-gpu
-                                                        transition-all
-                                                        duration-300
-
-                                                        hover:-translate-y-1
-                                                        hover:scale-105
-                                                        hover:transform: perspective(400px) rotateX(5deg) translateZ(5px);
-
-                                                        hover:bg-indigo-50
-                                                        hover:text-indigo-700
-                                                        hover:border-indigo-100
-                                                        hover:shadow-[0_5px_12px_rgba(79,70,229,0.12)]
-                                                    "
-                                                >
-                                                    {technology}
-                                                </span>
-
-                                            ))}
+                                                            hover:-translate-y-0.5
+                                                            hover:bg-indigo-50
+                                                            hover:text-indigo-700
+                                                            hover:border-indigo-100
+                                                        "
+                                                    >
+                                                        {technology}
+                                                    </span>
+                                                )
+                                            )}
 
                                         </div>
 
                                     </div>
 
 
-                                    {/* Bottom Reflection */}
+                                    {/* ================= BOTTOM LIGHT ================= */}
                                     <div
                                         className="
                                             absolute
@@ -389,17 +378,18 @@ function Experience() {
                                             via-indigo-200
                                             to-transparent
                                             opacity-0
+
                                             group-hover:opacity-100
+
                                             transition-opacity
-                                            duration-500
+                                            duration-300
                                         "
-                                    ></div>
+                                    />
 
                                 </div>
                             </ScrollReveal>
 
                         </div>
-
                     ))}
 
                 </div>

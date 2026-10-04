@@ -297,7 +297,7 @@ function Hero() {
                                     h-5
                                     bg-indigo-400
                                     align-middle
-                                    animate-pulse
+                                    smooth-float
                                 "
                             />
                         </h2>
@@ -419,11 +419,7 @@ function Hero() {
                             lg:translate-y-18
                             lg:ml-25
                             translate-y-3
-                            md:translate-y-6
-                            transition-all
-                            duration-2200
-                            ease-[cubic-bezier(0.22,1,0.36,1)]
-                            delay-150
+                            md:translate-y-6                            
                             ${
                                 isVisible
                                     ? "opacity-100 translate-x-0 scale-100"
@@ -493,7 +489,7 @@ function Hero() {
                                     relative
                                     z-10
                                     transform-style: preserve-3d;
-                                    sform:perspective(1200px)_rotateY(-7deg)_rotateX(5deg)]
+                                   
                                     hover:transform: perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1.02);
 
                                     transition-all
@@ -638,11 +634,8 @@ function Hero() {
                                     border
                                     border-cyan-400/30
                                     bg-slate-900/80
-                                    backdrop-blur-md
-                                    shadow-[0_15px_35px_rgba(0,0,0,0.4)]
-                                        transform: perspective(700px) rotateY(-12deg) rotateX(8deg) translateZ(30px);
-
-                                    animate-[floatOne_4s_ease-in-out_infinite]
+                                    smooth-float
+                                
                                 "
                             >
                                 <div className="flex items-center gap-2">
@@ -670,11 +663,9 @@ function Hero() {
                                     border
                                     border-yellow-400/25
                                     bg-slate-900/80
-                                    backdrop-blur-md
-                                    shadow-[0_15px_35px_rgba(0,0,0,0.4)]
-                                        transform: perspective(700px) rotateY(12deg) rotateX(8deg) translateZ(25px);
-
-                                    animate-[floatTwo_5s_ease-in-out_infinite]
+                                    smooth-float
+                                    
+                                     
                                 "
                             >
                                 <div className="flex items-center gap-2">
@@ -702,11 +693,8 @@ function Hero() {
                                     border
                                     border-cyan-400/25
                                     bg-slate-900/80
-                                    backdrop-blur-md
-                                    shadow-[0_15px_35px_rgba(0,0,0,0.4)]
-                                        transform: perspective(700px) rotateY(-10deg) rotateX(-7deg) translateZ(25px);
-
-                                    animate-[floatThree_4.5s_ease-in-out_infinite]
+                                    smooth-float
+                                
                                 "
                             >
                                 <div className="flex items-center gap-2">
@@ -848,24 +836,13 @@ function Hero() {
     w-14
     h-14
     rounded-xl
-
     border
     border-white/10
-
     bg-white/4
-    backdrop-blur-md
-
-    shadow-[0_10px_25px_rgba(0,0,0,0.25)]
-
-    transform-gpu
     perspective-[600px]
-
     hover:transform-[perspective(600px)_rotateX(8deg)_rotateY(-8deg)_translateZ(18px)_scale(1.08)]
-
     hover:border-indigo-400/50
     hover:bg-indigo-950/50
-    hover:shadow-[0_20px_35px_rgba(79,70,229,0.25)]
-
     transition-all
     duration-500
     ease-out
