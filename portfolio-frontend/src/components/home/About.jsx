@@ -5,8 +5,7 @@ function About() {
     return (
         <div
             id="about"
-            className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-16 md:py-18 px-4 md:px-6 lg:px-0 overflow-hidden"
-        >
+className="relative scroll-mt-16 z-10 max-w-7xl mx-auto w-full flex flex-col py-16 md:py-18 px-4 md:px-6 lg:px-0 overflow-visible"        >
             {/* ================= SECTION HEADING ================= */}
             <ScrollReveal
                 direction="up"
@@ -409,6 +408,7 @@ function About() {
                             <div
                                 className="
                                     relative
+                                    z-10
                                     w-64
                                     h-74
                                     md:w-72
@@ -457,7 +457,7 @@ function About() {
                                 <div
                                     className="
                                         absolute
-                                        left-[120%]
+                                        left-[-120%]
                                         top-0
                                         w-1/2
                                         h-full
@@ -474,41 +474,84 @@ function About() {
                                 />
                             </div>
 
-                            {/* ================= FLOATING STATUS ================= */}
-                            <div
-                                className="
-    absolute
-    -bottom-5
-    -right-3
-    md:-right-8
-    px-4
-    py-2.5
-    rounded-2xl
-    border
-    border-white/10
-    bg-slate-950/95
-    backdrop-blur-xl
-    shadow-[0_18px_35px_rgba(0,0,0,0.3)]
-    transform: translateZ(60px);
-    transition-all
-    duration-500
-    group-hover:-translate-y-2
-"
-                            >
-                                <div className="flex items-center gap-2">
-                                    <span className="relative flex w-2.5 h-2.5">
-                                        <span className="absolute inline-flex w-full h-full rounded-full bg-green-400 opacity-60 animate-ping" />
+                           {/* ================= FLOATING STATUS ================= */}
+<div
+    className="
+        absolute
+        z-100
+        -bottom-5
+        -right-3
+        md:-right-8
 
-                                        <span className="relative inline-flex w-2.5 h-2.5 rounded-full bg-green-400 shadow-[0_0_10px_rgba(74,222,128,0.9)]" />
-                                    </span>
+        px-4
+        py-2.5
 
-                                    <span className="text-sm font-medium text-gray-300 whitespace-nowrap">
-                                        {aboutData.badge.text}
-                                    </span>
-                                </div>
-                            </div>
+        rounded-2xl
+        border
+        border-white/10
+        bg-slate-950/95
+        backdrop-blur-xl
 
-                          {/* ================= FLOATING CODE CHIP ================= */}
+        shadow-[0_18px_35px_rgba(0,0,0,0.3)]
+
+        transform-gpu
+        transform: translateZ(100px);
+
+
+        transition-all
+        duration-500
+
+        group-hover:-translate-y-2
+
+        whitespace-nowrap
+    "
+>
+    <div className="flex items-center gap-2">
+
+        <span className="relative flex w-2.5 h-2.5 shrink-0">
+
+            <span
+                className="
+                    absolute
+                    inline-flex
+                    w-full
+                    h-full
+                    rounded-full
+                    bg-green-400
+                    opacity-60
+                    animate-ping
+                "
+            />
+
+            <span
+                className="
+                    relative
+                    inline-flex
+                    w-2.5
+                    h-2.5
+                    rounded-full
+                    bg-green-400
+                    shadow-[0_0_10px_rgba(74,222,128,0.9)]
+                "
+            />
+
+        </span>
+
+        <span
+            className="
+                text-sm
+                font-medium
+                text-gray-300
+                whitespace-nowrap
+            "
+        >
+            {aboutData.badge.text}
+        </span>
+
+    </div>
+</div>
+
+{/* ================= FLOATING CODE CHIP ================= */}
 <div
     className="
         flex
@@ -528,7 +571,7 @@ function About() {
         shadow-xl
         text-xs
         text-indigo-300
-        transform: translateZ(70px);
+        transform-[translateZ(70px)]
         animate-[bounce_5s_ease-in-out_infinite]
         whitespace-nowrap
     "
@@ -548,8 +591,7 @@ function About() {
                                     rounded-[50%]
                                     bg-indigo-950/30
                                     blur-xl
-                                    transform: translateZ(-30px);
-
+                                    transform-[translateZ(-30px)]
                                 "
                             />
                         </div>
