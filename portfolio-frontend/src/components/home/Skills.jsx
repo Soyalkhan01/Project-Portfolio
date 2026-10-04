@@ -2,8 +2,6 @@ import skillData from "../../data/skill";
 import ScrollReveal from "./ScrollReveal";
 
 function Skill() {
-
-
     return (
         <section
             id="skills"
@@ -30,9 +28,10 @@ function Skill() {
                         {skillData.section.heading}
                     </p>
 
-                    <h2 
-                    id="skills-heading"
-                    className="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+                    <h2
+                        id="skills-heading"
+                        className="text-4xl md:text-5xl font-extrabold tracking-tight text-white"
+                    >
                         {skillData.section.title}
                     </h2>
 
@@ -46,85 +45,250 @@ function Skill() {
 
 
                 {/* Skill Categories */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 lg:gap-8 items-stretch">
 
                     {skillData.skills.map((category, index) => (
-    <ScrollReveal
-        key={category.category}
-        direction={index % 2 === 0 ? "left" : "right"}
-        delay={index * 150}
-    >
-        <article
-            className="group relative p-5 sm:p-6 md:p-7 rounded-2xl border border-white/10 bg-white/3 hover:border-indigo-400/30 hover:bg-indigo-500/3 transition-all duration-300"
-        >
+                        <ScrollReveal
+                            key={category.category}
+                            direction={index % 2 === 0 ? "left" : "right"}
+                            delay={index * 150}
+                            className="h-full"
+                        >
 
-                            {/* Small Accent Dot */}
-                            <span className="absolute top-5 right-5 w-2 h-2 rounded-full bg-indigo-400 opacity-70"></span>
+                            {/* CATEGORY CARD */}
+                            <article
+                                className="
+                                    group
+                                    relative
+                                    h-full
+                                    flex
+                                    flex-col
+                                    p-5
+                                    sm:p-6
+                                    md:p-7
+                                    rounded-2xl
+                                    border
+                                    border-white/10
+                                    bg-white/3
+
+                                    /* 3D */
+                                    perspective-[1000px]
+                                    transform-gpu
+                                    transition-all
+                                    duration-500
+                                    ease-out
+                                    hover:-translate-y-2
+                                     transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateZ(8px);
+                                    hover:shadow-[0_20px_45px_rgba(79,70,229,0.16)]
+
+                                    hover:border-indigo-400/30
+                                    hover:bg-indigo-500/3
+                                "
+                            >
+
+                                {/* 3D Glow */}
+                                <div
+                                    className="
+                                        pointer-events-none
+                                        absolute
+                                        -inset-px
+                                        rounded-2xl
+                                        bg-linear-to-br
+                                        from-indigo-500/10
+                                        via-transparent
+                                        to-purple-500/10
+                                        opacity-0
+                                        group-hover:opacity-100
+                                        transition-opacity
+                                        duration-500
+                                    "
+                                ></div>
 
 
-                            {/* Category Heading */}
-                            <div className="flex items-center gap-3 mb-6">
-
-                                <span className="w-1 h-7 rounded-full bg-indigo-500"></span>
-
-                                <h3 className="text-xl md:text-2xl font-bold text-white">
-                                    {category.category}
-                                </h3>
-
-                            </div>
+                                {/* Small Accent Dot */}
+                                <span className="absolute top-5 right-5 w-2 h-2 rounded-full bg-indigo-400 opacity-70"></span>
 
 
-                            {/* Skills */}
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                                {/* Category Heading */}
+                                <div className="relative z-10 flex items-center gap-3 mb-6 shrink-0">
 
-    {category.skills.map((skill, skillIndex) => {
-        const Icon = skill.icon;
+                                    <span className="w-1 h-7 rounded-full bg-indigo-500"></span>
 
-        return (
-            <ScrollReveal
-    key={skill.name}
-    direction="up"
-    delay={skillIndex * 80}
->
-    <div
-        className="group/skill w-full min-w-0 flex items-center justify-between px-4 py-3 rounded-xl border border-white/10 bg-slate-900/50 text-gray-300 hover:text-white hover:border-indigo-400/40 hover:bg-indigo-500/5 transition-all duration-300"
-    >
-                <div className="flex items-center gap-3 min-w-0">
+                                    <h3 className="text-xl md:text-2xl font-bold text-white">
+                                        {category.category}
+                                    </h3>
 
-                    <Icon
-                    aria-hidden="true"
-                        className={`${skill.color} text-xl shrink-0 group-hover/skill:scale-110 transition-transform duration-300`}
-                    />
+                                </div>
 
-                    <div className="flex flex-col min-w-0">
 
-                        <span className="text-sm md:text-base font-medium truncate">
-                            {skill.name}
-                        </span>
+                                {/* Skills */}
+                                <div
+                                    className="
+                                        relative
+                                        z-10
+                                        grid
+                                        grid-cols-1
+                                        lg:grid-cols-2
+                                        gap-3
+                                        flex-1
+                                        auto-rows-max
+                                    "
+                                >
 
-                        <span className="text-xs text-gray-500 mt-0.5">
-    Skill level: {skill.level}
-</span>
+                                    {category.skills.map((skill, skillIndex) => {
+                                        const Icon = skill.icon;
 
-                    </div>
+                                        return (
+                                            <ScrollReveal
+                                                key={skill.name}
+                                                direction="up"
+                                                delay={skillIndex * 80}
+                                                className="w-full"
+                                            >
 
-                </div>
+                                                {/* INDIVIDUAL SKILL CARD */}
+                                                <div
+                                                    className="
+                                                        group/skill
+                                                        relative
+                                                        w-full
+                                                        min-w-0
+                                                        h-full
+                                                        flex
+                                                        items-center
+                                                        justify-between
+                                                        px-4
+                                                        py-3
+                                                        rounded-xl
+                                                        border
+                                                        border-white/10
+                                                        bg-slate-900/50
+                                                        text-gray-300
 
-                <span 
-                aria-hidden="true"
-                className="text-indigo-400 opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300 ml-2 shrink-0">
-                    →
-                </span>
-                </div>
+                                                        /* 3D */
+                                                        perspective-midrange
+                                                        transform-gpu
+                                                        transition-all
+                                                        duration-400
+                                                        ease-out
+                                                        hover:-translate-y-1
+                                                        hover:scale-[1.02]
+                                                         transform: perspective(800px) rotateX(5deg) rotateY(-5deg) translateZ(8px);
+                                                        hover:shadow-[0_12px_25px_rgba(79,70,229,0.18)]
 
-           </ScrollReveal>
-        );
-    })}
+                                                        hover:text-white
+                                                        hover:border-indigo-400/40
+                                                        hover:bg-indigo-500/5
+                                                    "
+                                                >
 
-</div>
-                        </article>
-    </ScrollReveal>
+                                                    {/* 3D Inner Glow */}
+                                                    <span
+                                                        className="
+                                                            pointer-events-none
+                                                            absolute
+                                                            inset-0
+                                                            rounded-xl
+                                                            bg-linear-to-br
+                                                            from-white/6
+                                                            via-transparent
+                                                            to-indigo-500/5
+                                                            opacity-0
+                                                            group-hover/skill:opacity-100
+                                                            transition-opacity
+                                                            duration-300
+                                                        "
+                                                    ></span>
 
+
+                                                    <div className="relative z-10 flex items-center gap-3 min-w-0">
+
+                                                        {/* Icon */}
+                                                        <div
+                                                            className="
+                                                                shrink-0
+                                                                w-10
+                                                                h-10
+                                                                rounded-xl
+                                                                border
+                                                                border-white/10
+                                                                bg-slate-800/70
+                                                                flex
+                                                                items-center
+                                                                justify-center
+
+                                                                /* Icon 3D */
+                                                                transform-gpu
+                                                                transition-all
+                                                                duration-400
+                                                                group-hover/skill:border-indigo-400/30
+                                                                group-hover/skill:scale-110
+                                                                group-hover/skill:-rotate-3
+                                                                 transform: perspective(500px) rotateX(8deg) rotateY(-8deg) translateZ(8px);
+                                                                group-hover/skill:shadow-[0_8px_18px_rgba(79,70,229,0.2)]
+                                                            "
+                                                        >
+
+                                                            <Icon
+                                                                aria-hidden="true"
+                                                                className={`
+                                                                    ${skill.color}
+                                                                    text-xl
+                                                                    drop-shadow-[0_3px_5px_rgba(0,0,0,0.3)]
+                                                                    group-hover/skill:scale-110
+                                                                    transition-transform
+                                                                    duration-300
+                                                                `}
+                                                            />
+
+                                                        </div>
+
+
+                                                        {/* Text */}
+                                                        <div className="flex flex-col min-w-0">
+
+                                                            <span className="text-sm md:text-base font-medium truncate">
+                                                                {skill.name}
+                                                            </span>
+
+                                                            <span className="text-xs text-gray-500 mt-0.5">
+                                                                Skill level: {skill.level}
+                                                            </span>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    {/* Arrow */}
+                                                    <span
+                                                        aria-hidden="true"
+                                                        className="
+                                                            relative
+                                                            z-10
+                                                            text-indigo-400
+                                                            opacity-0
+                                                            group-hover/skill:opacity-100
+                                                            transition-opacity
+                                                            duration-300
+                                                            ml-2
+                                                            shrink-0
+                                                        "
+                                                    >
+                                                        →
+                                                    </span>
+
+                                                </div>
+
+                                            </ScrollReveal>
+                                        );
+                                    })}
+
+                                </div>
+
+                            </article>
+
+                        </ScrollReveal>
                     ))}
 
                 </div>
