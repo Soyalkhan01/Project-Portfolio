@@ -244,6 +244,7 @@ packages: [
             "Inquiry management",
             "Basic order management",
             "Advanced SEO setup",
+            "Google Analytics setup",
             "Google Search Console setup",
             "30 days bug-fixing support",
         ],
@@ -256,10 +257,15 @@ packages: [
             "Admin panel for managing website content",
             "Manage services, packages and gallery images",
             "Customer inquiry management",
-            "Basic delivery/order management system",
-            "Order status management",
+            "Basic order management system",
             "Advanced on-page SEO setup",
             "Google Search Console setup",
+            // Analytics & Search Monitoring
+            "Google Analytics setup",
+            "Google Search Console setup",
+            "Website visitor and traffic tracking",
+            "Traffic source and page performance tracking",
+            "Search query and search performance monitoring",
             "XML sitemap creation and submission",
             "robots.txt configuration",
             "Indexing request for important pages",
@@ -277,6 +283,99 @@ packages: [
             "30 days basic bug-fixing support",
             "Priority support during development",
         ],
+    },
+],
+
+additionalFeatures: [
+    {
+        title: "Google Analytics Setup",
+        description:
+            "Track website visitors, popular pages, traffic sources and user activity.",
+        price: "₹999",
+    },
+    {
+        title: "Google Search Console",
+        description:
+            "Monitor Google search performance, indexing status and search queries.",
+        price: "₹999",
+    },
+    {
+        title: "Extra Website Page",
+        description:
+            "Add an additional custom page such as FAQ, Team, Offers or Services.",
+        price: "₹500 / page",
+    },
+    {
+        title: "WhatsApp Integration",
+        description:
+            "Add WhatsApp chat buttons so customers can directly contact your business.",
+        price: "₹499",
+    },
+    {
+        title: "Contact / Inquiry Form",
+        description:
+            "Custom contact or inquiry form for collecting customer enquiries.",
+        price: "₹999",
+    },
+    {
+        title: "Appointment Booking",
+        description:
+            "Allow customers to submit appointment or booking requests through the website.",
+        price: "₹1,999+",
+    },
+    {
+        title: "Admin Panel",
+        description:
+            "Manage website content, services, products, enquiries or other data through an admin panel.",
+        price: "₹2,999+",
+    },
+    {
+        title: "Product Management",
+        description:
+            "Add, edit and manage products or services through a custom management system.",
+        price: "₹2,999+",
+    },
+    {
+        title: "Payment Gateway",
+        description:
+            "Integrate online payments for products, services or bookings.",
+        price: "₹2,499+",
+    },
+    {
+        title: "Database Integration",
+        description:
+            "Connect the website with a database to store and manage dynamic information.",
+        price: "₹2,999+",
+    },
+    {
+        title: "Custom API Integration",
+        description:
+            "Connect external APIs and third-party services according to business requirements.",
+        price: "₹1,999+",
+    },
+    {
+        title: "AI Chatbot",
+        description:
+            "Add an AI-powered chatbot to answer customer questions and assist visitors.",
+        price: "₹4,999+",
+    },
+    {
+        title: "Advanced SEO Setup",
+        description:
+            "Additional SEO configuration including technical and on-page optimization.",
+        price: "₹2,999+",
+    },
+    {
+        title: "Website Speed Optimization",
+        description:
+            "Improve website loading performance and optimize assets for better user experience.",
+        price: "₹1,499+",
+    },
+    {
+        title: "Extra Revision",
+        description:
+            "Additional design or content revision beyond the revisions included in your package.",
+        price: "₹300 / revision",
     },
 ],
 

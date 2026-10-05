@@ -2,7 +2,9 @@ import serviceHighlightsData from "../../data/ServiceHighlights";
 
 const ServiceHighlights = () => {
   return (
-    <section className="relative overflow-hidden px-4 py-10 sm:px-6 sm:py-14 lg:px-8 -mb-20">
+    <section 
+    id="what-you-get"
+    className="relative overflow-hidden px-4 py-10 sm:px-6 sm:py-14 lg:px-8 -mb-20">
 
       {/* Background Glow */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-600/6 blur-[110px]" />

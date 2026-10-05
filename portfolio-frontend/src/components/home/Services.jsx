@@ -21,8 +21,12 @@ function Services() {
             <div className="relative z-10 max-w-7xl mx-auto">
 
                 {/* ================= HEADER ================= */}
-                <ScrollReveal direction="up" className="text-center">
-                    <p className="text-indigo-500 text-xs md:text-sm font-bold tracking-[0.22em] uppercase">
+                <ScrollReveal 
+                direction="up" 
+                className="text-center">
+                    <p 
+                    id="services-build"
+                    className="text-indigo-500 text-xs md:text-sm font-bold tracking-[0.22em] uppercase">
                         {serviceData.section.eyebrow}
                     </p>
 
@@ -41,7 +45,8 @@ function Services() {
                 </ScrollReveal>
 
                 {/* ================= TECHNICAL SERVICES ================= */}
-                <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div 
+                className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                     {serviceData.service.map((service, index) => {
                         const Icon = service.icon;
 
@@ -99,7 +104,9 @@ function Services() {
                     direction="up"
                     className="text-center mt-28 mb-12"
                 >
-                    <p className="text-indigo-500 text-xs font-bold tracking-[0.22em] uppercase">
+                    <p 
+                    id="serviceprojects"
+                    className="text-indigo-500 text-xs font-bold tracking-[0.22em] uppercase">
                         {serviceData.section.eyebrow2}
                     </p>
 
@@ -113,7 +120,8 @@ function Services() {
                     </p>
                 </ScrollReveal>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+              <div 
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
     {serviceData.projects.map((project, index) => (
         <ScrollReveal
             key={project.title}
@@ -164,7 +172,9 @@ function Services() {
     direction="up"
     className="text-center mt-28 mb-12"
 >
-    <p className="text-indigo-500 text-xs font-bold tracking-[0.22em] uppercase">
+    <p 
+    id="packages"
+    className="text-indigo-500 text-xs font-bold tracking-[0.22em] uppercase">
         {serviceData.section.eyebrow3}
     </p>
 
@@ -177,7 +187,8 @@ function Services() {
     </p>
 </ScrollReveal>
 
-<div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+<div
+className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
     {serviceData.packages.map((pkg, index) => {
         const isStandard = pkg.name === "Standard";
 
@@ -400,12 +411,159 @@ function Services() {
         );
     })}
 </div>
+
+{/* ================= ADDITIONAL FEATURES ================= */}
+<ScrollReveal
+    direction="up"
+    className="mt-28 mb-12"
+>
+    <div
+    id="additional-features"
+    className="text-center">
+        <p className="text-indigo-500 text-xs font-bold tracking-[0.22em] uppercase">
+            Optional Add-ons
+        </p>
+
+        <h3 className="mt-3 text-3xl md:text-4xl font-black text-indigo-950">
+            Additional Features
+        </h3>
+
+        <p className="max-w-2xl mx-auto mt-4 text-gray-500 leading-7">
+            Need something extra? Add additional features to any website
+            package according to your business requirements.
+        </p>
+    </div>
+</ScrollReveal>
+
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    {serviceData.additionalFeatures.map((feature, index) => (
+        <ScrollReveal
+            key={feature.title}
+            direction="up"
+            delay={index * 60}
+        >
+            <article
+                className="
+                    group
+                    relative
+                    h-full
+                    rounded-3xl
+                    border
+                    border-indigo-950/10
+                    bg-white
+                    p-6
+                    shadow-sm
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
+                    hover:shadow-lg
+                    hover:border-indigo-200
+                "
+            >
+                {/* Icon */}
+                <div
+                    className="
+                        w-11
+                        h-11
+                        flex
+                        items-center
+                        justify-center
+                        rounded-2xl
+                        bg-indigo-50
+                        border
+                        border-indigo-100
+                        text-indigo-600
+                        text-lg
+                        font-bold
+                        transition-all
+                        duration-300
+                        group-hover:bg-indigo-950
+                        group-hover:text-white
+                    "
+                >
+                    +
+                </div>
+
+                {/* Content */}
+                <h4 className="mt-5 text-lg font-bold text-indigo-950">
+                    {feature.title}
+                </h4>
+
+                <p className="mt-2 text-sm text-gray-500 leading-6">
+                    {feature.description}
+                </p>
+
+                {/* Price */}
+                <div className="mt-5 flex items-center justify-between gap-3">
+                    <div>
+                        <p className="text-[10px] uppercase tracking-wider font-bold text-gray-400">
+                            Starting From
+                        </p>
+
+                        <p className="mt-1 text-lg font-black text-indigo-950">
+                            {feature.price}
+                        </p>
+                    </div>
+
+                    <a
+                        href="#contact"
+                        className="
+                            inline-flex
+                            items-center
+                            px-3
+                            py-2
+                            rounded-xl
+                            bg-indigo-950
+                            text-white
+                            text-xs
+                            font-bold
+                            transition-all
+                            duration-300
+                            hover:bg-indigo-800
+                        "
+                    >
+                        Add Feature →
+                    </a>
+                </div>
+            </article>
+        </ScrollReveal>
+    ))}
+</div>
+
+{/* Add-on Note */}
+<ScrollReveal
+    direction="up"
+    className="mt-6"
+>
+    <div
+        className="
+            rounded-2xl
+            border
+            border-indigo-100
+            bg-indigo-50/60
+            px-5
+            py-4
+            text-center
+        "
+    >
+        <p className="text-sm text-gray-600">
+            <span className="font-bold text-indigo-950">
+                Note:
+            </span>{" "}
+            Additional feature prices are starting prices.
+            Final pricing may vary depending on the feature's
+            complexity and requirements.
+        </p>
+    </div>
+</ScrollReveal>
                 {/* ================= INCLUDED ================= */}
                 <ScrollReveal
                     direction="up"
                     className="mt-24"
                 >
-                    <div className="rounded-3xl bg-indigo-950 p-7 md:p-10">
+                    <div 
+                    id="included"
+                    className="rounded-3xl bg-indigo-950 p-7 md:p-10">
                         <div className="max-w-2xl">
                             <p className="text-indigo-300 text-xs font-bold tracking-[0.22em] uppercase">
                                 {serviceData.include.title}
@@ -443,7 +601,9 @@ function Services() {
                     direction="up"
                     className="text-center mt-28 mb-12"
                 >
-                    <p className="text-indigo-500 text-xs font-bold tracking-[0.22em] uppercase">
+                    <p 
+                    id="process"
+                    className="text-indigo-500 text-xs font-bold tracking-[0.22em] uppercase">
                         {serviceData.section.eyebrow4}
                     </p>
 
@@ -481,7 +641,9 @@ function Services() {
                     direction="up"
                     className="mt-24"
                 >
-                    <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-indigo-950 to-indigo-800 p-8 md:p-12 text-center shadow-2xl">
+                    <div 
+                    id="consultation"
+                    className="relative overflow-hidden rounded-3xl bg-linear-to-br from-indigo-950 to-indigo-800 p-8 md:p-12 text-center shadow-2xl">
                         <div className="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-white/10 blur-3xl" />
 
                         <div className="relative">
@@ -519,7 +681,9 @@ function Services() {
                 </ScrollReveal>
 
                 {/* Terms */}
-                <div className="mt-8 text-center">
+                <div
+                id="terms"
+                className="mt-8 text-center">
                     <button
                         type="button"
                         onClick={() => setShowTerms(true)}
