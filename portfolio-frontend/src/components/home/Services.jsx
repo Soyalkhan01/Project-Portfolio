@@ -190,7 +190,7 @@ function Services() {
 <div
 className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
     {serviceData.packages.map((pkg, index) => {
-        const isStandard = pkg.name === "Standard";
+        const hasOffer = Boolean(pkg.offer);
 
         return (
             <ScrollReveal
@@ -233,11 +233,25 @@ className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                             {pkg.subtitle}
                         </p>
 
+<div className="mt-4 flex flex-wrap justify-center gap-2">
+    <span className="px-2.5 py-1 rounded-lg bg-indigo-50 border border-indigo-100 text-[10px] font-bold text-indigo-700">
+        {pkg.type}
+    </span>
+
+    <span className="px-2.5 py-1 rounded-lg bg-gray-50 border border-gray-200 text-[10px] font-bold text-gray-600">
+        {pkg.pages}
+    </span>
+</div>
+
+<div className="mt-3 text-xs text-gray-400">
+    {pkg.delivery} · {pkg.support}
+</div>
+
                         {/* ================= PRICING ================= */}
                         <div className="mt-5">
 
                             {/* LIMITED OFFER - STANDARD ONLY */}
-                            {isStandard && (
+                            {hasOffer && (
                                 <div className="mb-4 flex justify-center">
                                     <span
                                         className="
@@ -266,19 +280,21 @@ className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                             <div className="flex items-center justify-center gap-3 flex-wrap">
 
                                 {/* Old Price */}
-                                <span
-                                    className="
-                                        text-lg
-                                        sm:text-xl
-                                        font-semibold
-                                        text-gray-400
-                                        line-through
-                                        decoration-red-400
-                                        decoration-2
-                                    "
-                                >
-                                    {pkg.oldPrice}
-                                </span>
+                                {pkg.oldPrice && (
+                                        <span
+                                            className="
+                                                text-lg
+                                                sm:text-xl
+                                                font-semibold
+                                                text-gray-400
+                                                line-through
+                                                decoration-red-400
+                                                decoration-2
+                                            "
+                                        >
+                                            {pkg.oldPrice}
+                                        </span>
+                                    )}
 
                                 {/* Current Price */}
                                 <span
@@ -296,31 +312,19 @@ className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                             </div>
 
                             {/* 10% OFF - STANDARD ONLY */}
-                            {isStandard && (
-                                <>
-                                    <div className="mt-3 flex justify-center">
-                                        <span
-                                            className="
-                                                inline-flex
-                                                items-center
-                                                rounded-lg
-                                                bg-red-600
-                                                px-3.5 py-1
-                                                text-xs
-                                                font-extrabold
-                                                text-white
-                                                shadow-sm
-                                            "
-                                        >
-                                            10% OFF
-                                        </span>
-                                    </div>
+                          {hasOffer && (
+    <>
+        <div className="mt-3 flex justify-center">
+            <span className="inline-flex items-center rounded-lg bg-red-600 px-3.5 py-1 text-xs font-extrabold text-white shadow-sm">
+                {pkg.offer}
+            </span>
+        </div>
 
-                                    <p className="mt-2 text-[11px] font-medium text-gray-400">
-                                        Limited-time pricing
-                                    </p>
-                                </>
-                            )}
+        <p className="mt-2 text-[11px] font-medium text-gray-400">
+            {pkg.offerNote}
+        </p>
+    </>
+)}
 
                         </div>
                     </div>
@@ -405,7 +409,13 @@ className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                         </a>
 
                     </div>
-
+                    <button
+                        type="button"
+                        onClick={() => setShowTerms(true)}
+                        className="mt-3 text-sm text-gray-400 hover:text-black underline underline-offset-4 transition"
+                    >
+                        {serviceData.ConditionButton.text}
+                    </button>
                 </article>
             </ScrollReveal>
         );
@@ -435,7 +445,7 @@ className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
     </div>
 </ScrollReveal>
 
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">  
     {serviceData.additionalFeatures.map((feature, index) => (
         <ScrollReveal
             key={feature.title}
