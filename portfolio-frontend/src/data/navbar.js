@@ -19,12 +19,11 @@ const navbarData = {
             link: "#experience",
         },
 
-        // =========================
         // SERVICES DROPDOWN
-// =========================
 {
     text: "Services",
     link: "#services",
+    icon: "🛠️",
     
     dropdown: [
         {
@@ -90,18 +89,112 @@ const navbarData = {
     ],
 },
 
+{
+    text: "Projects",
+    link: "#projects",
+    icon: "💼",
+
+
+    dropdown: [
         {
-            text: "Projects",
+            text: "All Projects",
             link: "#projects",
+            description: "View all projects",
+            emoji: "🚀",
         },
         {
-            text: "Education",
-            link: "#education",
+            text: "Business Websites",
+            link: "#projects",
+            description: "Professional business websites",
+            emoji: "💼",
         },
         {
-            text: "Certifications",
+            text: "E-Commerce Website",
+            link: "#projects",
+            description: "Online store projects",
+            emoji: "🛒",
+        },
+        {
+            text: "Weather Application",
+            link: "#projects",
+            description: "Weather app with live data",
+            emoji: "🌤️",
+        },
+        {
+            text: "AI & ML Projects",
+            link: "#projects",
+            description: "AI, ML and Python projects",
+            emoji: "🤖",
+        },
+    ],
+},
+{
+    text: "Education",
+    link: "#education",
+},
+    {
+    text: "Certifications",
+    link: "#certifications",
+    icon: "📜",
+
+    dropdown: [
+        {
+            text: "Data Science Certification",
             link: "#certifications",
+            description: "CodeAlpha Tech Pvt. Ltd. • July 2026",
+            emoji: "📊",
         },
+        {
+            text: "Data Science Letter of Recommendation",
+            link: "#certifications",
+            description: "CodeAlpha Tech Pvt. Ltd. • July 2026",
+            emoji: "🏆",
+        },
+        {
+            text: "Python Certification",
+            link: "#certifications",
+            description: "DevHub Tech Pvt. Ltd. • February 2026",
+            icon: "python",
+        },
+        {
+            text: "MERN Stack Development Certification",
+            link: "#certifications",
+            description: "DevHub Tech Pvt. Ltd. • August 2025",
+            emoji: "⚛️",
+
+        },
+        {
+            text: "JavaScript Certification",
+            link: "#certifications",
+            description: "Codedesk IT Training Institute • October 2024",
+            icon: "javascript",
+        },
+        {
+            text: "HTML and CSS Certification",
+            link: "#certifications",
+            description: "Codedesk IT Training Institute • October 2024",
+            icon: "html-css",
+            iconLabels: [
+        {
+            text: "HTML",
+            className: "text-orange-400",
+        },
+        {
+            text: "CSS",
+            className: "text-blue-400",
+        },
+    ],
+
+        },
+        {
+            text: "Microsoft Excel Certification",
+            link: "#certifications",
+            description: "Coursera • November 2023",
+            icon: "excel",
+        },
+    ],
+},
+
         {
             text: "Contact",
             link: "#contact",

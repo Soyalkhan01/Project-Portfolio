@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
 import navbarData from "../../data/navbar";
+import {
+    SiPython,
+    SiJavascript,
+} from "react-icons/si";
+
+import excelIcon from "../../assets/icons/excel.png";
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeLink, setActiveLink] = useState("#home");
-    const [servicesOpen, setServicesOpen] = useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState(null);
 
     // ================= SCROLL BACKGROUND =================
     useEffect(() => {
@@ -76,27 +82,28 @@ function Navbar() {
 
     // ================= DROPDOWN NAVIGATION =================
     const handleDropdownClick = (link) => {
-        setActiveLink("#services");
-        setServicesOpen(false);
-        setIsOpen(false);
+    setActiveLink(link);
+    setDropdownOpen(null);
+    setIsOpen(false);
 
-        setTimeout(() => {
-            const element = document.querySelector(link);
+    setTimeout(() => {
+        const element = document.querySelector(link);
 
-            if (element) {
-                const navbarOffset = 100;
-                const elementPosition =
-                    element.getBoundingClientRect().top +
-                    window.scrollY -
-                    navbarOffset;
+        if (element) {
+            const navbarOffset = 100;
 
-                window.scrollTo({
-                    top: elementPosition,
-                    behavior: "smooth"
-                });
-            }
-        }, 50);
-    };
+            const elementPosition =
+                element.getBoundingClientRect().top +
+                window.scrollY -
+                navbarOffset;
+
+            window.scrollTo({
+                top: elementPosition,
+                behavior: "smooth"
+            });
+        }
+    }, 50);
+};
 
     return (
         <nav
@@ -118,7 +125,7 @@ function Navbar() {
                         onClick={() => {
                             setActiveLink("#home");
                             setIsOpen(false);
-                            setServicesOpen(false);
+                            setDropdownOpen(false);
                         }}
                         className="flex items-center gap-2"
                     >
@@ -143,7 +150,7 @@ function Navbar() {
                     type="button"
                     onClick={() => {
                         setIsOpen(!isOpen);
-                        setServicesOpen(false);
+                        setDropdownOpen(false);
                     }}
                     aria-label={
                         isOpen
@@ -229,45 +236,49 @@ function Navbar() {
 
                     {navbarData.links.map((item) => {
 
-                        // ================= SERVICES DROPDOWN =================
+// ================= DROPDOWN LINKS =================
 if (item.dropdown) {
+    const isDropdownOpen = dropdownOpen === item.text;
+
     return (
         <div
             key={item.text}
             className="relative w-full lg:w-auto"
             onMouseEnter={() => {
                 if (window.innerWidth >= 1024) {
-                    setServicesOpen(true);
+                    setDropdownOpen(item.text);
                 }
             }}
             onMouseLeave={() => {
                 if (window.innerWidth >= 1024) {
-                    setServicesOpen(false);
+                    setDropdownOpen(null);
                 }
             }}
         >
-
-            {/* SERVICES BUTTON */}
+            {/* DROPDOWN BUTTON */}
             <button
                 type="button"
                 onClick={() => {
                     if (window.innerWidth < 1024) {
-                        setServicesOpen(!servicesOpen);
+                        setDropdownOpen(
+                            isDropdownOpen ? null : item.text
+                        );
                     } else {
-                        handleDropdownClick("#services");
+                        handleDropdownClick(item.link);
                     }
                 }}
                 className={`relative w-full lg:w-auto flex items-center justify-between lg:justify-center gap-2 text-base lg:text-sm font-semibold transition-all duration-300 ${
-                    activeLink === "#services"
+                    activeLink === item.link
                         ? "text-indigo-400"
                         : "text-gray-300 hover:text-indigo-300"
                 }`}
             >
-                <span>Services</span>
+                <span>{item.text}</span>
 
+                {/* ARROW */}
                 <span
                     className={`text-[9px] transition-transform duration-300 ${
-                        servicesOpen
+                        isDropdownOpen
                             ? "rotate-180 text-indigo-400"
                             : "text-gray-400"
                     }`}
@@ -275,410 +286,411 @@ if (item.dropdown) {
                     ▼
                 </span>
 
+                {/* ACTIVE LINE */}
                 <span
                     className={`absolute left-0 -bottom-1.5 h-0.5 bg-indigo-400 transition-all duration-300 ${
-                        activeLink === "#services"
+                        activeLink === item.link
                             ? "w-full"
                             : "w-0"
                     }`}
-                ></span>
+                />
             </button>
 
-
-            {/* SERVICES DROPDOWN */}
-<div
-    className={`
-        relative
-
-        lg:absolute
-        lg:top-full
-        lg:left-1/2
-        lg:-translate-x-1/2
-        lg:pt-4
-
-        w-full
-        lg:w-170
-        mt-4
-        lg:mt-0
-        transition-all
-        duration-300
-        ease-out
-        origin-top
-
-        ${
-            servicesOpen
-                ? "opacity-100 visible translate-y-0"
-                : "opacity-0 invisible -translate-y-2 pointer-events-none max-h-0"
-        }
-
-        lg:max-h-none
-    `}
->
-<div
-    className="
-        relative
-        w-full
-        overflow-hidden
-        rounded-2xl
-        border
-        border-white/10
-        bg-slate-950/98
-        backdrop-blur-2xl
-        shadow-2xl
-        shadow-black/50
-        mb-0
-        lg:mb-0
-    "
->
-
-        {/* TOP LINE */}
-        <div
-            className="
-                absolute
-                top-0
-                left-0
-                right-0
-                h-px
-                bg-linear-to-r
-                from-transparent
-                via-indigo-400
-                to-transparent
-            "
-        />
-
-        {/* ================= HEADER ================= */}
-      <div
-    className="
-        flex
-        items-start
-        justify-between
-        gap-3
-
-        px-4
-        py-4
-        sm:px-5
-        sm:py-4
-
-        border-b
-        border-white/10
-    "
->
-            <div className="flex items-center gap-3 min-w-0">
-
-                {/* ICON */}
-                <div
-                    className="
-                        flex
-                        items-center
-                        justify-center
-                        shrink-0
-                        w-9
-                        h-9
-                        sm:w-10
-                        sm:h-10
-                        rounded-xl
-                        bg-indigo-500/10
-                        border
-                        border-indigo-400/20
-                        text-base
-                        sm:text-lg
-                    "
-                >
-                    🧩
-                </div>
-
-                {/* TEXT */}
-               <div className="min-w-0">
-    <h3
-        className="
-            text-xs
-            sm:text-sm
-            font-bold
-            text-white
-            whitespace-normal
-            leading-5
-        "
-    >
-        Explore Services
-    </h3>
-
-    <p
-        className="
-            text-[9px]
-            sm:text-[11px]
-            text-gray-500
-            mt-0.5
-            leading-4
-        "
-    >
-        Everything you need for your digital presence
-    </p>
-</div>
-            </div>
-
-            {/* DESKTOP LABEL */}
+            {/* DROPDOWN */}
             <div
-                className="
-                    hidden
-                    sm:flex
-                    shrink-0
-                    items-center
-                    gap-1.5
-                    px-2.5
-                    py-1.5
-                    rounded-lg
-                    bg-white/5
-                    border
-                    border-white/5
-                "
-            >
-                <span
-                    className="
-                        w-1.5
-                        h-1.5
-                        rounded-full
-                        bg-indigo-400
-                    "
-                />
+                className={`
+                    relative
 
-                <span
-                    className="
-                        text-[8px]
-                        uppercase
-                        tracking-wider
-                        text-gray-500
-                        font-semibold
-                    "
-                >
-                    Services
-                </span>
-            </div>
-        </div>
+                    lg:absolute
+                    lg:top-full
+                    lg:left-1/2
+                    lg:-translate-x-1/2
+                    lg:pt-4
 
-        {/* ================= SERVICE ITEMS ================= */}
-        <div
-            className="
-                p-3
-                sm:p-4
-
-                grid
-                grid-cols-1
-                sm:grid-cols-2
-
-                gap-2
-
-                max-h-[55vh]
-                sm:max-h-[60vh]
-                lg:max-h-[65vh]
-
-                overflow-y-auto
-
-                overscroll-contain
-
-                scrollbar-thin
-                scrollbar-thumb-white/10
-            "
-        >
-            {item.dropdown.map((dropItem, index) => (
-                <button
-                    key={dropItem.text}
-                    type="button"
-                    onClick={() =>
-                        handleDropdownClick(dropItem.link)
-                    }
-                    className="
-                        group
-                        relative
-                        flex
-                        items-center
-                        gap-3
-                        w-full
-                        min-w-0
-                        min-h-16
-                        sm:min-h-18
-
-                        p-3
-
-                        rounded-xl
-                        text-left
-
-                        border
-                        border-white/[0.07]
-
-                        bg-white/2.5
-
-                        hover:bg-indigo-500/[8
-                        hover:border-indigo-400/30
-                        hover:-translate-y-0.5
-
-                        active:scale-[0.98]
-
-                        transition-all
-                        duration-300
-                    "
-                >
-
-                    {/* NUMBER */}
-                    <span
-                        className="
-                            absolute
-                            top-2
-                            right-2
-                            text-[7px]
-                            sm:text-[8px]
-                            font-bold
-                            text-gray-700
-                            group-hover:text-indigo-400/60
-                            transition
-                        "
-                    >
-                        {String(index + 1).padStart(2, "0")}
-                    </span>
-
-                    {/* EMOJI FROM navbar.js */}
-                    <span
-                        className="
-                            flex
-                            items-center
-                            justify-center
-                            shrink-0
-
-                            w-9
-                            h-9
-                            sm:w-10
-                            sm:h-10
-
-                            rounded-xl
-
-                            bg-white/5
-                            border
-                            border-white/5
-
-                            text-base
-                            sm:text-lg
-
-                            group-hover:bg-indigo-500/15
-                            group-hover:border-indigo-400/20
-                            group-hover:scale-105
-
-                            transition-all
-                            duration-300
-                        "
-                    >
-                        {dropItem.emoji}
-                    </span>
-
-                    {/* TEXT */}
-                    <span
-                        className="
-                            min-w-0
-                            flex-1
-                            pr-3
-                        "
-                    >
-                        <span
-                            className="
-                                block
-                                text-[10px]
-                                sm:text-[11px]
-                                font-bold
-                                text-gray-300
-                                group-hover:text-white
-                                leading-4
-                                truncate
-                                transition
-                            "
-                        >
-                            {dropItem.text}
-                        </span>
-
-                        <span
-                            className="
-                                block
-                                mt-1
-                                text-[8px]
-                                sm:text-[9px]
-                                text-gray-500
-                                group-hover:text-gray-400
-                                leading-3
-                                line-clamp-2
-                                transition
-                            "
-                        >
-                            {dropItem.description}
-                        </span>
-                    </span>
-
-                    {/* ARROW */}
-                    <span
-                        className="
-                            absolute
-                            right-2.5
-                            bottom-2.5
-                            text-[10px]
-                            text-gray-700
-                            group-hover:text-indigo-400
-                            group-hover:translate-x-0.5
-                            transition-all
-                        "
-                    >
-                        →
-                    </span>
-
-                </button>
-            ))}
-        </div>
-
-        {/* ================= BOTTOM BUTTON ================= */}
-        <div className="px-3 pb-3 sm:px-4 sm:pb-4">
-            <button
-                type="button"
-                onClick={() =>
-                    handleDropdownClick("#services")
-                }
-                className="
                     w-full
-                    flex
-                    items-center
-                    justify-center
-                    gap-2
+                    lg:w-170
 
-                    py-2.5
-                    sm:py-3
-
-                    rounded-xl
-
-                    bg-indigo-600/10
-                    border
-                    border-indigo-500/20
-
-                    text-indigo-300
-
-                    text-[10px]
-                    sm:text-xs
-
-                    font-semibold
-
-                    hover:bg-indigo-600/20
-                    hover:border-indigo-400/30
-
-                    active:scale-[0.98]
+                    mt-4
+                    lg:mt-0
 
                     transition-all
                     duration-300
-                "
+                    ease-out
+                    origin-top
+
+                    ${
+                        isDropdownOpen
+                            ? "opacity-100 visible translate-y-0"
+                            : "opacity-0 invisible -translate-y-2 pointer-events-none max-h-0"
+                    }
+
+                    lg:max-h-none
+                `}
             >
-                <span>View All Services</span>
+                <div
+                    className="
+                        relative
+                        w-full
+                        overflow-hidden
+                        rounded-2xl
+                        border
+                        border-white/10
+                        bg-slate-950/98
+                        backdrop-blur-2xl
+                        shadow-2xl
+                        shadow-black/50
+                    "
+                >
+                    {/* TOP LINE */}
+                    <div
+                        className="
+                            absolute
+                            top-0
+                            left-0
+                            right-0
+                            h-px
+                            bg-linear-to-r
+                            from-transparent
+                            via-indigo-400
+                            to-transparent
+                        "
+                    />
 
-                <span className="text-sm">
-                    →
-                </span>
-            </button>
-        </div>
+                    {/* HEADER */}
+                    <div
+                        className="
+                            flex
+                            items-start
+                            justify-between
+                            gap-3
+                            px-4
+                            py-4
+                            sm:px-5
+                            sm:py-4
+                            border-b
+                            border-white/10
+                        "
+                    >
+                        <div className="flex items-center gap-3 min-w-0">
+                            {/* ICON */}
+                            <div
+                                className="
+                                    flex
+                                    items-center
+                                    justify-center
+                                    shrink-0
+                                    w-9
+                                    h-9
+                                    sm:w-10
+                                    sm:h-10
+                                    rounded-xl
+                                    bg-indigo-500/10
+                                    border
+                                    border-indigo-400/20
+                                    text-base
+                                    sm:text-lg
+                                "
+                            >
+                                {item.icon}
+                            </div>
 
+                            {/* TEXT */}
+                            <div className="min-w-0">
+                                <h3
+                                    className="
+                                        text-xs
+                                        sm:text-sm
+                                        font-bold
+                                        text-white
+                                        whitespace-normal
+                                        leading-5
+                                    "
+                                >
+                                    Explore {item.text}
+                                </h3>
+
+                                <p
+                                    className="
+                                        text-[9px]
+                                        sm:text-[11px]
+                                        text-gray-500
+                                        mt-0.5
+                                        leading-4
+                                    "
+                                >
+                                    {item.text === "Services"
+                                        ? "Everything you need for your digital presence"
+                                        : "Explore my latest projects and work"}
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* DESKTOP LABEL */}
+                        <div
+                            className="
+                                hidden
+                                sm:flex
+                                shrink-0
+                                items-center
+                                gap-1.5
+                                px-2.5
+                                py-1.5
+                                rounded-lg
+                                bg-white/5
+                                border
+                                border-white/5
+                            "
+                        >
+                            <span
+                                className="
+                                    w-1.5
+                                    h-1.5
+                                    rounded-full
+                                    bg-indigo-400
+                                "
+                            />
+
+                            <span
+                                className="
+                                    text-[8px]
+                                    uppercase
+                                    tracking-wider
+                                    text-gray-500
+                                    font-semibold
+                                "
+                            >
+                                {item.text}
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* DROPDOWN ITEMS */}
+                    <div
+                        className="
+                            p-3
+                            sm:p-4
+                            grid
+                            grid-cols-1
+                            sm:grid-cols-2
+                            gap-2
+                            max-h-[55vh]
+                            sm:max-h-[60vh]
+                            lg:max-h-[65vh]
+                            overflow-y-auto
+                            overscroll-contain
+                            scrollbar-thin
+                            scrollbar-thumb-white/10
+                        "
+                    >
+                        {item.dropdown.map((dropItem, index) => (
+                            <button
+                                key={dropItem.text}
+                                type="button"
+                                onClick={() =>
+                                    handleDropdownClick(dropItem.link)
+                                }
+                                className="
+                                    group
+                                    relative
+                                    flex
+                                    items-center
+                                    gap-3
+                                    w-full
+                                    min-w-0
+                                    min-h-16
+                                    sm:min-h-18
+                                    p-3
+                                    rounded-xl
+                                    text-left
+                                    border
+                                    border-white/[0.07]
+                                    bg-white/2.5
+                                    hover:bg-indigo-500/8
+                                    hover:border-indigo-400/30
+                                    hover:-translate-y-0.5
+                                    active:scale-[0.98]
+                                    transition-all
+                                    duration-300
+                                "
+                            >
+                                {/* NUMBER */}
+                                <span
+                                    className="
+                                        absolute
+                                        top-2
+                                        right-2
+                                        text-[7px]
+                                        sm:text-[8px]
+                                        font-bold
+                                        text-gray-700
+                                        group-hover:text-indigo-400/60
+                                        transition
+                                    "
+                                >
+                                    {String(index + 1).padStart(2, "0")}
+                                </span>
+
+                                {/* EMOJI */}
+                                <span
+                                    className="
+                                        flex
+                                        items-center
+                                        justify-center
+                                        shrink-0
+                                        w-9
+                                        h-9
+                                        sm:w-10
+                                        sm:h-10
+                                        rounded-xl
+                                        bg-white/5
+                                        border
+                                        border-white/5
+                                        text-base
+                                        sm:text-lg
+                                        group-hover:bg-indigo-500/15
+                                        group-hover:border-indigo-400/20
+                                        group-hover:scale-105
+                                        transition-all
+                                        duration-300
+                                    "
+                                >
+                                   {dropItem.icon === "python" && (
+    <SiPython className="text-2xl text-yellow-400" />
+)}
+
+{dropItem.icon === "javascript" && (
+    <SiJavascript className="text-2xl text-yellow-300" />
+)}
+
+{dropItem.iconLabels && (
+    <div className="flex flex-col items-center justify-center leading-none">
+        {dropItem.iconLabels.map((label) => (
+            <span
+                key={label.text}
+                className={`text-xs font-bold ${label.className}`}
+            >
+                {label.text}
+            </span>
+        ))}
     </div>
-</div>
+)}
 
+{dropItem.icon === "excel" && (
+    <img
+        src={excelIcon}
+        alt="Microsoft Excel"
+        className=" ml-0.75 h-7 w-7 rounded object-contain"
+    />
+)}
+
+{dropItem.emoji && (
+    <span className="text-2xl">
+        {dropItem.emoji}
+    </span>
+)}
+                                </span>
+
+                                {/* TEXT */}
+                                <span
+                                    className="
+                                        min-w-0
+                                        flex-1
+                                        pr-3
+                                    "
+                                >
+                                    <span
+                                        className="
+                                            block
+                                            text-[10px]
+                                            sm:text-[11px]
+                                            font-bold
+                                            text-gray-300
+                                            group-hover:text-white
+                                            leading-4
+                                            truncate
+                                            transition
+                                        "
+                                    >
+                                        {dropItem.text}
+                                    </span>
+
+                                    <span
+                                        className="
+                                            block
+                                            mt-1
+                                            text-[8px]
+                                            sm:text-[9px]
+                                            text-gray-500
+                                            group-hover:text-gray-400
+                                            leading-3
+                                            line-clamp-2
+                                            transition
+                                        "
+                                    >
+                                        {dropItem.description}
+                                    </span>
+                                </span>
+
+                                {/* ARROW */}
+                                <span
+                                    className="
+                                        absolute
+                                        right-2.5
+                                        bottom-2.5
+                                        text-[10px]
+                                        text-gray-700
+                                        group-hover:text-indigo-400
+                                        group-hover:translate-x-0.5
+                                        transition-all
+                                    "
+                                >
+                                    →
+                                </span>
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* BOTTOM BUTTON */}
+                    <div className="px-3 pb-3 sm:px-4 sm:pb-4">
+                        <button
+                            type="button"
+                            onClick={() =>
+                                handleDropdownClick(item.link)
+                            }
+                            className="
+                                w-full
+                                flex
+                                items-center
+                                justify-center
+                                gap-2
+                                py-2.5
+                                sm:py-3
+                                rounded-xl
+                                bg-indigo-600/10
+                                border
+                                border-indigo-500/20
+                                text-indigo-300
+                                text-[10px]
+                                sm:text-xs
+                                font-semibold
+                                hover:bg-indigo-600/20
+                                hover:border-indigo-400/30
+                                active:scale-[0.98]
+                                transition-all
+                                duration-300
+                            "
+                        >
+                            <span>
+                                View All {item.text}
+                            </span>
+
+                            <span className="text-sm">
+                                →
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
@@ -691,7 +703,7 @@ if (item.dropdown) {
                                 onClick={() => {
                                     setActiveLink(item.link);
                                     setIsOpen(false);
-                                    setServicesOpen(false);
+                                    setDropdownOpen(false);
                                 }}
                                 aria-current={
                                     activeLink === item.link
@@ -731,7 +743,7 @@ if (item.dropdown) {
                         href={navbarData.cta.link}
                         onClick={() => {
                             setIsOpen(false);
-                            setServicesOpen(false);
+                            setDropdownOpen(false);
                         }}
                         className="lg:hidden flex items-center justify-center w-full px-6 py-3 mt-4 rounded-xl bg-indigo-600 text-white text-sm font-semibold shadow-lg shadow-indigo-600/20 hover:bg-indigo-500 hover:shadow-indigo-500/30 transition duration-300"
                     >
@@ -744,7 +756,7 @@ if (item.dropdown) {
                     href={navbarData.cta.link}
                     onClick={() => {
                         setIsOpen(false);
-                        setServicesOpen(false);
+                        setDropdownOpen(false);
                     }}
                     className="hidden lg:inline-flex items-center justify-center px-6 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold shadow-lg shadow-indigo-600/20 hover:bg-indigo-500 hover:shadow-indigo-500/30 transition duration-300"
                 >
