@@ -56,6 +56,8 @@ function Projects(){
                     alt={project.title}
                     onClick={() => window.open(project.liveLink, "_blank")}
                     className="block w-full h-full object-cover cursor-pointer transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
 
                 />
 

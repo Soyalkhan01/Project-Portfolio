@@ -5,9 +5,9 @@ import {
     FaRobot,
 } from "react-icons/fa";
 
-import ecommerceImage from "../assets/images/projects/ecommerce.png";
-import businessImage from "../assets/images/projects/business.png";
-import weatherImage from "../assets/images/projects/weather.png";
+import ecommerceImage from "../assets/images/projects/ecommerce.webp";
+import businessImage from "../assets/images/projects/business.webp";
+import weatherImage from "../assets/images/projects/weather.webp";
 
 const serviceData = {
     // =========================================================

@@ -1,3 +1,5 @@
+ import { lazy, Suspense } from "react";
+ 
  import Navbar from "../components/home/Navbar";
  import Hero from "../components/home/Hero";
  import About from "../components/home/About";
@@ -10,14 +12,17 @@
  import Services from "../components/home/Services";
  import Education from "../components/home/Education";
  import Certifications from "../components/home/Certifications";
- import AIChatbot from "../components/AIChatbot/AIChatbot";
  import Preloader from "../components/home/Preloader";
 
+ const AIChatbot = lazy(
+    () => import("../components/AIChatbot/AIChatbot")
+);
 
 function HomePage(){
     return(
         <>
         <Navbar/>
+    <main>
         <Hero/>
         <About/>
         <Skill/>
@@ -27,9 +32,14 @@ function HomePage(){
         <Education/>
         <Certifications/>
         <Contact/>
+
+    </main>
+
         <Footer/>
         <BackToTop/>
-        <AIChatbot/>
+        <Suspense fallback={null}>
+            <AIChatbot />
+        </Suspense>
         <Preloader/>
         </>
     );

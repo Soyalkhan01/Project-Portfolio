@@ -1,10 +1,10 @@
-import dataScience from "../assets/images/certificates/data-science.jpeg";
-import letterOfRecommendation from "../assets/images/certificates/letter-Of-Recommendation.jpeg";
-import pythonCertificate from "../assets/images/certificates/python-certificate.jpeg";
-import mernCertificate from "../assets/images/certificates/mern-stack.jpeg";
-import javascriptCertificate from "../assets/images/certificates/javascript-certificate.jpeg";
-import htmlCss from "../assets/images/certificates/html-css.jpeg";
-import microsoftCertificate from "../assets/images/certificates/microsoft-certificate.jpeg";
+import dataScience from "../assets/images/certificates/data-science.webp";
+import letterOfRecommendation from "../assets/images/certificates/letter-Of-Recommendation.webp";
+import pythonCertificate from "../assets/images/certificates/python-certificate.webp";
+import mernCertificate from "../assets/images/certificates/mern-stack.webp";
+import javascriptCertificate from "../assets/images/certificates/javascript-certificate.webp";
+import htmlCss from "../assets/images/certificates/html-css.webp";
+import microsoftCertificate from "../assets/images/certificates/microsoft-certificate.webp";
 
 const certificationData = {
   section: {

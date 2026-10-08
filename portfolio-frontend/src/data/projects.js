@@ -1,9 +1,9 @@
-import ecommerceImage from "../assets/images/projects/ecommerce.png";
-import businessImage from "../assets/images/projects/business.png";
-import weatherImage from "../assets/images/projects/weather.png";
-import salesPredictionImage from "../assets/images/projects/sales-prediction.png";
-import carPredictionImage from "../assets/images/projects/car-prediction.png";
-import irisClassificationImage from "../assets/images/projects/iris-classification.png";
+import ecommerceImage from "../assets/images/projects/ecommerce.webp";
+import businessImage from "../assets/images/projects/business.webp";
+import weatherImage from "../assets/images/projects/weather.webp";
+import salesPredictionImage from "../assets/images/projects/sales-prediction.webp";
+import carPredictionImage from "../assets/images/projects/car-prediction.webp";
+import irisClassificationImage from "../assets/images/projects/iris-classification.webp";
 
 const projectsData = {
 

@@ -5,7 +5,7 @@ import {
     SiJavascript,
 } from "react-icons/si";
 
-import excelIcon from "../../assets/icons/excel.png";
+import excelIcon from "../../assets/icons/excel.webp";
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);

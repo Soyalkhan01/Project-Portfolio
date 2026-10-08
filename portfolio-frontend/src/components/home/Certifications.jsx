@@ -139,8 +139,12 @@ function Certifications() {
             <div className="w-full flex justify-center">
                 <img
                     src={selectedCertificate.image}
-                    alt={`${selectedCertificate.title} certificate issued by ${selectedCertificate.issuer}`}
+                    alt={`${selectedCertificate.title} 
+                    certificate issued by ${selectedCertificate.issuer}`}
                     className="block w-full h-auto max-h-[82vh] object-contain rounded-xl"
+
+                    loading="lazy"
+                    decoding="async"
                 />
             </div>
         </div>
